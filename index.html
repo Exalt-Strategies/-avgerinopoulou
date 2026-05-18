@@ -1,1113 +1,1225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el" data-lang="el">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Dionysia-Theodora Avgerinopoulou</title>
+<title>Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου — Βουλευτής Ν. Ηλείας</title>
+<meta name="description" content="Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου — Βουλευτής Ν. Ηλείας, Πρόεδρος της Επιτροπής Περιβάλλοντος της Βουλής, Ειδική Απεσταλμένη του Πρωθυπουργού για τους Ωκεανούς.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
-  --navy:#0b1929; --navy-mid:#112233; --navy-light:#1a3350;
-  --gold:#c4973a; --gold-light:#d4a94a; --gold-pale:#f0dca8;
-  --cream:#f5f0e8; --cream-dark:#ede7d9;
+  --navy:#0b1929; --navy-mid:#112233; --navy-light:#1a3350; --navy-deep:#07111e;
+  --gold:#c4973a; --gold-light:#d4a94a; --gold-pale:#f0dca8; --gold-deep:#9a7528;
+  --olive:#7a8b5c; --olive-pale:#c9d2b3;
+  --cream:#f5f0e8; --cream-dark:#ede7d9; --cream-deep:#e3dcc8;
   --text-dark:#0b1929; --text-mid:#3a4a5c; --text-muted:#6b7a8d;
   --white:#ffffff; --border:rgba(11,25,41,0.12); --border-gold:rgba(196,151,58,0.3);
   --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+  --shadow-sm:0 1px 2px rgba(11,25,41,0.06);
+  --shadow-md:0 4px 16px rgba(11,25,41,0.08);
+  --shadow-lg:0 24px 60px rgba(11,25,41,0.16);
 }
 html { scroll-behavior:smooth; }
-body { font-family:var(--sans); background:var(--white); color:var(--text-dark); line-height:1.7; overflow-x:hidden; }
+body { font-family:var(--sans); background:var(--cream); color:var(--text-dark); line-height:1.7; overflow-x:hidden; }
+img { max-width:100%; display:block; }
+a { color:inherit; }
 
 /* ── NAV ── */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
-  padding:0 3rem; height:72px;
-  background:rgba(11,25,41,0.96); backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(196,151,58,0.15);
-  transition:background 0.3s;
+  padding:0 3rem; height:78px;
+  background:rgba(7,17,30,0.96); backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(196,151,58,0.18);
+  transition:background 0.3s, height 0.3s;
 }
+nav.scrolled { height:64px; background:rgba(7,17,30,0.99); }
 .nav-logo {
-  font-family:var(--serif); font-size:1.1rem; font-weight:400;
-  color:var(--gold-pale); letter-spacing:0.04em; text-decoration:none;
-  flex-shrink:0;
+  font-family:var(--serif); font-size:1.05rem; font-weight:400; font-style:italic;
+  color:var(--gold-pale); letter-spacing:0.05em; text-decoration:none; flex-shrink:0;
 }
-.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-logo strong { font-style:normal; font-weight:500; letter-spacing:0.08em; }
+.nav-links { display:flex; gap:2.2rem; list-style:none; }
 .nav-links a {
-  font-size:0.72rem; font-weight:500; letter-spacing:0.12em;
-  text-transform:uppercase; color:rgba(245,240,232,0.7);
-  text-decoration:none; transition:color 0.2s; white-space:nowrap;
+  font-size:0.7rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:rgba(245,240,232,0.72);
+  text-decoration:none; transition:color 0.2s; white-space:nowrap; position:relative;
+}
+.nav-links a::after {
+  content:''; position:absolute; left:0; right:0; bottom:-6px; height:1px;
+  background:var(--gold); transform:scaleX(0); transition:transform 0.3s;
 }
 .nav-links a:hover { color:var(--gold-light); }
+.nav-links a:hover::after { transform:scaleX(1); }
 .nav-right { display:flex; align-items:center; gap:1rem; }
-.lang-toggle {
-  display:flex; border:1px solid var(--border-gold); overflow:hidden;
-}
+.lang-toggle { display:flex; border:1px solid var(--border-gold); }
 .lang-btn {
-  font-size:0.68rem; font-weight:600; letter-spacing:0.15em;
-  text-transform:uppercase; padding:0.3rem 0.75rem;
-  background:transparent; color:rgba(245,240,232,0.5);
-  border:none; cursor:pointer; transition:all 0.2s;
-  font-family:var(--sans);
+  font-size:0.66rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase;
+  padding:0.32rem 0.8rem; background:transparent; color:rgba(245,240,232,0.5);
+  border:none; cursor:pointer; transition:all 0.2s; font-family:var(--sans);
 }
 .lang-btn.active { background:var(--gold); color:var(--navy); }
-.hamburger {
-  display:none; flex-direction:column; gap:5px;
-  background:none; border:none; cursor:pointer; padding:4px;
+.nav-cta {
+  font-size:0.66rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase;
+  padding:0.6rem 1.2rem; background:var(--gold); color:var(--navy);
+  text-decoration:none; transition:all 0.2s; font-family:var(--sans);
+  border:1px solid var(--gold);
 }
-.hamburger span {
-  display:block; width:22px; height:1.5px;
-  background:var(--gold-pale); transition:all 0.3s;
-}
-.hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(4.5px,4.5px); }
+.nav-cta:hover { background:var(--gold-light); border-color:var(--gold-light); }
+.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
+.hamburger span { display:block; width:24px; height:1.5px; background:var(--gold-pale); transition:all 0.3s; }
+.hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
 .hamburger.open span:nth-child(2) { opacity:0; }
-.hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(4.5px,-4.5px); }
-
-/* Mobile drawer */
+.hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
 .mobile-menu {
-  display:none; position:fixed; top:72px; left:0; right:0; bottom:0;
-  background:rgba(7,17,30,0.98); z-index:190;
-  flex-direction:column; align-items:center; justify-content:center;
-  gap:2.5rem;
+  display:none; position:fixed; top:78px; left:0; right:0; bottom:0;
+  background:rgba(7,17,30,0.99); z-index:190;
+  flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
 }
 .mobile-menu.open { display:flex; }
-.mobile-menu a {
-  font-family:var(--serif); font-size:2rem; font-weight:300;
-  color:var(--cream); text-decoration:none; letter-spacing:0.02em;
-  transition:color 0.2s;
-}
+.mobile-menu a { font-family:var(--serif); font-size:2.2rem; font-weight:300; color:var(--cream); text-decoration:none; }
 .mobile-menu a:hover { color:var(--gold-pale); }
-.mobile-lang {
-  display:flex; gap:1.5rem; margin-top:1rem;
-  border-top:1px solid rgba(196,151,58,0.2); padding-top:2rem;
-  width:100%; justify-content:center;
-}
-.mobile-lang button {
-  font-size:0.8rem; font-weight:600; letter-spacing:0.2em;
-  text-transform:uppercase; padding:0.5rem 1.5rem;
-  background:transparent; color:rgba(245,240,232,0.5);
-  border:1px solid rgba(196,151,58,0.2); cursor:pointer;
-  font-family:var(--sans); transition:all 0.2s;
-}
-.mobile-lang button.active { background:var(--gold); color:var(--navy); border-color:var(--gold); }
 
 /* ── HERO ── */
 .hero {
-  position:relative; height:100vh; min-height:680px;
-  background:#07111e; overflow:hidden;
-  display:grid; grid-template-columns:1fr 34% 1fr;
+  position:relative; min-height:100vh; padding:120px 0 80px;
+  background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+  overflow:hidden;
 }
-#hero-canvas { position:absolute; inset:0; width:100%; height:100%; z-index:0; }
-
-.hero-left {
-  position:relative; z-index:2;
-  display:flex; flex-direction:column; justify-content:flex-end;
-  padding:0 3rem 5.5rem 3.5rem;
+.hero-bg-pattern {
+  position:absolute; inset:0; opacity:0.06; pointer-events:none;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--gold) 0%, transparent 35%),
+    radial-gradient(circle at 80% 70%, var(--gold) 0%, transparent 35%);
+}
+.hero-bg-grid {
+  position:absolute; inset:0; opacity:0.04; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(196,151,58,0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,151,58,0.4) 1px, transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+.hero-inner {
+  position:relative; z-index:2; max-width:1440px; margin:0 auto;
+  padding:0 4rem; display:grid; grid-template-columns:1.1fr 0.9fr; gap:5rem;
+  align-items:center;
 }
 .hero-kicker {
-  font-size:0.6rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:2rem;
-  display:flex; align-items:center; gap:0.85rem;
-  opacity:0; animation:heroFadeUp 0.6s 0.15s ease forwards;
+  display:flex; align-items:center; gap:1rem;
+  font-size:0.66rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:2.4rem;
+  opacity:0; animation:heroFadeUp 0.7s 0.15s ease forwards;
 }
-.hero-kicker-line { display:block; width:0; height:1px; background:var(--gold); animation:lineGrow 0.7s 0.55s ease forwards; }
-.hero-name-wrap { overflow:hidden; }
-.hero-name-wrap+.hero-name-wrap { margin-top:0.06em; }
+.hero-kicker-line { display:block; width:48px; height:1px; background:var(--gold); }
+.hero-name { overflow:hidden; margin-bottom:0.4rem; }
 .hero-name-line {
   display:block; font-family:var(--serif); font-weight:300;
-  font-size:clamp(3rem,4.8vw,6.5rem); line-height:0.93; color:var(--cream);
-  transform:translateY(110%); animation:slideUp 1s cubic-bezier(0.16,1,0.3,1) forwards;
+  font-size:clamp(3.4rem, 7vw, 8rem); line-height:0.92; color:var(--cream);
+  letter-spacing:-0.01em;
+  transform:translateY(110%); animation:slideUp 1.1s cubic-bezier(0.16,1,0.3,1) forwards;
 }
+.hero-name-line.italic { font-style:italic; color:var(--gold-pale); animation-delay:0.18s; }
 .hero-name-line:nth-child(1) { animation-delay:0.3s; }
-.hero-name-line.italic { font-style:italic; color:var(--gold-pale); animation-delay:0.46s; }
-.hero-name-line.last { animation-delay:0.62s; }
-.hero-gold-bar {
-  width:0; height:2px;
-  background:linear-gradient(to right,var(--gold),rgba(196,151,58,0));
-  margin:2rem 0 1.75rem; animation:lineGrow 0.9s 1.05s ease forwards;
+.hero-name-line:nth-child(2) { animation-delay:0.48s; }
+.hero-divider {
+  width:0; height:2px; margin:2.4rem 0 2rem;
+  background:linear-gradient(to right, var(--gold), rgba(196,151,58,0));
+  animation:lineGrow 1s 1.05s ease forwards;
 }
-.hero-role-block { opacity:0; animation:heroFadeUp 0.6s 1.2s ease forwards; }
-.hero-role-label {
-  font-size:0.58rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
-  color:rgba(196,151,58,0.55); margin-bottom:0.55rem;
+.hero-roles {
+  opacity:0; animation:heroFadeUp 0.7s 1.2s ease forwards;
 }
-.hero-role-cycling {
-  font-family:var(--serif); font-size:1.05rem; font-weight:300; font-style:italic;
-  color:rgba(245,240,232,0.85); height:1.65em; overflow:hidden; position:relative;
+.hero-roles-list {
+  list-style:none; display:flex; flex-direction:column; gap:0.7rem;
 }
-.hero-role-item {
-  position:absolute; top:0; left:0; white-space:nowrap;
-  opacity:0; transform:translateY(1.5em);
-  transition:opacity 0.5s ease,transform 0.55s cubic-bezier(0.16,1,0.3,1);
+.hero-roles-list li {
+  display:flex; align-items:baseline; gap:1rem;
+  font-family:var(--serif); font-size:clamp(1.1rem, 1.4vw, 1.45rem); font-weight:300;
+  color:rgba(245,240,232,0.92); line-height:1.4;
 }
-.hero-role-item.active { opacity:1; transform:translateY(0); }
-.hero-role-item.exit  { opacity:0; transform:translateY(-1.5em); }
-
-/* Center portrait */
-.hero-center { position:relative; z-index:3; }
-.portrait-frame { position:relative; width:100%; height:100%; overflow:hidden; }
-.portrait-frame::before,.portrait-frame::after {
-  content:''; position:absolute; top:0; bottom:0; width:1px; z-index:5;
-  background:linear-gradient(to bottom,transparent 0%,rgba(196,151,58,0.5) 15%,rgba(196,151,58,0.5) 85%,transparent 100%);
+.hero-roles-list li::before {
+  content:''; flex-shrink:0; width:8px; height:8px; background:var(--gold); border-radius:50%;
+  transform:translateY(-3px);
 }
-.portrait-frame::before { left:0; }
-.portrait-frame::after  { right:0; }
-.portrait-img {
-  width:100%; height:100%;
-  object-fit:contain; object-position:center 20%;
-  display:block; filter:contrast(1.04) brightness(0.97);
-  mix-blend-mode:multiply;
-  opacity:0; animation:heroFadeUp 1.1s 0.55s ease forwards;
-}
-.portrait-overlay-top {
-  position:absolute; top:0; left:0; right:0; height:35%;
-  background:linear-gradient(to bottom,#07111e 0%,transparent 100%); z-index:4;
-}
-.portrait-overlay-bottom {
-  position:absolute; bottom:0; left:0; right:0; height:48%;
-  background:linear-gradient(to top,#07111e 0%,rgba(7,17,30,0.6) 50%,transparent 100%); z-index:4;
-}
-.portrait-corner {
-  position:absolute; width:22px; height:22px; z-index:6;
-  opacity:0; animation:heroFadeUp 0.5s ease forwards;
-}
-.portrait-corner.tl { top:18px; left:18px; border-top:1px solid var(--gold); border-left:1px solid var(--gold); animation-delay:1.1s; }
-.portrait-corner.tr { top:18px; right:18px; border-top:1px solid var(--gold); border-right:1px solid var(--gold); animation-delay:1.2s; }
-.portrait-corner.bl { bottom:18px; left:18px; border-bottom:1px solid var(--gold); border-left:1px solid var(--gold); animation-delay:1.3s; }
-.portrait-corner.br { bottom:18px; right:18px; border-bottom:1px solid var(--gold); border-right:1px solid var(--gold); animation-delay:1.4s; }
-.portrait-nameplate {
-  position:absolute; bottom:3.5rem; left:0; right:0; z-index:6;
-  text-align:center; opacity:0; animation:heroFadeUp 0.7s 1.3s ease forwards;
-}
-.portrait-nameplate-title {
-  font-size:0.58rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:0.3rem;
-}
-.portrait-nameplate-name {
-  font-family:var(--serif); font-size:0.95rem; font-weight:300;
-  color:rgba(245,240,232,0.75); letter-spacing:0.06em;
-}
-
-/* Right col */
-.hero-right {
-  position:relative; z-index:2;
-  display:flex; flex-direction:column; justify-content:flex-end;
-  padding:0 3.5rem 5.5rem 3rem;
-}
-.hero-stats {
-  display:grid; grid-template-columns:1fr 1fr; gap:1px;
-  background:rgba(196,151,58,0.1); margin-bottom:2.5rem;
-  opacity:0; animation:heroFadeUp 0.7s 1s ease forwards;
-}
-.hero-stat { background:rgba(7,17,30,0.55); padding:1.4rem 1.25rem; backdrop-filter:blur(4px); }
-.hero-stat-num {
-  font-family:var(--serif); font-size:2.6rem; font-weight:300;
-  color:var(--gold-pale); line-height:1; margin-bottom:0.35rem;
-}
-.hero-stat-label {
-  font-size:0.58rem; font-weight:500; letter-spacing:0.11em; text-transform:uppercase;
-  color:rgba(245,240,232,0.4); line-height:1.4;
-}
-.hero-mandate { opacity:0; animation:heroFadeUp 0.7s 1.15s ease forwards; }
-.hero-mandate p {
-  font-size:0.82rem; font-weight:300; color:rgba(245,240,232,0.5);
-  line-height:1.95; margin-bottom:1.75rem;
-}
-.hero-mandate p em {
-  font-family:var(--serif); font-size:0.92rem; font-style:italic;
-  color:rgba(240,220,168,0.8);
-}
-.hero-actions { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+.hero-roles-list li em { color:var(--gold-pale); font-style:normal; font-weight:400; }
 .hero-cta {
-  display:inline-flex; align-items:center; gap:0.6rem;
-  font-size:0.68rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--navy); background:var(--gold); padding:0.85rem 1.6rem;
-  text-decoration:none; transition:all 0.2s;
+  display:flex; gap:1rem; margin-top:3rem;
+  opacity:0; animation:heroFadeUp 0.7s 1.4s ease forwards;
 }
-.hero-cta:hover { background:var(--gold-light); transform:translateY(-2px); }
-.hero-cta-ghost {
-  font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
-  color:rgba(245,240,232,0.45); text-decoration:none;
-  border-bottom:1px solid rgba(245,240,232,0.18); padding-bottom:2px;
-  transition:color 0.2s,border-color 0.2s;
+.btn {
+  display:inline-flex; align-items:center; gap:0.7rem;
+  padding:1.05rem 2rem; font-family:var(--sans);
+  font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+  text-decoration:none; cursor:pointer; transition:all 0.25s; border:none;
 }
-.hero-cta-ghost:hover { color:var(--gold-pale); border-color:var(--gold); }
-.hero-scroll-hint {
-  position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
-  z-index:8; display:flex; flex-direction:column; align-items:center; gap:0.5rem;
-  font-size:0.56rem; letter-spacing:0.22em; text-transform:uppercase;
-  color:rgba(196,151,58,0.4); opacity:0; animation:heroFadeUp 0.6s 1.7s ease forwards;
-}
-.hero-scroll-line {
-  width:1px; height:44px;
-  background:linear-gradient(to bottom,rgba(196,151,58,0.45),transparent);
-  animation:scrollBob 2.2s 2s ease-in-out infinite;
-}
-.count-up { display:inline-block; }
+.btn-primary { background:var(--gold); color:var(--navy); }
+.btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 12px 32px rgba(196,151,58,0.32); }
+.btn-ghost { background:transparent; color:var(--cream); border:1px solid var(--border-gold); }
+.btn-ghost:hover { border-color:var(--gold); color:var(--gold-pale); }
+.btn-arrow { transition:transform 0.25s; }
+.btn:hover .btn-arrow { transform:translateX(4px); }
 
-/* ── SECTION BASE ── */
-section { padding:7rem 3rem; }
-.section-inner { max-width:1200px; margin:0 auto; }
-.section-eyebrow {
-  display:inline-flex; align-items:center; gap:0.75rem;
-  font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:1.25rem;
+/* Hero portrait */
+.hero-portrait {
+  position:relative; aspect-ratio:3/4; max-height:680px;
+  opacity:0; animation:heroFadeUp 1.2s 0.6s ease forwards;
 }
-.section-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--gold); }
+.portrait-bg {
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%);
+  border:1px solid var(--border-gold);
+}
+.portrait-bg::before, .portrait-bg::after {
+  content:''; position:absolute; width:40px; height:40px;
+  border:1px solid var(--gold);
+}
+.portrait-bg::before { top:-1px; left:-1px; border-right:none; border-bottom:none; }
+.portrait-bg::after { bottom:-1px; right:-1px; border-left:none; border-top:none; }
+.portrait-img {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%;
+  filter:contrast(1.04) brightness(0.97) saturate(0.92);
+}
+.portrait-overlay {
+  position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, transparent 50%, rgba(7,17,30,0.7) 100%);
+}
+.portrait-tag {
+  position:absolute; top:1.6rem; left:1.6rem; right:1.6rem;
+  display:flex; align-items:center; gap:0.9rem; z-index:3;
+}
+.portrait-tag-line { height:1px; flex:1; background:var(--gold); opacity:0.7; }
+.portrait-tag-label {
+  font-size:0.62rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--gold-pale);
+  text-shadow:0 1px 3px rgba(7,17,30,0.5);
+}
+.portrait-stats {
+  position:absolute; bottom:1.6rem; right:1.6rem; z-index:3;
+  display:flex; flex-direction:column; gap:0.4rem; text-align:right;
+  background:rgba(7,17,30,0.72); backdrop-filter:blur(8px); padding:0.9rem 1.1rem;
+  border-left:2px solid var(--gold);
+}
+.portrait-stats-num { font-family:var(--serif); font-size:2rem; font-weight:400; color:var(--cream); line-height:1; }
+.portrait-stats-label { font-size:0.58rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-pale); }
+
+/* ── MARQUEE TICKER ── */
+.ticker {
+  background:var(--navy-deep); border-top:1px solid rgba(196,151,58,0.2); border-bottom:1px solid rgba(196,151,58,0.2);
+  padding:1rem 0; overflow:hidden; position:relative;
+}
+.ticker-track {
+  display:flex; gap:4rem; animation:tickerScroll 60s linear infinite;
+  white-space:nowrap; width:max-content;
+}
+.ticker-item {
+  font-family:var(--serif); font-size:1.05rem; font-style:italic; font-weight:300;
+  color:rgba(245,240,232,0.7); display:flex; align-items:center; gap:4rem;
+}
+.ticker-item::after {
+  content:''; width:6px; height:6px; background:var(--gold); border-radius:50%; opacity:0.6;
+}
+
+/* ── SECTION DEFAULTS ── */
+section { padding:7rem 4rem; }
+.container { max-width:1320px; margin:0 auto; }
+.section-label {
+  display:flex; align-items:center; gap:1rem;
+  font-size:0.66rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--gold-deep); margin-bottom:1.4rem;
+}
+.section-label-line { width:40px; height:1px; background:var(--gold-deep); }
 .section-title {
-  font-family:var(--serif); font-size:clamp(2rem,4vw,3.5rem); font-weight:300;
-  line-height:1.15; color:var(--text-dark); max-width:680px;
+  font-family:var(--serif); font-size:clamp(2.4rem, 4.5vw, 4.2rem); font-weight:300;
+  line-height:1.04; color:var(--navy-deep); letter-spacing:-0.01em; margin-bottom:1.4rem;
 }
-.section-title em { font-style:italic; color:var(--navy-light); }
-
-/* ── CANDIDACY ── */
-#candidacy { background:var(--cream); }
-.candidacy-grid {
-  display:grid; grid-template-columns:1fr 1.3fr; gap:5rem;
-  margin-top:4rem; align-items:start;
-}
-.candidacy-sidebar h3 {
-  font-family:var(--serif); font-size:1.5rem; font-weight:400;
-  color:var(--navy); margin-bottom:1.5rem; line-height:1.4;
-}
-.candidacy-pillars { list-style:none; margin-top:2rem; }
-.candidacy-pillars li {
-  display:flex; align-items:flex-start; gap:1rem;
-  padding:0.9rem 0; border-bottom:1px solid var(--border);
-  font-size:0.85rem; color:var(--text-mid); line-height:1.6;
-}
-.candidacy-pillars li::before {
-  content:''; display:block; width:6px; height:6px; min-width:6px;
-  border-radius:50%; background:var(--gold); margin-top:0.55rem;
-}
-.download-links { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
-.dl-btn {
-  display:inline-flex; align-items:center; gap:0.5rem;
-  font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
-  padding:0.75rem 1.25rem; text-decoration:none; transition:all 0.2s;
-  border:1px solid var(--navy); color:var(--navy);
-}
-.dl-btn:hover { background:var(--navy); color:var(--gold-pale); }
-.dl-btn.gold { background:var(--gold); border-color:var(--gold); color:var(--navy); }
-.dl-btn.gold:hover { background:var(--gold-light); }
-.candidacy-text { font-size:1rem; color:var(--text-mid); line-height:1.9; }
-.candidacy-text p { margin-bottom:1.5rem; }
-.candidacy-text strong { color:var(--text-dark); font-weight:500; }
-.candidacy-pullquote {
-  font-style:italic; font-family:var(--serif); font-size:1.1rem; color:var(--navy);
-  border-left:3px solid var(--gold); padding-left:1.25rem;
-  margin-top:2rem; line-height:1.6;
+.section-title em { font-style:italic; color:var(--gold-deep); }
+.section-lede {
+  font-family:var(--serif); font-size:1.35rem; font-weight:300; font-style:italic;
+  color:var(--text-mid); max-width:680px; line-height:1.6;
 }
 
-/* ── BIOGRAPHY ── */
-#biography { background:var(--white); }
-.bio-grid {
-  display:grid; grid-template-columns:1.1fr 1fr; gap:5rem;
-  margin-top:4rem; align-items:start;
+/* ── PILLARS (rhythmic local/global) ── */
+.pillars { background:var(--cream); }
+.pillars-grid {
+  margin-top:5rem; display:grid; grid-template-columns:repeat(2, 1fr); gap:3rem;
 }
-.bio-text { font-size:1rem; color:var(--text-mid); line-height:1.9; }
-.bio-text p { margin-bottom:1.25rem; }
-.bio-text strong { color:var(--text-dark); font-weight:500; }
-.credentials { display:flex; flex-direction:column; gap:1.5rem; }
-.credential-card {
-  padding:1.5rem; border:1px solid var(--border);
-  border-left:3px solid var(--gold); background:var(--cream);
+.pillar {
+  background:var(--white); padding:3rem 2.8rem; border:1px solid var(--border);
+  position:relative; transition:transform 0.3s, box-shadow 0.3s;
 }
-.credential-card .institution {
-  font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:0.4rem;
+.pillar:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.pillar.local { border-top:3px solid var(--olive); }
+.pillar.global { border-top:3px solid var(--gold); }
+.pillar-kicker {
+  font-size:0.62rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+  margin-bottom:1.2rem;
 }
-.credential-card .degree {
-  font-family:var(--serif); font-size:1.1rem; font-weight:400;
-  color:var(--navy); line-height:1.4; margin-bottom:0.25rem;
+.pillar.local .pillar-kicker { color:var(--olive); }
+.pillar.global .pillar-kicker { color:var(--gold-deep); }
+.pillar-title {
+  font-family:var(--serif); font-size:2.1rem; font-weight:400;
+  color:var(--navy-deep); line-height:1.15; margin-bottom:1rem;
 }
-.credential-card .detail { font-size:0.8rem; color:var(--text-muted); }
+.pillar-title em { font-style:italic; color:var(--gold-deep); }
+.pillar-body { font-size:0.97rem; color:var(--text-mid); margin-bottom:1.5rem; line-height:1.75; }
+.pillar-list { list-style:none; margin-bottom:1.5rem; }
+.pillar-list li {
+  position:relative; padding-left:1.6rem; padding-block:0.4rem;
+  font-size:0.93rem; color:var(--text-dark);
+  border-bottom:1px dashed var(--border);
+}
+.pillar-list li:last-child { border-bottom:none; }
+.pillar-list li::before {
+  content:''; position:absolute; left:0; top:1.2rem; width:8px; height:1px; background:var(--gold-deep);
+}
+.pillar-link {
+  display:inline-flex; align-items:center; gap:0.6rem;
+  font-size:0.7rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--navy-deep); text-decoration:none; border-bottom:1px solid var(--gold);
+  padding-bottom:0.3rem; transition:all 0.2s;
+}
+.pillar-link:hover { color:var(--gold-deep); }
+.pillar-link .btn-arrow { transition:transform 0.2s; }
+.pillar-link:hover .btn-arrow { transform:translateX(4px); }
 
-/* ── ROLES ── */
-#roles { background:var(--navy); color:var(--cream); }
-#roles .section-eyebrow { color:var(--gold-light); }
-#roles .section-eyebrow::before { background:var(--gold-light); }
-#roles .section-title { color:var(--cream); }
-.roles-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px;
-  margin-top:4rem; background:rgba(196,151,58,0.12);
+/* ── INTRO STATEMENT ── */
+.intro { background:var(--navy-deep); color:var(--cream); padding:8rem 4rem; position:relative; overflow:hidden; }
+.intro::before {
+  content:''; position:absolute; inset:0; opacity:0.06;
+  background-image:radial-gradient(circle at 30% 50%, var(--gold) 0%, transparent 40%);
 }
-.role-card { background:var(--navy-mid); padding:2.5rem 2rem; transition:background 0.2s; }
-.role-card:hover { background:var(--navy-light); }
-.role-org {
-  font-size:0.65rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:0.75rem;
+.intro-inner { position:relative; max-width:1100px; margin:0 auto; text-align:center; }
+.intro-quote-mark {
+  font-family:var(--serif); font-size:6rem; font-style:italic; color:var(--gold);
+  line-height:1; opacity:0.5; margin-bottom:-2rem;
 }
-.role-title {
-  font-family:var(--serif); font-size:1.2rem; font-weight:400;
-  color:var(--cream); line-height:1.4; margin-bottom:0.75rem;
+.intro-quote {
+  font-family:var(--serif); font-size:clamp(1.8rem, 3.2vw, 3rem); font-weight:300;
+  line-height:1.3; color:var(--cream); letter-spacing:-0.005em;
 }
-.role-desc { font-size:0.82rem; color:rgba(245,240,232,0.5); line-height:1.7; }
+.intro-quote em { font-style:italic; color:var(--gold-pale); }
+.intro-attr {
+  margin-top:2.6rem; display:flex; align-items:center; justify-content:center; gap:1rem;
+  font-size:0.66rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--gold);
+}
+.intro-attr-line { width:36px; height:1px; background:var(--gold); }
 
-/* ── AWARDS ── */
-#awards { background:var(--cream); }
-.awards-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
-  margin-top:4rem; background:var(--border);
+/* ── NEWS ── */
+.news { background:var(--cream-dark); }
+.news-header { display:flex; align-items:flex-end; justify-content:space-between; gap:3rem; margin-bottom:4rem; flex-wrap:wrap; }
+.news-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; }
+.news-card {
+  background:var(--white); padding:2rem 2rem 2.2rem; border:1px solid var(--border);
+  display:flex; flex-direction:column; min-height:260px;
+  transition:transform 0.25s, box-shadow 0.25s; text-decoration:none; color:inherit;
 }
-.award-item { background:var(--white); padding:2rem 1.75rem; }
-.award-item .num {
-  font-family:var(--serif); font-size:3.5rem; font-weight:300;
-  color:var(--border-gold); line-height:1; margin-bottom:0.5rem;
+.news-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--gold); }
+.news-card.feature { grid-column:span 2; grid-row:span 2; min-height:520px; padding:3rem; }
+.news-card-tag {
+  font-size:0.6rem; font-weight:600; letter-spacing:0.25em; text-transform:uppercase;
+  padding:0.3rem 0.7rem; border:1px solid; display:inline-block; align-self:flex-start; margin-bottom:1.2rem;
 }
-.award-item .name { font-size:0.88rem; font-weight:500; color:var(--text-dark); line-height:1.5; }
-.award-item .org { font-size:0.72rem; color:var(--text-muted); margin-top:0.25rem; }
+.news-card-tag.local { color:var(--olive); border-color:var(--olive); }
+.news-card-tag.global { color:var(--gold-deep); border-color:var(--gold); }
+.news-card-tag.parliament { color:var(--navy-light); border-color:var(--navy-light); }
+.news-card-date {
+  font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--text-muted); margin-bottom:0.9rem;
+}
+.news-card-title {
+  font-family:var(--serif); font-size:1.35rem; font-weight:400; line-height:1.3;
+  color:var(--navy-deep); margin-bottom:0.9rem;
+}
+.news-card.feature .news-card-title { font-size:2rem; }
+.news-card-excerpt { font-size:0.92rem; color:var(--text-mid); flex:1; line-height:1.65; }
+.news-card-meta { margin-top:1.3rem; display:flex; align-items:center; gap:0.5rem;
+  font-size:0.65rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); }
 
-/* ── PUBLICATIONS ── */
-#publications { background:var(--white); }
-.pub-featured {
-  display:grid; grid-template-columns:auto 1fr; gap:3rem;
-  align-items:center; padding:3rem; background:var(--navy); margin-top:4rem;
+/* ── METRICS STRIP ── */
+.metrics { background:var(--navy); padding:5rem 4rem; color:var(--cream); }
+.metrics-grid {
+  max-width:1320px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:0;
 }
-.pub-book-spine {
-  width:90px; height:120px; background:linear-gradient(135deg,#1a4060,#0b1929);
-  border:1px solid rgba(196,151,58,0.3); display:flex; align-items:center;
-  justify-content:center; flex-shrink:0; position:relative;
+.metric { padding:1.5rem 2rem; border-left:1px solid rgba(196,151,58,0.2); }
+.metric:first-child { border-left:none; }
+.metric-num {
+  font-family:var(--serif); font-size:clamp(3rem, 5vw, 4.5rem); font-weight:300;
+  color:var(--gold-pale); line-height:1; margin-bottom:0.7rem; letter-spacing:-0.01em;
 }
-.pub-book-spine::after {
-  content:''; position:absolute; left:0; top:0; bottom:0;
-  width:8px; background:var(--gold);
+.metric-num em { font-style:italic; color:var(--gold); }
+.metric-label {
+  font-size:0.66rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+  color:rgba(245,240,232,0.65); line-height:1.5;
 }
-.pub-book-text {
-  font-family:var(--serif); font-size:0.7rem; color:var(--gold-pale);
-  text-align:center; padding:0.5rem;
-  writing-mode:vertical-rl; text-orientation:mixed; transform:rotate(180deg);
-}
-.pub-featured-content .label {
-  font-size:0.65rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:0.75rem;
-}
-.pub-featured-content h3 {
-  font-family:var(--serif); font-size:1.6rem; font-weight:300;
-  color:var(--cream); line-height:1.35; margin-bottom:0.75rem;
-}
-.pub-featured-content p { font-size:0.85rem; color:rgba(245,240,232,0.55); line-height:1.7; }
-.pubs-list { margin-top:3rem; display:flex; flex-direction:column; }
-.pub-item {
-  display:grid; grid-template-columns:auto 1fr; gap:2rem;
-  padding:1.5rem 0; border-bottom:1px solid var(--border); align-items:start;
-}
-.pub-year { font-size:0.7rem; font-weight:600; letter-spacing:0.08em; color:var(--gold); min-width:40px; padding-top:0.15rem; }
-.pub-title { font-size:0.9rem; color:var(--text-dark); line-height:1.6; }
-.pub-journal { font-size:0.78rem; color:var(--text-muted); font-style:italic; margin-top:0.2rem; }
 
-/* ── MATERIALS ── */
-#materials { background:var(--navy); }
-#materials .section-eyebrow { color:var(--gold-light); }
-#materials .section-eyebrow::before { background:var(--gold-light); }
-#materials .section-title { color:var(--cream); }
-.materials-intro { font-size:0.92rem; color:rgba(245,240,232,0.55); line-height:1.8; margin-top:1rem; max-width:560px; }
-.materials-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px;
-  margin-top:4rem; background:rgba(196,151,58,0.1);
+/* ── VISION TEASER ── */
+.vision { background:var(--cream); position:relative; overflow:hidden; }
+.vision-grid {
+  display:grid; grid-template-columns:0.9fr 1.1fr; gap:5rem; align-items:center; margin-top:4rem;
 }
-.material-card {
-  background:var(--navy-mid); padding:2.5rem 2rem;
-  display:flex; flex-direction:column; gap:1.25rem;
-  transition:background 0.2s;
+.vision-pillars {
+  display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border);
 }
-.material-card:hover { background:var(--navy-light); }
-.material-flag {
-  width:36px; height:26px; display:flex; align-items:center;
-  justify-content:center; border:1px solid rgba(196,151,58,0.3);
-  font-size:0.6rem; font-weight:700; letter-spacing:0.1em;
-  color:var(--gold); font-family:var(--sans);
+.vision-item {
+  background:var(--white); padding:2.2rem 1.8rem;
+  transition:background 0.3s;
 }
-.material-type {
-  font-size:0.6rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase;
-  color:rgba(196,151,58,0.6);
+.vision-item:hover { background:var(--cream-deep); }
+.vision-item-icon {
+  width:42px; height:42px; border:1px solid var(--gold);
+  display:flex; align-items:center; justify-content:center; margin-bottom:1rem;
+  font-family:var(--serif); font-size:1.4rem; color:var(--gold-deep); font-style:italic;
 }
-.material-title {
-  font-family:var(--serif); font-size:1.15rem; font-weight:300;
-  color:var(--cream); line-height:1.45; flex:1;
+.vision-item-title {
+  font-family:var(--serif); font-size:1.3rem; font-weight:500; color:var(--navy-deep);
+  margin-bottom:0.5rem; line-height:1.25;
 }
-.material-desc { font-size:0.78rem; color:rgba(245,240,232,0.4); line-height:1.65; }
-.material-dl {
-  display:inline-flex; align-items:center; gap:0.6rem; align-self:flex-start;
-  font-size:0.65rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--gold); text-decoration:none;
-  border:1px solid rgba(196,151,58,0.35); padding:0.6rem 1rem;
-  transition:all 0.2s; margin-top:auto;
-}
-.material-dl:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
-.material-dl svg { flex-shrink:0; }
+.vision-item-body { font-size:0.9rem; color:var(--text-mid); line-height:1.6; }
 
-/* ── PRESS ── */
-#press { background:var(--cream); }
-.press-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:4rem; }
-.press-card {
-  background:var(--white); border:1px solid var(--border);
-  transition:all 0.2s; text-decoration:none; color:inherit; display:block;
+/* ── CONNECT (CTA stack) ── */
+.connect { background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); color:var(--cream); padding:8rem 4rem; position:relative; }
+.connect::before {
+  content:''; position:absolute; inset:0; opacity:0.05;
+  background-image:radial-gradient(circle at 70% 30%, var(--gold) 0%, transparent 40%);
 }
-.press-card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 12px 40px rgba(196,151,58,0.1); }
-.press-card-img { height:140px; background:var(--navy); overflow:hidden; position:relative; }
-.press-card-img-inner {
-  width:100%; height:100%;
-  background:linear-gradient(135deg,var(--navy-light),var(--navy));
-  display:flex; align-items:center; justify-content:center;
+.connect-inner { position:relative; max-width:1320px; margin:0 auto; }
+.connect-header { text-align:center; margin-bottom:4rem; }
+.connect-header .section-title { color:var(--cream); }
+.connect-header .section-title em { color:var(--gold-pale); }
+.connect-header .section-label { justify-content:center; color:var(--gold); }
+.connect-header .section-label-line { background:var(--gold); }
+.connect-header .section-lede { color:rgba(245,240,232,0.78); margin:1.4rem auto 0; }
+.connect-cards {
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem; margin-top:4rem;
 }
-.press-tag {
-  position:absolute; top:1rem; left:1rem;
-  font-size:0.6rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
-  background:var(--gold); color:var(--navy); padding:0.3rem 0.75rem;
+.connect-card {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(196,151,58,0.25);
+  padding:2.4rem 2.2rem; display:flex; flex-direction:column;
+  transition:background 0.3s, border-color 0.3s, transform 0.3s;
 }
-.press-card-body { padding:1.5rem; }
-.press-date { font-size:0.7rem; color:var(--text-muted); letter-spacing:0.08em; margin-bottom:0.6rem; }
-.press-card-title {
-  font-family:var(--serif); font-size:1.05rem; font-weight:400;
-  color:var(--text-dark); line-height:1.4; margin-bottom:0.75rem;
+.connect-card:hover { background:rgba(255,255,255,0.07); border-color:var(--gold); transform:translateY(-3px); }
+.connect-card-num {
+  font-family:var(--serif); font-style:italic; font-size:1.4rem; color:var(--gold);
+  margin-bottom:1.5rem; opacity:0.7;
 }
-.press-excerpt { font-size:0.8rem; color:var(--text-muted); line-height:1.7; }
-
-/* ── CONTACT ── */
-#contact { background:var(--white); }
-.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; margin-top:4rem; }
-.contact-items { margin-top:2rem; display:flex; flex-direction:column; gap:1.5rem; }
-.contact-item .label {
-  font-size:0.65rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:0.25rem;
-}
-.contact-item .value { font-size:0.95rem; color:var(--text-mid); }
-.contact-form { display:flex; flex-direction:column; gap:1rem; }
-.form-group label {
-  display:block; font-size:0.65rem; font-weight:600;
-  letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;
-}
-.form-group input,.form-group textarea {
-  width:100%; background:var(--cream); border:1px solid var(--border);
-  color:var(--text-dark); padding:0.85rem 1rem;
-  font-family:var(--sans); font-size:0.9rem; outline:none; transition:border-color 0.2s; resize:vertical;
-}
-.form-group input:focus,.form-group textarea:focus { border-color:var(--gold); }
-.form-submit {
-  background:var(--gold); color:var(--navy); border:none; padding:1rem 2rem;
-  font-family:var(--sans); font-size:0.75rem; font-weight:600;
-  letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;
-  transition:all 0.2s; align-self:flex-start;
-}
-.form-submit:hover { background:var(--gold-light); transform:translateY(-2px); }
+.connect-card-title { font-family:var(--serif); font-size:1.6rem; font-weight:400; color:var(--cream); margin-bottom:0.6rem; }
+.connect-card-body { font-size:0.93rem; color:rgba(245,240,232,0.75); margin-bottom:1.5rem; flex:1; line-height:1.65; }
+.connect-card .btn-ghost { align-self:flex-start; }
 
 /* ── FOOTER ── */
-footer {
-  background:#07111e; padding:2.5rem 3rem;
-  display:flex; justify-content:space-between; align-items:center;
-  border-top:1px solid rgba(196,151,58,0.1);
+footer { background:var(--navy-deep); color:rgba(245,240,232,0.7); padding:5rem 4rem 2.5rem; }
+.footer-grid {
+  max-width:1320px; margin:0 auto;
+  display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:3rem; margin-bottom:4rem;
 }
-.footer-name { font-family:var(--serif); font-size:1rem; color:var(--gold-pale); font-weight:300; }
-.footer-links { display:flex; gap:2rem; list-style:none; }
-.footer-links a {
-  font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
-  color:rgba(245,240,232,0.35); text-decoration:none; transition:color 0.2s;
+.footer-brand-name { font-family:var(--serif); font-size:1.4rem; font-weight:400; color:var(--cream); margin-bottom:0.7rem; }
+.footer-brand-role { font-size:0.85rem; line-height:1.7; color:rgba(245,240,232,0.6); }
+.footer-col-title {
+  font-size:0.66rem; font-weight:600; letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:1.4rem;
 }
-.footer-links a:hover { color:var(--gold); }
-.footer-copy { font-size:0.7rem; color:rgba(245,240,232,0.25); letter-spacing:0.05em; }
+.footer-col ul { list-style:none; }
+.footer-col li { margin-bottom:0.7rem; }
+.footer-col a { color:rgba(245,240,232,0.7); text-decoration:none; font-size:0.92rem; transition:color 0.2s; }
+.footer-col a:hover { color:var(--gold-pale); }
+.footer-social { display:flex; gap:1rem; margin-top:0.8rem; flex-wrap:wrap; }
+.footer-social a {
+  width:36px; height:36px; display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(196,151,58,0.25); transition:all 0.2s;
+  font-size:0.62rem; letter-spacing:0.1em; color:rgba(245,240,232,0.6);
+}
+.footer-social a:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+.footer-bottom {
+  max-width:1320px; margin:0 auto; padding-top:2rem; border-top:1px solid rgba(196,151,58,0.15);
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+  font-size:0.78rem; color:rgba(245,240,232,0.45);
+}
+.footer-bottom a { color:rgba(245,240,232,0.6); }
 
-/* ── KEYFRAMES ── */
-@keyframes heroFadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-@keyframes slideUp { from{transform:translateY(110%)} to{transform:translateY(0)} }
-@keyframes lineGrow { from{width:0} to{width:100%} }
-@keyframes scrollBob { 0%,100%{transform:scaleY(1);opacity:0.4} 50%{transform:scaleY(1.15);opacity:0.8} }
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
-.reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
-.reveal.visible { opacity:1; transform:translateY(0); }
+/* ── PILLAR IMAGES ── */
+.pillar { padding:0; overflow:hidden; }
+.pillar-media { position:relative; aspect-ratio:16/9; overflow:hidden; background:var(--navy-deep); }
+.pillar-media img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; filter:contrast(1.04) brightness(0.96) saturate(0.95); }
+.pillar:hover .pillar-media img { transform:scale(1.04); }
+.pillar-media::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(7,17,30,0.4) 100%);
+  pointer-events:none;
+}
+.pillar-body-wrap { padding:2.6rem 2.8rem 3rem; }
+
+/* ── NEWS CARD MEDIA ── */
+.news-card { padding:0; overflow:hidden; }
+.news-card-media { aspect-ratio:16/9; overflow:hidden; position:relative; background:var(--navy-deep); }
+.news-card-media img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+.news-card:hover .news-card-media img { transform:scale(1.05); }
+.news-card-body { padding:1.8rem 2rem 2rem; display:flex; flex-direction:column; flex:1; }
+.news-card.feature .news-card-media { aspect-ratio:16/8; }
+.news-card.feature .news-card-body { padding:2.5rem 2.8rem 2.6rem; }
+.news-card.feature {
+  background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); color:var(--cream);
+  border-color:rgba(196,151,58,0.3);
+}
+.news-card.feature .news-card-title { color:var(--cream); }
+.news-card.feature .news-card-title em { font-style:italic; color:var(--gold-pale); }
+.news-card.feature .news-card-excerpt { color:rgba(245,240,232,0.78); }
+.news-card.feature .news-card-date { color:var(--gold-pale); }
+.news-card.feature .news-card-meta { color:var(--gold); }
+.news-card.feature:hover { box-shadow:0 24px 60px rgba(7,17,30,0.4); }
+
+/* ── GALLERY STRIP ── */
+.gallery { background:var(--navy-deep); color:var(--cream); padding:7rem 4rem 8rem; position:relative; overflow:hidden; }
+.gallery::before { content:''; position:absolute; inset:0; opacity:0.05; background-image:radial-gradient(circle at 30% 50%, var(--gold) 0%, transparent 45%); pointer-events:none; }
+.gallery-inner { position:relative; max-width:1320px; margin:0 auto; }
+.gallery-head { display:flex; justify-content:space-between; align-items:flex-end; gap:3rem; margin-bottom:3.5rem; flex-wrap:wrap; }
+.gallery-head .section-label { color:var(--gold); }
+.gallery-head .section-label-line { background:var(--gold); }
+.gallery-head h2 { font-family:var(--serif); font-size:clamp(2.2rem, 3.8vw, 3.6rem); font-weight:300; color:var(--cream); line-height:1.04; letter-spacing:-0.01em; }
+.gallery-head h2 em { font-style:italic; color:var(--gold-pale); }
+.gallery-head p { font-family:var(--serif); font-size:1.2rem; font-style:italic; color:rgba(245,240,232,0.75); max-width:480px; line-height:1.55; }
+.gallery-grid {
+  display:grid; grid-template-columns:repeat(12, 1fr); gap:1rem;
+  grid-auto-rows:160px;
+}
+.gallery-item {
+  position:relative; overflow:hidden; background:var(--navy-light);
+  border:1px solid rgba(196,151,58,0.18);
+}
+.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.7s ease, filter 0.4s ease; filter:contrast(1.05) brightness(0.92) saturate(0.9); }
+.gallery-item:hover img { transform:scale(1.06); filter:contrast(1.08) brightness(1) saturate(1); }
+.gallery-item::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, transparent 55%, rgba(7,17,30,0.85) 100%);
+}
+.gallery-caption {
+  position:absolute; left:1.2rem; right:1.2rem; bottom:1rem; z-index:2;
+  font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--gold-pale); line-height:1.4;
+  opacity:0; transform:translateY(8px); transition:opacity 0.3s, transform 0.3s;
+}
+.gallery-item:hover .gallery-caption { opacity:1; transform:translateY(0); }
+.gallery-item .gallery-tag {
+  position:absolute; top:1rem; left:1rem; z-index:3;
+  font-size:0.58rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+  padding:0.3rem 0.7rem; background:rgba(7,17,30,0.7); color:var(--gold-pale);
+  border:1px solid rgba(196,151,58,0.35); backdrop-filter:blur(4px);
+}
+/* sizing variants */
+.gallery-item.x-tall { grid-column:span 4; grid-row:span 2; }
+.gallery-item.x-wide { grid-column:span 6; grid-row:span 1; }
+.gallery-item.x-square { grid-column:span 3; grid-row:span 1; }
+.gallery-item.x-feat { grid-column:span 6; grid-row:span 2; }
+.gallery-item.x-mid { grid-column:span 4; grid-row:span 1; }
+.gallery-cta { margin-top:3.5rem; display:flex; justify-content:center; }
+
+/* ── ANIMATIONS ── */
+@keyframes slideUp { to { transform:translateY(0); } }
+@keyframes heroFadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes lineGrow { to { width:100%; } }
+@keyframes tickerScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+/* ── REVEAL ON SCROLL ── */
+.reveal { opacity:0; transform:translateY(40px); transition:opacity 0.9s ease, transform 0.9s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
 
 /* ── RESPONSIVE ── */
-@media (max-width:1200px) {
-  .nav-links { gap:1.5rem; }
-  .nav-links a { font-size:0.68rem; }
+@media (max-width:1100px) {
+  .hero-inner { grid-template-columns:1fr; gap:3.5rem; }
+  .hero-portrait { max-width:480px; margin:0 auto; }
+  .pillars-grid { grid-template-columns:1fr; }
+  .news-grid { grid-template-columns:1fr 1fr; }
+  .news-card.feature { grid-column:span 2; min-height:320px; }
+  .vision-grid { grid-template-columns:1fr; gap:3rem; }
+  .metrics-grid { grid-template-columns:1fr 1fr; }
+  .metric { border-left:none; border-top:1px solid rgba(196,151,58,0.2); }
+  .metric:nth-child(-n+2) { border-top:none; }
+  .connect-cards { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .gallery-grid { grid-template-columns:repeat(6, 1fr); grid-auto-rows:140px; }
+  .gallery-item.x-tall { grid-column:span 3; grid-row:span 2; }
+  .gallery-item.x-wide { grid-column:span 6; }
+  .gallery-item.x-square { grid-column:span 3; }
+  .gallery-item.x-feat { grid-column:span 6; grid-row:span 2; }
+  .gallery-item.x-mid { grid-column:span 3; }
 }
-@media (max-width:1024px) {
-  nav { padding:0 1.75rem; }
-  .hero { grid-template-columns:1fr; grid-template-rows:56vw auto auto; height:auto; min-height:auto; }
-  .hero-center { grid-row:1; height:56vw; max-height:460px; }
-  .hero-left { grid-row:2; padding:3rem 2rem 2.5rem; }
-  .hero-right { grid-row:3; padding:0 2rem 4rem; }
-  .hero-gold-bar { margin:1.5rem 0 1.25rem; }
-  .hero-stats { margin-bottom:2rem; }
-  .hero-scroll-hint { display:none; }
-  .candidacy-grid,.bio-grid { grid-template-columns:1fr; gap:3rem; }
-  .roles-grid { grid-template-columns:1fr 1fr; }
-  .awards-grid { grid-template-columns:1fr 1fr; }
-  .materials-grid { grid-template-columns:1fr 1fr; }
-  .press-grid { grid-template-columns:1fr 1fr; }
-  .contact-grid { grid-template-columns:1fr; gap:3rem; }
-  footer { flex-direction:column; gap:1.25rem; text-align:center; }
-  .footer-links { flex-wrap:wrap; justify-content:center; }
-}
-@media (max-width:768px) {
-  nav { padding:0 1.25rem; height:64px; }
+@media (max-width:760px) {
+  nav { padding:0 1.4rem; }
   .nav-links { display:none; }
-  .lang-toggle { display:none; }
   .hamburger { display:flex; }
-  section { padding:5rem 1.25rem; }
-  .hero-name-line { font-size:clamp(2.4rem,9vw,3.6rem); }
-  .roles-grid,.materials-grid { grid-template-columns:1fr; }
-  .awards-grid { grid-template-columns:1fr 1fr; }
-  .press-grid { grid-template-columns:1fr; }
-  .pub-featured { grid-template-columns:1fr; gap:1.5rem; padding:2rem; }
-  .hero-stats { grid-template-columns:1fr 1fr; }
-  footer { padding:2rem 1.25rem; gap:1rem; }
+  .nav-cta { display:none; }
+  section { padding:4.5rem 1.4rem; }
+  .hero { padding:110px 0 60px; }
+  .hero-inner { padding:0 1.4rem; }
+  .hero-cta { flex-direction:column; align-items:flex-start; }
+  .btn { width:100%; justify-content:center; }
+  .news-grid { grid-template-columns:1fr; }
+  .news-card.feature { grid-column:auto; min-height:280px; }
+  .news-card.feature .news-card-title { font-size:1.5rem; }
+  .news-card.feature .news-card-body { padding:1.8rem; }
+  .metrics { padding:3rem 1.4rem; }
+  .metrics-grid { grid-template-columns:1fr; }
+  .metric { padding:1.4rem; }
+  .vision-pillars { grid-template-columns:1fr; }
+  .connect { padding:5rem 1.4rem; }
+  .footer-grid { grid-template-columns:1fr; gap:2rem; }
+  .intro-quote-mark { font-size:4rem; }
+  .pillar-body-wrap { padding:1.8rem 1.6rem 2rem; }
+  .gallery { padding:4.5rem 1.4rem; }
+  .gallery-grid { grid-template-columns:repeat(2, 1fr); grid-auto-rows:140px; }
+  .gallery-item.x-tall, .gallery-item.x-wide, .gallery-item.x-square, .gallery-item.x-feat, .gallery-item.x-mid {
+    grid-column:span 2; grid-row:span 1;
+  }
+  .gallery-item.x-feat { grid-row:span 2; }
 }
-@media (max-width:480px) {
-  .hero-center { height:72vw; max-height:360px; }
-  .hero-left,.hero-right { padding-left:1rem; padding-right:1rem; }
-  .awards-grid { grid-template-columns:1fr; }
-  section { padding:4rem 1rem; }
-  .hero-stat-num { font-size:2.2rem; }
-}
+
+/* ── i18n ── */
+[data-lang="el"] .en { display:none; }
+[data-lang="en"] .el { display:none; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="main-nav">
-  <a href="#" class="nav-logo">D.T. Avgerinopoulou</a>
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#" class="nav-logo"><strong>Δ.Θ.</strong> Αυγερινοπούλου</a>
   <ul class="nav-links">
-    <li><a href="#candidacy" data-en="IPU Candidacy" data-el="Υποψηφιότητα ΔΚΕ">IPU Candidacy</a></li>
-    <li><a href="#biography" data-en="Biography" data-el="Βιογραφικό">Biography</a></li>
-    <li><a href="#roles" data-en="Roles" data-el="Ρόλοι">Roles</a></li>
-    <li><a href="#publications" data-en="Publications" data-el="Δημοσιεύσεις">Publications</a></li>
-    <li><a href="#materials" data-en="Materials" data-el="Υλικό">Materials</a></li>
-    <li><a href="#press" data-en="Press" data-el="Τύπος">Press</a></li>
-    <li><a href="#contact" data-en="Contact" data-el="Επικοινωνία">Contact</a></li>
+    <li><a href="#pillars"><span class="el">Έργο</span><span class="en">Work</span></a></li>
+    <li><a href="#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a></li>
+    <li><a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a></li>
+    <li><a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">About</span></a></li>
+    <li><a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('el')">ΕΛ</button>
+      <button class="lang-btn active" data-set-lang="el">ΕΛ</button>
+      <button class="lang-btn" data-set-lang="en">EN</button>
     </div>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <a href="connect.html" class="nav-cta"><span class="el">Γίνε Εθελοντής</span><span class="en">Volunteer</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#pillars"><span class="el">Έργο</span><span class="en">Work</span></a>
+  <a href="#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a>
+  <a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a>
+  <a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">About</span></a>
+  <a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a>
+</div>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#candidacy" onclick="closeMenu()" data-en="IPU Candidacy" data-el="Υποψηφιότητα ΔΚΕ">IPU Candidacy</a>
-  <a href="#biography" onclick="closeMenu()" data-en="Biography" data-el="Βιογραφικό">Biography</a>
-  <a href="#roles" onclick="closeMenu()" data-en="Roles" data-el="Ρόλοι">Roles</a>
-  <a href="#publications" onclick="closeMenu()" data-en="Publications" data-el="Δημοσιεύσεις">Publications</a>
-  <a href="#materials" onclick="closeMenu()" data-en="Materials" data-el="Υλικό">Materials</a>
-  <a href="#press" onclick="closeMenu()" data-en="Press" data-el="Τύπος">Press</a>
-  <a href="#contact" onclick="closeMenu()" data-en="Contact" data-el="Επικοινωνία">Contact</a>
-  <div class="mobile-lang">
-    <button class="active" onclick="setLang('en');closeMenu()">EN</button>
-    <button onclick="setLang('el');closeMenu()">ΕΛ</button>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-bg-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">
+        <span class="hero-kicker-line"></span>
+        <span class="el">Βουλευτής Ν. Ηλείας · Νέα Δημοκρατία</span>
+        <span class="en">Member of Parliament for Ilia · New Democracy</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="hero-name-line">Διονυσία</span>
+        <span class="hero-name-line italic">Αυγερινοπούλου</span>
+      </h1>
+      <h1 class="hero-name" style="display:none;">
+        <span class="hero-name-line">Dionysia</span>
+        <span class="hero-name-line italic">Avgerinopoulou</span>
+      </h1>
+      <div class="hero-divider"></div>
+      <div class="hero-roles">
+        <ul class="hero-roles-list el">
+          <li>Πρόεδρος της <em>Επιτροπής Περιβάλλοντος</em> της Βουλής</li>
+          <li>Ειδική Απεσταλμένη του Πρωθυπουργού για τους <em>Ωκεανούς</em></li>
+          <li>Δικηγόρος <em>LL.M., J.S.D. Columbia</em> · Καθηγήτρια Διεθνούς Δικαίου</li>
+        </ul>
+        <ul class="hero-roles-list en" style="display:none;">
+          <li>Chair, <em>Environment Committee</em> of the Hellenic Parliament</li>
+          <li>Greek Prime Minister's Special Envoy for the <em>Ocean</em></li>
+          <li>Attorney, <em>LL.M., J.S.D. Columbia</em> · Lecturer in International Law</li>
+        </ul>
+      </div>
+      <div class="hero-cta">
+        <a href="connect.html" class="btn btn-primary">
+          <span class="el">Στηρίξτε την υποψηφιότητα</span>
+          <span class="en">Stand with Dionysia</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="bio.html" class="btn btn-ghost">
+          <span class="el">Γνωρίστε την</span>
+          <span class="en">Get to know her</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="portrait-bg"></div>
+      <img class="portrait-img"
+           src="https://www.avgerinopoulou.gr/wp-content/uploads/2018/07/VST_0015..jpg"
+           data-fallbacks='["https://www.avgerinopoulou.gr/wp-content/uploads/2018/07/VST_0001..jpg","https://www.avgerinopoulou.gr/wp-content/uploads/2018/03/IMG_7080-768x1024.jpg","https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-829x1024.jpg"]'
+           onerror="(function(img){var f=JSON.parse(img.dataset.fallbacks||'[]');if(f.length){img.src=f.shift();img.dataset.fallbacks=JSON.stringify(f);}else{img.style.display='none';}})(this)"
+           alt="Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου">
+      <div class="portrait-overlay"></div>
+      <div class="portrait-stats">
+        <span class="portrait-stats-num">4×</span>
+        <span class="portrait-stats-label el">Εκλεγμένη Βουλευτής</span>
+        <span class="portrait-stats-label en" style="display:none;">Times Elected MP</span>
+      </div>
+      <div class="portrait-tag">
+        <span class="portrait-tag-line"></span>
+        <span class="portrait-tag-label el">Ηλεία · Αθήνα · Διεθνώς</span>
+        <span class="portrait-tag-label en" style="display:none;">Ilia · Athens · Globally</span>
+        <span class="portrait-tag-line"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TICKER ── -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item el">Πρόεδρος Επιτροπής Περιβάλλοντος</span>
+    <span class="ticker-item el">Ειδική Απεσταλμένη του Πρωθυπουργού για τους Ωκεανούς</span>
+    <span class="ticker-item el">Συντονίστρια 9th Our Ocean Conference Αθήνα 2024</span>
+    <span class="ticker-item el">Young Global Leader, World Economic Forum</span>
+    <span class="ticker-item el">UNEP "Green Star" Award</span>
+    <span class="ticker-item el">Columbia J.S.D. · Georgetown LL.M. · Fulbright</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item el">Πρόεδρος Επιτροπής Περιβάλλοντος</span>
+    <span class="ticker-item el">Ειδική Απεσταλμένη του Πρωθυπουργού για τους Ωκεανούς</span>
+    <span class="ticker-item el">Συντονίστρια 9th Our Ocean Conference Αθήνα 2024</span>
+    <span class="ticker-item el">Young Global Leader, World Economic Forum</span>
+    <span class="ticker-item el">UNEP "Green Star" Award</span>
+    <span class="ticker-item el">Columbia J.S.D. · Georgetown LL.M. · Fulbright</span>
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-left">
-    <div class="hero-kicker">
-      <span class="hero-kicker-line"></span>
-      <span data-en="Hellenic Parliament · IPU Executive Committee" data-el="Βουλή Ελλήνων · Εκτελεστική Επιτροπή ΔΚΕ">Hellenic Parliament · IPU Executive Committee</span>
+<!-- ── INTRO STATEMENT ── -->
+<section class="intro reveal">
+  <div class="intro-inner">
+    <div class="intro-quote-mark">"</div>
+    <p class="intro-quote el">Η <em>Ηλεία αξίζει εκπρόσωπο</em> που γνωρίζει τα χωράφια της και τις παγκόσμιες αίθουσες όπου γράφεται το μέλλον της Ελλάδας.</p>
+    <p class="intro-quote en" style="display:none;">Ilia deserves an MP who knows <em>its olive groves and the global halls</em> where Greece's future is being written.</p>
+    <div class="intro-attr">
+      <span class="intro-attr-line"></span>
+      <span class="el">Διονυσία Αυγερινοπούλου</span>
+      <span class="en" style="display:none;">Dionysia Avgerinopoulou</span>
+      <span class="intro-attr-line"></span>
     </div>
-    <div class="hero-name-wrap"><span class="hero-name-line">Dionysia</span></div>
-    <div class="hero-name-wrap"><span class="hero-name-line italic">Theodora</span></div>
-    <div class="hero-name-wrap"><span class="hero-name-line last">Avgerinopoulou</span></div>
-    <div class="hero-gold-bar"></div>
-    <div class="hero-role-block">
-      <div class="hero-role-label" data-en="Current Position" data-el="Τρέχουσα Θέση">Current Position</div>
-      <div class="hero-role-cycling" id="roleCycle">
-        <span class="hero-role-item active" data-en="Candidate, IPU Sec.-Gen. 2026" data-el="Υποψήφια ΓΓ ΔΚΕ 2026">Candidate, IPU Sec.-Gen. 2026</span>
-        <span class="hero-role-item" data-en="Chair, Committee on Environment" data-el="Πρόεδρος Επιτροπής Περιβάλλοντος">Chair, Committee on Environment</span>
-        <span class="hero-role-item" data-en="Greece's Envoy for the Ocean" data-el="Απεσταλμένη για τον Ωκεανό">Greece's Envoy for the Ocean</span>
-        <span class="hero-role-item" data-en="IPU Executive Committee Member" data-el="Μέλος Εκτελεστικής Επιτροπής ΔΚΕ">IPU Executive Committee Member</span>
-        <span class="hero-role-item" data-en="J.S.D. Columbia · LL.M. Georgetown" data-el="J.S.D. Columbia · LL.M. Georgetown">J.S.D. Columbia · LL.M. Georgetown</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-center">
-    <div class="portrait-frame">
-      <img class="portrait-img" src="data:image/jpeg;base64,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" alt="Dr. Dionysia-Theodora Avgerinopoulou" onerror="this.style.display='none'"/>
-      <div class="portrait-overlay-top"></div>
-      <div class="portrait-overlay-bottom"></div>
-      <div class="portrait-corner tl"></div>
-      <div class="portrait-corner tr"></div>
-      <div class="portrait-corner bl"></div>
-      <div class="portrait-corner br"></div>
-      <div class="portrait-nameplate">
-        <div class="portrait-nameplate-title" data-en="Candidate · IPU Secretary-General 2026" data-el="Υποψήφια · ΓΓ Διακοινοβουλευτικής Ένωσης 2026">Candidate · IPU Secretary-General 2026</div>
-        <div class="portrait-nameplate-name">Dr. Dionysia-Theodora Avgerinopoulou</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span class="count-up" data-target="4">0</span></div>
-        <div class="hero-stat-label" data-en="Parliamentary<br>Terms Elected" data-el="Θητείες<br>Βουλευτή">Parliamentary<br>Terms Elected</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">2026</div>
-        <div class="hero-stat-label" data-en="IPU Secretary-<br>General Candidacy" data-el="Υποψηφιότητα<br>ΓΓ ΔΚΕ">IPU Secretary-<br>General Candidacy</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span class="count-up" data-target="30">0</span>+</div>
-        <div class="hero-stat-label" data-en="Years in Int'l<br>Environmental Law" data-el="Χρόνια Διεθνούς<br>Περιβαλλοντικού Δικαίου">Years in Int'l<br>Environmental Law</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num"><span class="count-up" data-target="5">0</span></div>
-        <div class="hero-stat-label" data-en="Languages<br>Spoken" data-el="Γλώσσες<br>Επικοινωνίας">Languages<br>Spoken</div>
-      </div>
-    </div>
-    <div class="hero-mandate">
-      <p data-en='An IPU <em>"fit for purpose"</em> — impactful at the heart of global governance, empowering parliaments to act decisively for democracy, peace, and sustainable prosperity for all.' data-el='Μια ΔΚΕ <em>«κατάλληλη για τον σκοπό της»</em> — με ουσιαστικό ρόλο στην καρδιά της παγκόσμιας διακυβέρνησης, ενδυναμώνοντας τα κοινοβούλια για τη δημοκρατία, την ειρήνη και την ευημερία.'>An IPU <em>"fit for purpose"</em> — impactful at the heart of global governance, empowering parliaments to act decisively for democracy, peace, and sustainable prosperity for all.</p>
-      <div class="hero-actions">
-        <a href="#candidacy" class="hero-cta" data-en="View Candidacy" data-el="Δείτε Υποψηφιότητα">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5v9M3 8l3.5 3.5L10 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          View Candidacy
-        </a>
-        <a href="#biography" class="hero-cta-ghost" data-en="Full Biography" data-el="Πλήρες Βιογραφικό">Full Biography</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <span data-en="Scroll" data-el="Κύλιση">Scroll</span>
-    <span class="hero-scroll-line"></span>
   </div>
 </section>
 
-<!-- CANDIDACY -->
-<section id="candidacy">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="Current Campaign" data-el="Τρέχουσα Υποψηφιότητα">Current Campaign</div>
-    <h2 class="section-title" data-en="Candidate for Secretary-General<br>of the <em>Inter-Parliamentary Union</em>" data-el="Υποψήφια για τη θέση Γενικού Γραμματέα<br>της <em>Διακοινοβουλευτικής Ένωσης</em>">Candidate for Secretary-General<br>of the <em>Inter-Parliamentary Union</em></h2>
-    <div class="candidacy-grid">
-      <div class="candidacy-sidebar reveal">
-        <h3 data-en='An IPU "Fit for Purpose" — A True World Parliament' data-el='Μια ΔΚΕ "Κατάλληλη για τον Σκοπό της" — Ένα Αληθινό Παγκόσμιο Κοινοβούλιο'>An IPU "Fit for Purpose" — A True World Parliament</h3>
-        <ul class="candidacy-pillars">
-          <li data-en="Addressing the triple planetary crisis: climate change, pollution, and biodiversity loss" data-el="Αντιμετώπιση της τριπλής πλανητικής κρίσης: κλιματική αλλαγή, ρύπανση, απώλεια βιοποικιλότητας">Addressing the triple planetary crisis: climate change, pollution, and biodiversity loss</li>
-          <li data-en="Protecting parliaments and peoples from misinformation and AI-driven disinformation" data-el="Προστασία κοινοβουλίων και πολιτών από παραπληροφόρηση και τεχνητή νοημοσύνη">Protecting parliaments and peoples from misinformation and AI-driven disinformation</li>
-          <li data-en="Embracing modernization, innovation, and transparency across all regions" data-el="Εκσυγχρονισμός, καινοτομία και διαφάνεια σε όλες τις περιοχές">Embracing modernization, innovation, and transparency across all regions</li>
-          <li data-en="Investing in young people, education, skills, and jobs worldwide" data-el="Επενδύσεις σε νέους, εκπαίδευση, δεξιότητες και θέσεις εργασίας παγκοσμίως">Investing in young people, education, skills, and jobs worldwide</li>
-          <li data-en="Advancing conflict prevention, peace-building, and peacekeeping mechanisms" data-el="Πρόληψη συγκρούσεων, οικοδόμηση ειρήνης και μηχανισμοί διατήρησης ειρήνης">Advancing conflict prevention, peace-building, and peacekeeping mechanisms</li>
-          <li data-en="Standing firmly for gender equality and against global inequality and injustice" data-el="Σθεναρή υποστήριξη της ισότητας των φύλων και καταπολέμηση των παγκόσμιων ανισοτήτων">Standing firmly for gender equality and against global inequality and injustice</li>
-          <li data-en="Contributing to SDGs and helping co-shape the post-2030 Agenda" data-el="Συμβολή στους ΣΒΑ και συν-διαμόρφωση της ατζέντας μετά το 2030">Contributing to SDGs and helping co-shape the post-2030 Agenda</li>
-        </ul>
-        <div class="download-links">
-          <a href="https://www.avgerinopoulou.gr/wp-content/uploads/2026/04/English-Version-2.pdf" class="dl-btn gold" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 7l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-            English PDF
-          </a>
-          <a href="https://www.avgerinopoulou.gr/wp-content/uploads/2026/04/French-Version-2.pdf" class="dl-btn" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 7l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-            Version FR
+<!-- ── PILLARS ── -->
+<section class="pillars reveal" id="pillars">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-label-line"></span>
+      <span class="el">Το Έργο</span>
+      <span class="en">The Work</span>
+    </div>
+    <h2 class="section-title">
+      <span class="el">Δύο γραμμές <em>της ίδιας πορείας</em></span>
+      <span class="en">Two lanes <em>of the same work</em></span>
+    </h2>
+    <p class="section-lede el">Αγωγή για την Ηλεία στην καθημερινότητα της Βουλής. Ηγεσία για την Ελλάδα στα διεθνή φόρα όπου χαράσσεται η πολιτική για το κλίμα, τους ωκεανούς και τη βιώσιμη ανάπτυξη.</p>
+    <p class="section-lede en" style="display:none;">Daily advocacy for Ilia in the chambers of Parliament. Leadership for Greece in the international forums where climate, ocean, and sustainability policy is being written.</p>
+
+    <div class="pillars-grid">
+      <article class="pillar local">
+        <div class="pillar-media">
+          <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/aftopsia-avgerinopoulou-ergotaxia-patras-pyrgou.jpg"
+               loading="lazy" alt="">
+        </div>
+        <div class="pillar-body-wrap">
+          <div class="pillar-kicker">
+            <span class="el">Για την Ηλεία</span>
+            <span class="en">For Ilia</span>
+          </div>
+          <h3 class="pillar-title">
+            <span class="el">Δίπλα στους πολίτες <em>κάθε μέρα</em></span>
+            <span class="en">Standing with constituents <em>every single day</em></span>
+          </h3>
+          <p class="pillar-body el">Από τα νοσοκομεία και τα σχολεία μέχρι τα παραγωγικά μας προϊόντα και την προστασία της Αρχαίας Ολυμπίας — η Ηλεία είναι το επίκεντρο της κοινοβουλευτικής δουλειάς.</p>
+          <p class="pillar-body en" style="display:none;">From hospitals and schools to our farmers and the protection of Ancient Olympia — Ilia is at the center of the parliamentary work.</p>
+          <ul class="pillar-list el">
+            <li>Νέα ογκολογική μονάδα και 12 μόνιμες θέσεις γιατρών</li>
+            <li>Αναβάθμιση 13 σχολικών μονάδων στο Νομό</li>
+            <li>Στήριξη των παραγωγών — τομάτας, σταφίδας, εσπεριδοειδών</li>
+            <li>Έργα στην Αρχαία Ολυμπία και τον Επικούριο Απόλλωνα</li>
+          </ul>
+          <ul class="pillar-list en" style="display:none;">
+            <li>New oncology unit and 12 new permanent physician posts</li>
+            <li>Modernization of 13 school facilities in the prefecture</li>
+            <li>Support for our farmers — tomato, raisin, citrus</li>
+            <li>Restoration works at Ancient Olympia and the Temple of Apollo Epicurius</li>
+          </ul>
+          <a href="news.html?tag=ilia" class="pillar-link">
+            <span class="el">Όλο το έργο για την Ηλεία</span>
+            <span class="en">All work for Ilia</span>
+            <span class="btn-arrow">→</span>
           </a>
         </div>
-      </div>
-      <div class="candidacy-text reveal">
-        <p data-en="I have the honor to present my candidacy for the post of Secretary-General of the Inter-Parliamentary Union (IPU)." data-el="Έχω την τιμή να παρουσιάσω την υποψηφιότητά μου για τη θέση του Γενικού Γραμματέα της Διακοινοβουλευτικής Ένωσης (ΔΚΕ).">I have the honor to present my candidacy for the post of Secretary-General of the Inter-Parliamentary Union (IPU).</p>
-        <p data-en='I envision an IPU <strong>"fit for purpose"</strong> — a true "World Parliament" — impactful at the very heart of global governance; an IPU that empowers parliaments with a stronger collective voice to act decisively for <strong>democracy, peace, human rights, and sustainable prosperity</strong> for all.' data-el='Οραματίζομαι μια ΔΚΕ <strong>«κατάλληλη για τον σκοπό της»</strong> — ένα αληθινό «Παγκόσμιο Κοινοβούλιο» — με ουσιαστικό αντίκτυπο στην καρδιά της παγκόσμιας διακυβέρνησης· μια ΔΚΕ που ενδυναμώνει τα κοινοβούλια με ισχυρότερη συλλογική φωνή για <strong>δημοκρατία, ειρήνη, ανθρώπινα δικαιώματα και βιώσιμη ευημερία</strong>.'>I envision an IPU <strong>"fit for purpose"</strong> — a true "World Parliament" — impactful at the very heart of global governance; an IPU that empowers parliaments with a stronger collective voice to act decisively for <strong>democracy, peace, human rights, and sustainable prosperity</strong> for all.</p>
-        <p data-en="An IPU that effectively addresses the pressing agendas of our times: the triple planetary crisis, the water–energy–food nexus, ocean health and the blue economy, the energy and digital transitions, and climate resilience." data-el="Μια ΔΚΕ που αντιμετωπίζει αποτελεσματικά τα επείγοντα ζητήματα της εποχής μας: την τριπλή πλανητική κρίση, το νεξούς νερού–ενέργειας–τροφίμων, την υγεία των ωκεανών, τις ενεργειακές και ψηφιακές μεταβάσεις.">An IPU that effectively addresses the pressing agendas of our times: the triple planetary crisis, the water–energy–food nexus, ocean health and the blue economy, the energy and digital transitions, and climate resilience.</p>
-        <p data-en="My commitment is to serve with professionalism, integrity, and vision — ensuring that the IPU continues to be the trusted home of parliamentary dialogue and a capable actor in addressing critical global challenges." data-el="Η δέσμευσή μου είναι να υπηρετήσω με επαγγελματισμό, ακεραιότητα και όραμα — διασφαλίζοντας ότι η ΔΚΕ θα παραμείνει ο αξιόπιστος χώρος κοινοβουλευτικού διαλόγου και ικανός παράγοντας αντιμετώπισης των παγκόσμιων προκλήσεων.">My commitment is to serve with professionalism, integrity, and vision — ensuring that the IPU continues to be the trusted home of parliamentary dialogue and a capable actor in addressing critical global challenges.</p>
-        <p class="candidacy-pullquote" data-en='Together, we can make the IPU "fit for purpose" — for democracy, for everyone.' data-el='Μαζί, μπορούμε να κάνουμε τη ΔΚΕ «κατάλληλη για τον σκοπό της» — για τη δημοκρατία, για όλους.'>Together, we can make the IPU "fit for purpose" — for democracy, for everyone.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      </article>
 
-<!-- BIOGRAPHY -->
-<section id="biography">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="Narrative CV" data-el="Βιογραφικό">Narrative CV</div>
-    <h2 class="section-title" data-en="Academic Excellence &amp;<br><em>Parliamentary Leadership</em>" data-el="Ακαδημαϊκή Αριστεία &amp;<br><em>Κοινοβουλευτική Ηγεσία</em>">Academic Excellence &amp;<br><em>Parliamentary Leadership</em></h2>
-    <div class="bio-grid">
-      <div class="bio-text reveal">
-        <p data-en="<strong>Dr. Dionysia-Theodora Avgerinopoulou</strong> is the Greek Prime Minister's Envoy for the Ocean and a Member of the Hellenic Parliament. She chairs the Special Parliamentary Committee on Environmental Protection and the Subcommittee of Watercourses, and serves on the Executive Committee of the Inter-Parliamentary Union (IPU)." data-el="<strong>Η Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</strong> είναι η Ειδική Απεσταλμένη του Πρωθυπουργού για τον Ωκεανό και Βουλευτής της Ελληνικής Βουλής. Προεδρεύει της Ειδικής Κοινοβουλευτικής Επιτροπής Περιβάλλοντος και της Υποεπιτροπής Υδάτινων Πόρων."><strong>Dr. Dionysia-Theodora Avgerinopoulou</strong> is the Greek Prime Minister's Envoy for the Ocean and a Member of the Hellenic Parliament. She chairs the Special Parliamentary Committee on Environmental Protection and the Subcommittee of Watercourses, and serves on the Executive Committee of the Inter-Parliamentary Union (IPU).</p>
-        <p data-en="Elected for four terms with the New Democracy Party, her parliamentary diplomacy has consistently advanced Greece's international engagement, aligning national priorities with the Paris Agreement, the 2030 Agenda, and the SDGs." data-el="Εκλεγμένη για τέσσερις θητείες με τη Νέα Δημοκρατία, η κοινοβουλευτική της διπλωματία έχει συνεχώς προωθήσει τη διεθνή δέσμευση της Ελλάδας, ευθυγραμμίζοντας εθνικές προτεραιότητες με τη Συμφωνία του Παρισιού και την Ατζέντα 2030.">Elected for four terms with the New Democracy Party, her parliamentary diplomacy has consistently advanced Greece's international engagement, aligning national priorities with the Paris Agreement, the 2030 Agenda, and the SDGs.</p>
-        <p data-en="Parallel to her parliamentary career, Dr. Avgerinopoulou is a practicing attorney, founder of the <strong>European Institute of Law, Science and Technology</strong>, and lecturer in international law and governance at universities in Greece and abroad." data-el="Παράλληλα με την κοινοβουλευτική της σταδιοδρομία, είναι ασκούμενη δικηγόρος, ιδρύτρια του <strong>Ευρωπαϊκού Ινστιτούτου Δικαίου, Επιστήμης και Τεχνολογίας</strong> και λέκτορας διεθνούς δικαίου σε ελληνικά και ξένα πανεπιστήμια.">Parallel to her parliamentary career, Dr. Avgerinopoulou is a practicing attorney, founder of the <strong>European Institute of Law, Science and Technology</strong>, and lecturer in international law and governance at universities in Greece and abroad.</p>
-        <p data-en="She has also worked at the Legal Service of the European Union and the EU Delegation at the UN, conducting research at the <strong>Yale Center for Environmental Law and Policy</strong>, NYU, and Columbia University." data-el="Εργάστηκε στη Νομική Υπηρεσία της ΕΕ και στην Αντιπροσωπεία της ΕΕ στα ΗΕ, διεξάγοντας έρευνα στο <strong>Yale Center for Environmental Law and Policy</strong>, NYU και Columbia University.">She has also worked at the Legal Service of the European Union and the EU Delegation at the UN, conducting research at the <strong>Yale Center for Environmental Law and Policy</strong>, NYU, and Columbia University.</p>
-        <p style="font-size:0.85rem;color:var(--text-muted);" data-en="She speaks Greek, English, French, German, and Spanish. She is the mother of one young boy." data-el="Μιλά ελληνικά, αγγλικά, γαλλικά, γερμανικά και ισπανικά. Είναι μητέρα ενός μικρού αγοριού.">She speaks Greek, English, French, German, and Spanish. She is the mother of one young boy.</p>
-      </div>
-      <div class="credentials reveal">
-        <div class="credential-card">
-          <div class="institution">Columbia University School of Law</div>
-          <div class="degree">Doctor of Juridical Science (J.S.D.)</div>
-          <div class="detail" data-en='Thesis: "Science-Based Lawmaking: Effective Integration of Science in International Environmental Law"' data-el='Διατριβή: «Νομοθεσία Βασισμένη στην Επιστήμη: Αποτελεσματική Ενσωμάτωση της Επιστήμης στο Διεθνές Περιβαλλοντικό Δίκαιο»'>Thesis: "Science-Based Lawmaking: Effective Integration of Science in International Environmental Law"</div>
+      <article class="pillar global">
+        <div class="pillar-media">
+          <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2018/03/barthol-amerikis-italias-ego-II-1024x683.jpg"
+               loading="lazy" alt="">
         </div>
-        <div class="credential-card">
-          <div class="institution">Georgetown University Law Center</div>
-          <div class="degree">LL.M. with Distinction · Fulbright Scholar</div>
-          <div class="detail" data-en="International Legal Studies" data-el="Διεθνείς Νομικές Σπουδές">International Legal Studies</div>
+        <div class="pillar-body-wrap">
+          <div class="pillar-kicker">
+            <span class="el">Στον Κόσμο</span>
+            <span class="en">On the World Stage</span>
+          </div>
+          <h3 class="pillar-title">
+            <span class="el">Η φωνή της Ελλάδας <em>στα παγκόσμια φόρα</em></span>
+            <span class="en">Greece's voice <em>in the global forums</em></span>
+          </h3>
+          <p class="pillar-body el">Ως Ειδική Απεσταλμένη του Πρωθυπουργού για τους Ωκεανούς και Πρόεδρος της Επιτροπής Περιβάλλοντος της Βουλής, εκπροσωπεί την Ελλάδα εκεί όπου χαράσσεται η πολιτική του 21ου αιώνα.</p>
+          <p class="pillar-body en" style="display:none;">As the Prime Minister's Envoy for the Ocean and Chair of Parliament's Environment Committee, she represents Greece where the policy of the 21st century is written.</p>
+          <ul class="pillar-list el">
+            <li>Συντονισμός του 9ου Συνεδρίου Our Ocean (Αθήνα 2024)</li>
+            <li>Αντιπρόεδρος Global Water Partnership · ICC Environment Commission</li>
+            <li>Πρόεδρος Κύκλου Βουλευτών Μεσογείου για τη Βιώσιμη Ανάπτυξη</li>
+            <li>Μέλος Εκτελεστικής Επιτροπής Διακοινοβουλευτικής Ένωσης (IPU)</li>
+          </ul>
+          <ul class="pillar-list en" style="display:none;">
+            <li>Coordinator, 9th Our Ocean Conference (Athens 2024)</li>
+            <li>Vice-Chair, Global Water Partnership · ICC Environment Commission</li>
+            <li>Chair, Mediterranean Parliamentarians for Sustainable Development</li>
+            <li>Executive Committee Member, Inter-Parliamentary Union (IPU)</li>
+          </ul>
+          <a href="news.html?tag=global" class="pillar-link">
+            <span class="el">Διεθνές έργο</span>
+            <span class="en">International work</span>
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
-        <div class="credential-card">
-          <div class="institution" data-en="University of Athens" data-el="Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών">University of Athens</div>
-          <div class="degree" data-en="Ptyhio (LL.B. equivalent) — Highest Honors" data-el="Πτυχίο Νομικής — Άριστα">Ptyhio (LL.B. equivalent) — Highest Honors</div>
-          <div class="detail" data-en="Faculty of Law" data-el="Νομική Σχολή">Faculty of Law</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── METRICS STRIP ── -->
+<section class="metrics reveal">
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="metric-num"><em>4</em></div>
+      <div class="metric-label el">Θητείες στην Ελληνική Βουλή</div>
+      <div class="metric-label en" style="display:none;">Terms in the Hellenic Parliament</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num"><em>5</em></div>
+      <div class="metric-label el">Γλώσσες — ΕΛ, ΕΝ, FR, DE, ES</div>
+      <div class="metric-label en" style="display:none;">Languages — EL, EN, FR, DE, ES</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num"><em>1</em></div>
+      <div class="metric-label el">J.S.D. από το Columbia Law</div>
+      <div class="metric-label en" style="display:none;">J.S.D. from Columbia Law</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num"><em>40</em>+</div>
+      <div class="metric-label el">Διεθνείς διακρίσεις & βραβεύσεις</div>
+      <div class="metric-label en" style="display:none;">International distinctions & awards</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWS ── -->
+<section class="news reveal" id="news">
+  <div class="container">
+    <div class="news-header">
+      <div>
+        <div class="section-label">
+          <span class="section-label-line"></span>
+          <span class="el">Πρόσφατα Νέα</span>
+          <span class="en">Recent News</span>
         </div>
-        <div class="credential-card">
-          <div class="institution" data-en="International Fellowships" data-el="Διεθνείς Υποτροφίες">International Fellowships</div>
-          <div class="degree">NATO · Onassis Foundation · Greek State Scholarships</div>
-          <div class="detail" data-en="Multiple international academic distinctions" data-el="Πολλαπλές διεθνείς ακαδημαϊκές διακρίσεις">Multiple international academic distinctions</div>
+        <h2 class="section-title">
+          <span class="el">Από το <em>πεδίο</em></span>
+          <span class="en">From the <em>field</em></span>
+        </h2>
+      </div>
+      <a href="news.html" class="btn btn-ghost" style="color:var(--navy-deep); border-color:var(--gold);">
+        <span class="el">Όλα τα Νέα</span>
+        <span class="en">All News</span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+    <div class="news-grid">
+      <a href="news.html#congress" class="news-card feature">
+        <div class="news-card-media">
+          <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2026/05/%CE%A3%CE%A5%CE%9D%CE%95%CE%94%CE%A1%CE%99%CE%9F-%CE%9D%CE%94-2026-360x230.jpeg" loading="lazy" alt="">
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROLES -->
-<section id="roles">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="International &amp; Parliamentary Leadership" data-el="Διεθνής &amp; Κοινοβουλευτική Ηγεσία">International &amp; Parliamentary Leadership</div>
-    <h2 class="section-title" style="color:var(--cream)" data-en="Senior Roles Across<br><em style='color:var(--gold-pale)'>Global Institutions</em>" data-el="Ανώτερες Θέσεις σε<br><em style='color:var(--gold-pale)'>Διεθνείς Θεσμούς</em>">Senior Roles Across<br><em style="color:var(--gold-pale)">Global Institutions</em></h2>
-    <div class="roles-grid">
-      <div class="role-card reveal">
-        <div class="role-org" data-en="Hellenic Parliament" data-el="Ελληνική Βουλή">Hellenic Parliament</div>
-        <div class="role-title" data-en="Chair, Special Parliamentary Committee on Environmental Protection" data-el="Πρόεδρος Ειδικής Επιτροπής Περιβάλλοντος">Chair, Special Parliamentary Committee on Environmental Protection</div>
-        <div class="role-desc" data-en="Leading parliamentary action on climate, biodiversity, water, and sustainable development. Four-term elected Member of Parliament for the Prefecture of Ilia." data-el="Κοινοβουλευτική δράση για κλίμα, βιοποικιλότητα, νερό και βιώσιμη ανάπτυξη. Τετράκις εκλεγμένη Βουλευτής Ηλείας.">Leading parliamentary action on climate, biodiversity, water, and sustainable development. Four-term elected Member of Parliament for the Prefecture of Ilia.</div>
-      </div>
-      <div class="role-card reveal">
-        <div class="role-org">Inter-Parliamentary Union (IPU)</div>
-        <div class="role-title" data-en="Executive Committee Member &amp; Former Vice-President" data-el="Μέλος Εκτελεστικής Επιτροπής &amp; πρώην Αντιπρόεδρος">Executive Committee Member &amp; Former Vice-President</div>
-        <div class="role-desc" data-en="Shaping the IPU's vision, governance, and policy decisions, representing the Twelve Plus Group. Former Chair of the Standing Committee for UN Affairs." data-el="Διαμόρφωση οράματος, διακυβέρνησης και πολιτικών αποφάσεων ΔΚΕ. Πρώην Πρόεδρος Επιτροπής Υποθέσεων ΟΗΕ.">Shaping the IPU's vision, governance, and policy decisions, representing the Twelve Plus Group. Former Chair of the Standing Committee for UN Affairs.</div>
-      </div>
-      <div class="role-card reveal">
-        <div class="role-org" data-en="Greek Prime Minister's Office" data-el="Γραφείο Πρωθυπουργού">Greek Prime Minister's Office</div>
-        <div class="role-title" data-en="Special Envoy for the Ocean" data-el="Ειδική Απεσταλμένη για τον Ωκεανό">Special Envoy for the Ocean</div>
-        <div class="role-desc" data-en="Coordinating the 9th Our Ocean Conference (Athens 2024) and spearheading Greece's international commitments on ocean governance and the blue economy." data-el="Συντονισμός της 9ης Διάσκεψης Our Ocean (Αθήνα 2024) και καθοδήγηση διεθνών δεσμεύσεων για τη γαλάζια οικονομία.">Coordinating the 9th Our Ocean Conference (Athens 2024) and spearheading Greece's international commitments on ocean governance and the blue economy.</div>
-      </div>
-      <div class="role-card reveal">
-        <div class="role-org">Global Water Partnership (Stockholm)</div>
-        <div class="role-title" data-en="Vice-Chair of the Steering Committee" data-el="Αντιπρόεδρος Διευθύνουσας Επιτροπής">Vice-Chair of the Steering Committee</div>
-        <div class="role-desc" data-en="Guiding global water policy and institutional oversight at one of the world's leading intergovernmental water governance bodies." data-el="Καθοδήγηση παγκόσμιας πολιτικής νερού σε έναν από τους κορυφαίους διεθνείς οργανισμούς διακυβέρνησης υδάτων.">Guiding global water policy and institutional oversight at one of the world's leading intergovernmental water governance bodies.</div>
-      </div>
-      <div class="role-card reveal">
-        <div class="role-org">ICC Environment Commission (Paris)</div>
-        <div class="role-title" data-en="Vice-Chair &amp; Working Group Head on Water" data-el="Αντιπρόεδρος &amp; Επικεφαλής Ομάδας Εργασίας Νερού">Vice-Chair &amp; Working Group Head on Water</div>
-        <div class="role-desc" data-en="Representing the private sector in UNFCCC processes. Addressed the plenary of UNFCCC COP24 on behalf of Business and Industry." data-el="Εκπροσώπηση ιδιωτικού τομέα στις διαδικασίες UNFCCC. Ομιλία στην ολομέλεια COP24 εξ ονόματος επιχειρηματικού τομέα.">Representing the private sector in UNFCCC processes. Addressed the plenary of UNFCCC COP24 on behalf of Business and Industry.</div>
-      </div>
-      <div class="role-card reveal">
-        <div class="role-org">COMPSUD</div>
-        <div class="role-title" data-en="Chairperson, Circle of Mediterranean Parliamentarians" data-el="Πρόεδρος Κύκλου Μεσογειακών Κοινοβουλευτικών">Chairperson, Circle of Mediterranean Parliamentarians</div>
-        <div class="role-desc" data-en="Leading parliamentary initiatives on sustainable development and Mediterranean cooperation, bridging parliaments, governments, and civil society." data-el="Ηγεσία κοινοβουλευτικών πρωτοβουλιών για βιώσιμη ανάπτυξη και μεσογειακή συνεργασία.">Leading parliamentary initiatives on sustainable development and Mediterranean cooperation, bridging parliaments, governments, and civil society.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AWARDS -->
-<section id="awards">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="Recognition" data-el="Αναγνώριση">Recognition</div>
-    <h2 class="section-title" data-en="International <em>Distinctions &amp; Awards</em>" data-el="Διεθνείς <em>Διακρίσεις &amp; Βραβεύσεις</em>">International <em>Distinctions &amp; Awards</em></h2>
-    <div class="awards-grid">
-      <div class="award-item reveal"><div class="num">01</div><div class="name" data-en="Young Global Leader, World Economic Forum" data-el="Νέος Παγκόσμιος Ηγέτης, Παγκόσμιο Οικονομικό Φόρουμ">Young Global Leader, World Economic Forum</div><div class="org">World Economic Forum</div></div>
-      <div class="award-item reveal"><div class="num">02</div><div class="name" data-en="Forty Under Forty European Leaders" data-el="Σαράντα Ηγέτες κάτω των Σαράντα Ευρωπαίων">Forty Under Forty European Leaders</div><div class="org">European Forty Under Forty</div></div>
-      <div class="award-item reveal"><div class="num">03</div><div class="name" data-en='UNEP/Green Cross "Green Star" Award' data-el='Βραβείο "Green Star" UNEP/Green Cross'>UNEP/Green Cross "Green Star" Award</div><div class="org">United Nations Environment Programme</div></div>
-      <div class="award-item reveal"><div class="num">04</div><div class="name" data-en="Global Citizenship Award for Leadership in Assisting Humanity" data-el="Βραβείο Παγκόσμιας Ιθαγένειας για Ηγεσία στη Βοήθεια της Ανθρωπότητας">Global Citizenship Award for Leadership in Assisting Humanity</div><div class="org">International Recognition</div></div>
-      <div class="award-item reveal"><div class="num">05</div><div class="name" data-en="Global Women Leaders Award" data-el="Βραβείο Παγκόσμιων Γυναικών Ηγετών">Global Women Leaders Award</div><div class="org">Euro-American Women's Council</div></div>
-      <div class="award-item reveal"><div class="num">06</div><div class="name" data-en="Grand Prix Maria Callas Award" data-el="Μεγάλο Βραβείο Μαρία Κάλλας">Grand Prix Maria Callas Award</div><div class="org" data-en="Hellenic Republic" data-el="Ελληνική Δημοκρατία">Hellenic Republic</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="Scholarship" data-el="Επιστημονικό Έργο">Scholarship</div>
-    <h2 class="section-title" data-en="Publications &amp; <em>Thought Leadership</em>" data-el="Δημοσιεύσεις &amp; <em>Επιστημονική Σκέψη</em>">Publications &amp; <em>Thought Leadership</em></h2>
-    <div class="pub-featured reveal">
-      <div class="pub-book-spine"><div class="pub-book-text">Springer 2019</div></div>
-      <div class="pub-featured-content">
-        <div class="label" data-en="Featured Book" data-el="Κύριο Βιβλίο">Featured Book</div>
-        <h3 data-en="The Denial of Knowledge — How International Lawmakers Fail in Integrating Science in Environmental Laws" data-el="Η Άρνηση της Γνώσης — Πώς οι Διεθνείς Νομοθέτες Αποτυγχάνουν να Ενσωματώσουν την Επιστήμη στους Περιβαλλοντικούς Νόμους">The Denial of Knowledge — How International Lawmakers Fail in Integrating Science in Environmental Laws</h3>
-        <p data-en="Springer Publishing, 2019. Dr. Avgerinopoulou's seminal work pioneering the link between science and policymaking in international environmental law." data-el="Springer Publishing, 2019. Το θεμελιώδες έργο της Δρ. Αυγερινοπούλου που πρωτοπόρησε στη σύνδεση επιστήμης και χάραξης πολιτικής στο διεθνές περιβαλλοντικό δίκαιο.">Springer Publishing, 2019. Dr. Avgerinopoulou's seminal work pioneering the link between science and policymaking in international environmental law.</p>
-      </div>
-    </div>
-    <div class="pubs-list">
-      <div class="pub-item reveal"><div class="pub-year">2018</div><div><div class="pub-title">Justifying the Participation of Science in International Environmental Lawmaking Processes — From Plato to Ecological Technocracy</div><div class="pub-journal">4th Congress of the Humanitarian and Social Sciences Institute (I.A.K.E.)</div></div></div>
-      <div class="pub-item reveal"><div class="pub-year">2017</div><div><div class="pub-title">Recent Developments in International Space Law (with Katerina Stollis)</div><div class="pub-journal">European Journal of Law, Science and Technology, Vol. 3, No. 4</div></div></div>
-      <div class="pub-item reveal"><div class="pub-year">2009</div><div><div class="pub-title">Development and Future of Climate Change Law (with Michael B. Gerrard)</div><div class="pub-journal">The Future of International Environmental Law, United Nations University</div></div></div>
-      <div class="pub-item reveal"><div class="pub-year">2007</div><div><div class="pub-title">Approximation of European Environmental Criminal Legislation: Within or Out of the Community Law Mandate?</div><div class="pub-journal">Columbia Journal of European Law, Vol. 13, No. 3</div></div></div>
-      <div class="pub-item reveal"><div class="pub-year">2006</div><div><div class="pub-title">Implementation and Compliance of Multilateral Environmental Agreements — The New EC Generalized System of Preference Scheme</div><div class="pub-journal">Columbia Journal of European Law, Vol. 12, No. 3</div></div></div>
-      <div class="pub-item reveal"><div class="pub-year">2005</div><div><div class="pub-title">The Law-making Process at the International Seabed Authority as a Limitation to Effective Environmental Management</div><div class="pub-journal">Columbia Journal of Environmental Law, Vol. 3</div></div></div>
-      <div class="pub-item reveal"><div class="pub-year">2003</div><div><div class="pub-title">A Roadmap to the Era of Global Environmental Wisdom</div><div class="pub-journal">Georgetown International Environmental Law Review, Vol. 15, p. 887</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- MATERIALS -->
-<section id="materials">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="Press &amp; Resources" data-el="Τύπος &amp; Υλικό">Press &amp; Resources</div>
-    <h2 class="section-title" style="color:var(--cream)" data-en="Sharing <em style='color:var(--gold-pale)'>Materials</em>" data-el="Υλικό για <em style='color:var(--gold-pale)'>Διανομή</em>">Sharing <em style="color:var(--gold-pale)">Materials</em></h2>
-    <p class="materials-intro" data-en="Download official candidacy statements, biography, and press materials in all available languages." data-el="Κατεβάστε επίσημες δηλώσεις υποψηφιότητας, βιογραφικό και υλικό τύπου σε όλες τις διαθέσιμες γλώσσες.">Download official candidacy statements, biography, and press materials in all available languages.</p>
-    <div class="materials-grid">
-      <div class="material-card reveal">
-        <div class="material-flag">EN</div>
-        <div class="material-type" data-en="Candidacy Statement" data-el="Δήλωση Υποψηφιότητας">Candidacy Statement</div>
-        <div class="material-title" data-en="IPU Secretary-General Candidacy — English Version" data-el="Υποψηφιότητα ΓΓ ΔΚΕ — Αγγλική Έκδοση">IPU Secretary-General Candidacy — English Version</div>
-        <div class="material-desc" data-en="Full candidacy statement including vision, policy priorities, and biography for the 2026 IPU Secretary-General election." data-el="Πλήρης δήλωση υποψηφιότητας με όραμα, πολιτικές προτεραιότητες και βιογραφικό για τις εκλογές ΓΓ ΔΚΕ 2026.">Full candidacy statement including vision, policy priorities, and biography for the 2026 IPU Secretary-General election.</div>
-        <a href="https://www.avgerinopoulou.gr/wp-content/uploads/2026/04/English-Version-2.pdf" class="material-dl" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 7l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span data-en="Download PDF" data-el="Λήψη PDF">Download PDF</span>
-        </a>
-      </div>
-      <div class="material-card reveal">
-        <div class="material-flag">FR</div>
-        <div class="material-type" data-en="Candidature Officielle" data-el="Επίσημη Υποψηφιότητα">Candidature Officielle</div>
-        <div class="material-title" data-en="Candidature au poste de Secrétaire général — Version Française" data-el="Υποψηφιότητα ΓΓ ΔΚΕ — Γαλλική Έκδοση">Candidature au poste de Secrétaire général — Version Française</div>
-        <div class="material-desc" data-en="Official French-language candidacy statement for distribution to Francophone parliamentarians and delegations." data-el="Επίσημη γαλλόφωνη δήλωση υποψηφιότητας για γαλλόφωνους κοινοβουλευτικούς και αντιπροσωπείες.">Official French-language candidacy statement for distribution to Francophone parliamentarians and delegations.</div>
-        <a href="https://www.avgerinopoulou.gr/wp-content/uploads/2026/04/French-Version-2.pdf" class="material-dl" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 7l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span data-en="Download PDF" data-el="Λήψη PDF">Download PDF</span>
-        </a>
-      </div>
-      <div class="material-card reveal">
-        <div class="material-flag">ΕΛ</div>
-        <div class="material-type" data-en="Candidacy Statement" data-el="Δήλωση Υποψηφιότητας">Candidacy Statement</div>
-        <div class="material-title" data-en="IPU Secretary-General Candidacy — Greek Version" data-el="Υποψηφιότητα ΓΓ ΔΚΕ — Ελληνική Έκδοση">IPU Secretary-General Candidacy — Greek Version</div>
-        <div class="material-desc" data-en="Greek-language version of the official candidacy statement for distribution to Greek-speaking media and institutions." data-el="Ελληνόγλωσση έκδοση της επίσημης δήλωσης υποψηφιότητας για ελληνόφωνα μέσα και θεσμούς.">Greek-language version of the official candidacy statement for distribution to Greek-speaking media and institutions.</div>
-        <a href="https://www.avgerinopoulou.gr/en/" class="material-dl" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 7l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span data-en="Visit Site" data-el="Επίσκεψη Ιστοτόπου">Visit Site</span>
-        </a>
-      </div>
-      <div class="material-card reveal">
-        <div class="material-flag" style="width:auto;padding:0 8px;">CV</div>
-        <div class="material-type" data-en="Official Biography" data-el="Επίσημο Βιογραφικό">Official Biography</div>
-        <div class="material-title" data-en="Narrative CV — Dr. Dionysia-Theodora Avgerinopoulou" data-el="Βιογραφικό — Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου">Narrative CV — Dr. Dionysia-Theodora Avgerinopoulou</div>
-        <div class="material-desc" data-en="Full narrative curriculum vitae covering academic excellence, international leadership, parliamentary service, and publications." data-el="Πλήρες βιογραφικό που καλύπτει ακαδημαϊκή αριστεία, διεθνή ηγεσία, κοινοβουλευτική υπηρεσία και δημοσιεύσεις.">Full narrative curriculum vitae covering academic excellence, international leadership, parliamentary service, and publications.</div>
-        <a href="#biography" class="material-dl">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span data-en="Read Biography" data-el="Διαβάστε Βιογραφικό">Read Biography</span>
-        </a>
-      </div>
-      <div class="material-card reveal">
-        <div class="material-flag" style="width:auto;padding:0 8px;">PUB</div>
-        <div class="material-type" data-en="Academic Book" data-el="Ακαδημαϊκό Βιβλίο">Academic Book</div>
-        <div class="material-title" data-en="The Denial of Knowledge — Springer, 2019" data-el="Η Άρνηση της Γνώσης — Springer, 2019">The Denial of Knowledge — Springer, 2019</div>
-        <div class="material-desc" data-en="Springer-published monograph on science-based lawmaking and the integration of science in international environmental law." data-el="Μονογραφία από τον εκδοτικό οίκο Springer για τη νομοθεσία βασισμένη στην επιστήμη.">Springer-published monograph on science-based lawmaking and the integration of science in international environmental law.</div>
-        <a href="https://link.springer.com/book/9783030045388" class="material-dl" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span data-en="View on Springer" data-el="Δείτε στο Springer">View on Springer</span>
-        </a>
-      </div>
-      <div class="material-card reveal">
-        <div class="material-flag" style="width:auto;padding:0 8px;">WEB</div>
-        <div class="material-type" data-en="Media &amp; Press" data-el="Μέσα &amp; Τύπος">Media &amp; Press</div>
-        <div class="material-title" data-en="Press Releases &amp; Official Communications" data-el="Δελτία Τύπου &amp; Επίσημες Ανακοινώσεις">Press Releases &amp; Official Communications</div>
-        <div class="material-desc" data-en="Full archive of press releases, speeches, and official communications available on the official website." data-el="Πλήρες αρχείο δελτίων τύπου, ομιλιών και επίσημων ανακοινώσεων στον επίσημο ιστότοπο.">Full archive of press releases, speeches, and official communications available on the official website.</div>
-        <a href="https://www.avgerinopoulou.gr/en/" class="material-dl" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          <span data-en="Visit Archive" data-el="Επίσκεψη Αρχείου">Visit Archive</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRESS -->
-<section id="press">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="Media" data-el="Μέσα Ενημέρωσης">Media</div>
-    <h2 class="section-title" data-en="Recent <em>Press Releases</em>" data-el="Πρόσφατα <em>Δελτία Τύπου</em>">Recent <em>Press Releases</em></h2>
-    <div class="press-grid">
-      <a href="https://www.avgerinopoulou.gr/2024/10/30/vice-president-of-the-inter-parliamentary-union-dr-avgeninopoulou-addresses-critical-global-security-concerns-amid-war-in-ukraine/" class="press-card reveal" target="_blank">
-        <div class="press-card-img"><div class="press-card-img-inner"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" opacity="0.2"><circle cx="24" cy="24" r="20" stroke="#c4973a" stroke-width="1.5"/><path d="M24 8v32M8 24h32" stroke="#c4973a" stroke-width="1.5"/><ellipse cx="24" cy="24" rx="10" ry="20" stroke="#c4973a" stroke-width="1.5"/></svg></div><div class="press-tag">IPU</div></div>
-        <div class="press-card-body">
-          <div class="press-date">October 30, 2024 · Riga, Latvia</div>
-          <div class="press-card-title" data-en="Dr. Avgerinopoulou Addresses Critical Global Security Concerns Amid War in Ukraine" data-el="Η Δρ. Αυγερινοπούλου Θέτει Κρίσιμα Ζητήματα Παγκόσμιας Ασφάλειας εν μέσω Πολέμου">Dr. Avgerinopoulou Addresses Critical Global Security Concerns Amid War in Ukraine</div>
-          <div class="press-excerpt" data-en="Speech at the Third Parliamentary Summit in Riga, reaffirming IPU's condemnation of military aggression and advocacy for parliamentary diplomacy." data-el="Ομιλία στην 3η Κοινοβουλευτική Σύνοδο Κορυφής στη Ρίγα, επιβεβαίωση καταδίκης στρατιωτικής επιθετικότητας.">Speech at the Third Parliamentary Summit in Riga, reaffirming IPU's condemnation of military aggression and advocacy for parliamentary diplomacy.</div>
+        <div class="news-card-body">
+          <span class="news-card-tag parliament">
+            <span class="el">Νέα Δημοκρατία</span><span class="en">New Democracy</span>
+          </span>
+          <div class="news-card-date">17 · 05 · 2026</div>
+          <h3 class="news-card-title">
+            <span class="el">Στο 16ο Συνέδριο της Νέας Δημοκρατίας: «Για μια Ελλάδα <em>ισχυρή, πρωτοπόρο και αυτοδύναμη</em>»</span>
+            <span class="en">At the 16th ND Congress: "For a Greece that is <em>strong, pioneering, and self-reliant</em>"</span>
+          </h3>
+          <p class="news-card-excerpt">
+            <span class="el">Δυναμική παρουσία με μήνυμα σταθερότητας — η δουλειά συνεχίζεται, με αξιοπιστία και θεσμικό βάρος στις προτεραιότητες της Ηλείας και της χώρας.</span>
+            <span class="en">A dynamic presence with a message of stability — the work continues, with credibility and institutional weight on the priorities of Ilia and the country.</span>
+          </p>
+          <div class="news-card-meta">
+            <span class="el">Διαβάστε περισσότερα</span>
+            <span class="en">Read more</span>
+            <span class="btn-arrow">→</span>
+          </div>
         </div>
       </a>
-      <a href="https://www.avgerinopoulou.gr/2024/03/26/greek-prime-minister-s-special-envoy-for-the-ocean-our-ocean-conference-2024-coordinator-dr-dionysia-theodora-avgerinopoulou-at-the-monaco-blue-initiative/" class="press-card reveal" target="_blank">
-        <div class="press-card-img"><div class="press-card-img-inner"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" opacity="0.2"><path d="M8 32c4-8 8-12 16-12s12 4 16 12" stroke="#c4973a" stroke-width="1.5"/><path d="M4 38c5-10 10-14 20-14s15 4 20 14" stroke="#c4973a" stroke-width="1.5"/><circle cx="24" cy="16" r="6" stroke="#c4973a" stroke-width="1.5"/></svg></div><div class="press-tag" data-en="Ocean" data-el="Ωκεανός">Ocean</div></div>
-        <div class="press-card-body">
-          <div class="press-date">March 26, 2024 · Monaco</div>
-          <div class="press-card-title" data-en="Special Envoy for the Ocean at the Monaco Blue Initiative" data-el="Ειδική Απεσταλμένη για τον Ωκεανό στη Monaco Blue Initiative">Special Envoy for the Ocean at the Monaco Blue Initiative</div>
-          <div class="press-excerpt" data-en="Dr. Avgerinopoulou presents Greece's contributions to the global dialogue on ocean resilience ahead of Our Ocean Conference Athens 2024." data-el="Η Δρ. Αυγερινοπούλου παρουσιάζει τη συμβολή της Ελλάδας στον παγκόσμιο διάλογο για την ανθεκτικότητα των ωκεανών.">Dr. Avgerinopoulou presents Greece's contributions to the global dialogue on ocean resilience ahead of Our Ocean Conference Athens 2024.</div>
+
+      <a href="news.html#oncology" class="news-card">
+        <div class="news-card-media">
+          <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2026/05/%CE%91%CE%94%CE%A9%CE%9D%CE%99%CE%A3-%CE%93%CE%95%CE%A9%CE%A1%CE%93%CE%99%CE%91%CE%94%CE%97%CE%A3-%CE%9F%CE%93%CE%9A%CE%9F%CE%9B%CE%9F%CE%93%CE%99%CE%9A%CE%9F-360x230.jpeg" loading="lazy" alt="">
+        </div>
+        <div class="news-card-body">
+          <span class="news-card-tag local"><span class="el">Ηλεία</span><span class="en">Ilia</span></span>
+          <div class="news-card-date">15 · 05 · 2026</div>
+          <h3 class="news-card-title">
+            <span class="el">Ογκολογική Μονάδα στην Ηλεία — συνάντηση με τον Υπουργό Υγείας Α. Γεωργιάδη</span>
+            <span class="en">Oncology Unit for Ilia — meeting with Minister of Health A. Georgiadis</span>
+          </h3>
+          <div class="news-card-meta">
+            <span class="el">Δελτίο Τύπου</span>
+            <span class="en">Press release</span>
+            <span class="btn-arrow">→</span>
+          </div>
         </div>
       </a>
-      <a href="https://www.avgerinopoulou.gr/2024/03/15/special-envoy-for-the-oceans-and-coordinator-of-ooc-9-dr-dionysia-theodora-avgerinopoulou-asks-the-private-sector-to-invest-in-the-sustainable-blue-economy-of-greece/" class="press-card reveal" target="_blank">
-        <div class="press-card-img"><div class="press-card-img-inner"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" opacity="0.2"><rect x="10" y="24" width="8" height="16" stroke="#c4973a" stroke-width="1.5"/><rect x="22" y="16" width="8" height="24" stroke="#c4973a" stroke-width="1.5"/><rect x="34" y="8" width="8" height="32" stroke="#c4973a" stroke-width="1.5"/><path d="M8 42h36" stroke="#c4973a" stroke-width="1.5"/></svg></div><div class="press-tag" data-en="Blue Economy" data-el="Γαλάζια Οικονομία">Blue Economy</div></div>
-        <div class="press-card-body">
-          <div class="press-date">March 15, 2024 · Lisbon</div>
-          <div class="press-card-title" data-en="Envoy Avgerinopoulou Calls Private Sector to Invest in Greece's Blue Economy" data-el="Η Απεσταλμένη Αυγερινοπούλου Καλεί τον Ιδιωτικό Τομέα να Επενδύσει στη Γαλάζια Οικονομία">Envoy Avgerinopoulou Calls Private Sector to Invest in Greece's Blue Economy</div>
-          <div class="press-excerpt" data-en="Panel discussion at the 11th Annual World Ocean Congress, focusing on redirecting finance flows toward ocean-sustainable investments." data-el="Συζήτηση πάνελ στο 11ο Παγκόσμιο Συνέδριο Ωκεανών, με εστίαση στη χρηματοδότηση βιώσιμων επενδύσεων.">Panel discussion at the 11th Annual World Ocean Congress, focusing on redirecting finance flows toward ocean-sustainable investments.</div>
+
+      <a href="news.html#strategy" class="news-card">
+        <div class="news-card-media">
+          <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-galazia-simaia-1024x682.jpeg" loading="lazy" alt="">
+        </div>
+        <div class="news-card-body">
+          <span class="news-card-tag global"><span class="el">Διεθνώς</span><span class="en">Global</span></span>
+          <div class="news-card-date">15 · 05 · 2026</div>
+          <h3 class="news-card-title">
+            <span class="el">Η Ελλάδα στην πρώτη γραμμή της ευρωπαϊκής στρατηγικής για τους ωκεανούς</span>
+            <span class="en">Greece at the forefront of European ocean &amp; fisheries strategy</span>
+          </h3>
+          <div class="news-card-meta">
+            <span class="el">Κοινή Συνεδρίαση</span>
+            <span class="en">Joint Session</span>
+            <span class="btn-arrow">→</span>
+          </div>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-en="Get in Touch" data-el="Επικοινωνία">Get in Touch</div>
-    <h2 class="section-title" data-en="Connect with <em>Dr. Avgerinopoulou</em>" data-el="Επικοινωνήστε με <em>τη Δρ. Αυγερινοπούλου</em>">Connect with <em>Dr. Avgerinopoulou</em></h2>
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="label" data-en="Office" data-el="Γραφείο">Office</div>
-            <div class="value" data-en="Hellenic Parliament, Athens, Greece" data-el="Ελληνική Βουλή, Αθήνα, Ελλάδα">Hellenic Parliament, Athens, Greece</div>
-          </div>
-          <div class="contact-item">
-            <div class="label" data-en="International" data-el="Διεθνής Έδρα">International</div>
-            <div class="value" data-en="Inter-Parliamentary Union, Geneva" data-el="Διακοινοβουλευτική Ένωση, Γενεύη">Inter-Parliamentary Union, Geneva</div>
-          </div>
-          <div class="contact-item">
-            <div class="label" data-en="Languages" data-el="Γλώσσες">Languages</div>
-            <div class="value" data-en="Greek · English · French · German · Spanish" data-el="Ελληνικά · Αγγλικά · Γαλλικά · Γερμανικά · Ισπανικά">Greek · English · French · German · Spanish</div>
-          </div>
-          <div class="contact-item">
-            <div class="label" data-en="Media Enquiries" data-el="Ερωτήματα Τύπου">Media Enquiries</div>
-            <div class="value"><a href="https://www.avgerinopoulou.gr/epikoinonia/" style="color:var(--gold);text-decoration:none;" target="_blank" data-en="Contact Form →" data-el="Φόρμα Επικοινωνίας →">Contact Form →</a></div>
-          </div>
-        </div>
+<!-- ── VISION TEASER ── -->
+<section class="vision reveal" id="vision">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-label-line"></span>
+      <span class="el">Το Όραμα</span>
+      <span class="en">The Vision</span>
+    </div>
+    <h2 class="section-title">
+      <span class="el">Τέσσερις προτεραιότητες <em>για την επόμενη θητεία</em></span>
+      <span class="en">Four priorities <em>for the next term</em></span>
+    </h2>
+    <p class="section-lede el">Συγκεκριμένες δεσμεύσεις, μετρήσιμα αποτελέσματα. Η Ηλεία στο επίκεντρο, η Ελλάδα στη διεθνή σκηνή.</p>
+    <p class="section-lede en" style="display:none;">Specific commitments. Measurable outcomes. Ilia at the center, Greece on the global stage.</p>
+
+    <div class="vision-grid">
+      <div>
+        <p style="font-family:var(--serif); font-size:1.4rem; font-style:italic; color:var(--text-mid); line-height:1.6; margin-bottom:2rem;" class="el">«Η πολιτική για το περιβάλλον, την οικονομία και τη δικαιοσύνη δεν είναι ξεχωριστές διαδρομές — είναι μία και η ίδια εργασία.»</p>
+        <p style="font-family:var(--serif); font-size:1.4rem; font-style:italic; color:var(--text-mid); line-height:1.6; margin-bottom:2rem; display:none;" class="en">"Environment, economy, and justice are not separate roads — they are one and the same work."</p>
+        <a href="bio.html#vision" class="btn btn-ghost" style="color:var(--navy-deep); border-color:var(--gold);">
+          <span class="el">Διαβάστε το Πλήρες Όραμα</span>
+          <span class="en">Read the Full Vision</span>
+          <span class="btn-arrow">→</span>
+        </a>
       </div>
-      <div class="contact-form reveal">
-        <div class="form-group">
-          <label data-en="Full Name" data-el="Ονοματεπώνυμο">Full Name</label>
-          <input type="text" placeholder="Your full name">
+      <div class="vision-pillars">
+        <div class="vision-item">
+          <div class="vision-item-icon">i</div>
+          <div class="vision-item-title el">Περιβάλλον &amp; Ωκεανοί</div>
+          <div class="vision-item-title en" style="display:none;">Environment &amp; Ocean</div>
+          <div class="vision-item-body el">Πιο τολμηρή προστασία θαλασσών, νερών και βιοποικιλότητας — με τεκμηρίωση και πολιτική βούληση.</div>
+          <div class="vision-item-body en" style="display:none;">Bolder protection of seas, waters, and biodiversity — with evidence and political will.</div>
         </div>
-        <div class="form-group">
-          <label data-en="Email Address" data-el="Διεύθυνση Email">Email Address</label>
-          <input type="email" placeholder="your@email.com">
+        <div class="vision-item">
+          <div class="vision-item-icon">ii</div>
+          <div class="vision-item-title el">Περιφερειακή Ανάπτυξη</div>
+          <div class="vision-item-title en" style="display:none;">Regional Development</div>
+          <div class="vision-item-body el">Πραγματικές επενδύσεις στην Ηλεία: υγεία, παιδεία, αγροτική παραγωγή, ψηφιακή μετάβαση.</div>
+          <div class="vision-item-body en" style="display:none;">Real investment in Ilia: health, education, agriculture, digital transition.</div>
         </div>
-        <div class="form-group">
-          <label data-en="Organization" data-el="Οργανισμός">Organization</label>
-          <input type="text" placeholder="Parliament, institution, or organization">
+        <div class="vision-item">
+          <div class="vision-item-icon">iii</div>
+          <div class="vision-item-title el">Πολιτισμός &amp; Κληρονομιά</div>
+          <div class="vision-item-title en" style="display:none;">Culture &amp; Heritage</div>
+          <div class="vision-item-body el">Από την Αρχαία Ολυμπία μέχρι τον Επικούριο Απόλλωνα — η Ηλεία ως διεθνής προορισμός.</div>
+          <div class="vision-item-body en" style="display:none;">From Ancient Olympia to the Temple of Apollo — Ilia as a global destination.</div>
         </div>
-        <div class="form-group">
-          <label data-en="Message" data-el="Μήνυμα">Message</label>
-          <textarea rows="4" placeholder="Your message..."></textarea>
+        <div class="vision-item">
+          <div class="vision-item-icon">iv</div>
+          <div class="vision-item-title el">Θεσμοί &amp; Διαφάνεια</div>
+          <div class="vision-item-title en" style="display:none;">Institutions &amp; Transparency</div>
+          <div class="vision-item-body el">Ισχυρότεροι θεσμοί, διαφανείς διαδικασίες, λογοδοσία σε κάθε επίπεδο της πολιτικής.</div>
+          <div class="vision-item-body en" style="display:none;">Stronger institutions, transparent processes, accountability at every level of government.</div>
         </div>
-        <button type="submit" class="form-submit" data-en="Send Message" data-el="Αποστολή Μηνύματος">Send Message</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ── GALLERY STRIP ── -->
+<section class="gallery reveal" id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-head">
+      <div>
+        <div class="section-label">
+          <span class="section-label-line"></span>
+          <span class="el">Στο Πεδίο</span>
+          <span class="en">In the Field</span>
+        </div>
+        <h2>
+          <span class="el">Από την Ηλεία <em>στον κόσμο</em></span>
+          <span class="en" style="display:none;">From Ilia <em>to the world</em></span>
+        </h2>
+      </div>
+      <p>
+        <span class="el">Στιγμές από το κοινοβουλευτικό, τοπικό και διεθνές έργο.</span>
+        <span class="en" style="display:none;">Moments from her parliamentary, local, and international work.</span>
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item x-feat">
+        <span class="gallery-tag"><span class="el">Με τον Πρωθυπουργό · Ηλεία</span><span class="en">With the PM · Ilia</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/mitsotakis-avgerinopoulou-ileia-1024x768.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Με τον Πρωθυπουργό Κυριάκο Μητσοτάκη στην Ηλεία</span><span class="en">With Prime Minister Kyriakos Mitsotakis in Ilia</span></div>
+      </div>
+      <div class="gallery-item x-tall">
+        <span class="gallery-tag"><span class="el">Περιβάλλον</span><span class="en">Environment</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-dentroftefsi-768x1024.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Δενδροφύτευση — δράση για το περιβάλλον</span><span class="en">Tree planting — environmental action</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Ωκεανοί</span><span class="en">Ocean</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-galazia-simaia-1024x682.jpeg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Γαλάζια Σημαία — πρωτοβουλίες για τις θάλασσες</span><span class="en">Blue Flag — ocean initiatives</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Διεθνώς</span><span class="en">International</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-tsounis-presvis-usa-1024x768.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Με τον Πρέσβη των ΗΠΑ G. Tsunis</span><span class="en">With U.S. Ambassador G. Tsunis</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Παιδεία</span><span class="en">Education</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-nea-sxoliki-xronia-990x1024.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Νέα σχολική χρονιά στην Ηλεία</span><span class="en">New school year in Ilia</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Βραβείο</span><span class="en">Award</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2018/03/green-star.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">UNEP / Green Cross «Green Star»</span><span class="en">UNEP / Green Cross "Green Star"</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Έργα Υποδομής</span><span class="en">Infrastructure</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/aftopsia-avgerinopoulou-ergotaxia-patras-pyrgou.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Αυτοψία στα έργα Πάτρας-Πύργου</span><span class="en">Inspecting Patras-Pyrgos roadworks</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Διπλωματία</span><span class="en">Diplomacy</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-presvis-uae-1024x725.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Με τον Πρέσβη των Ηνωμένων Αραβικών Εμιράτων</span><span class="en">With the UAE Ambassador</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Πολιτισμός</span><span class="en">Culture</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-galliko-institouto-768x1024.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Στο Γαλλικό Ινστιτούτο Αθηνών</span><span class="en">At the French Institute of Athens</span></div>
+      </div>
+      <div class="gallery-item x-mid">
+        <span class="gallery-tag"><span class="el">Κοινοβούλιο</span><span class="en">Parliament</span></span>
+        <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-prothypourgos-mitsotakis-vouli-1024x735.jpg" loading="lazy" alt="">
+        <div class="gallery-caption"><span class="el">Στη Βουλή των Ελλήνων</span><span class="en">In the Hellenic Parliament</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-cta">
+      <a href="news.html" class="btn btn-ghost">
+        <span class="el">Όλα τα Νέα &amp; οι Φωτογραφίες</span>
+        <span class="en">All News &amp; Photos</span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONNECT ── -->
+<section class="connect reveal" id="connect">
+  <div class="connect-inner">
+    <div class="connect-header">
+      <div class="section-label">
+        <span class="section-label-line"></span>
+        <span class="el">Συμμετοχή</span>
+        <span class="en">Get Involved</span>
+        <span class="section-label-line"></span>
+      </div>
+      <h2 class="section-title">
+        <span class="el">Σταθείτε <em>μαζί της</em></span>
+        <span class="en">Stand <em>with her</em></span>
+      </h2>
+      <p class="section-lede el">Τρεις τρόποι να ενώσετε τις δυνάμεις σας με την εκστρατεία — από την Ηλεία σε όλη την Ελλάδα.</p>
+      <p class="section-lede en" style="display:none;">Three ways to join the campaign — from Ilia to all of Greece.</p>
+    </div>
+    <div class="connect-cards">
+      <div class="connect-card">
+        <div class="connect-card-num">i.</div>
+        <h3 class="connect-card-title el">Ενημέρωση</h3>
+        <h3 class="connect-card-title en" style="display:none;">Stay Informed</h3>
+        <p class="connect-card-body el">Λάβετε άμεσα ενημερώσεις για το κοινοβουλευτικό έργο, τις θέσεις και τις εκδηλώσεις της εκστρατείας.</p>
+        <p class="connect-card-body en" style="display:none;">Get direct updates on parliamentary work, positions, and campaign events.</p>
+        <a href="connect.html#newsletter" class="btn btn-ghost">
+          <span class="el">Εγγραφή Newsletter</span>
+          <span class="en">Subscribe</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+      <div class="connect-card">
+        <div class="connect-card-num">ii.</div>
+        <h3 class="connect-card-title el">Εθελοντισμός</h3>
+        <h3 class="connect-card-title en" style="display:none;">Volunteer</h3>
+        <p class="connect-card-body el">Ενώστε τις δυνάμεις σας με μια διαρκώς αναπτυσσόμενη ομάδα στην Ηλεία και την Αθήνα.</p>
+        <p class="connect-card-body en" style="display:none;">Join a growing team across Ilia and Athens.</p>
+        <a href="connect.html#volunteer" class="btn btn-ghost">
+          <span class="el">Γίνε Εθελοντής</span>
+          <span class="en">Get Involved</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+      <div class="connect-card">
+        <div class="connect-card-num">iii.</div>
+        <h3 class="connect-card-title el">Υπηρεσία Πολίτη</h3>
+        <h3 class="connect-card-title en" style="display:none;">Constituent Service</h3>
+        <p class="connect-card-body el">Είστε από την Ηλεία και θέλετε να επικοινωνήσετε με το γραφείο της Βουλευτή; Είμαστε εδώ.</p>
+        <p class="connect-card-body en" style="display:none;">From Ilia and need to reach her office? We're here.</p>
+        <a href="connect.html#constituent" class="btn btn-ghost">
+          <span class="el">Επικοινωνία Γραφείου</span>
+          <span class="en">Office Contact</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-name">Dr. Dionysia-Theodora Avgerinopoulou</div>
-  <ul class="footer-links">
-    <li><a href="#candidacy" data-en="IPU Candidacy" data-el="Υποψηφιότητα">IPU Candidacy</a></li>
-    <li><a href="#biography" data-en="Biography" data-el="Βιογραφικό">Biography</a></li>
-    <li><a href="#materials" data-en="Materials" data-el="Υλικό">Materials</a></li>
-    <li><a href="#press" data-en="Press" data-el="Τύπος">Press</a></li>
-    <li><a href="https://www.youtube.com/channel/UCVoStXfBsK2sF80NBtczlMA" target="_blank">YouTube</a></li>
-  </ul>
-  <div class="footer-copy">&copy; 2026 Dionysia-Theodora Avgerinopoulou</div>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</div>
+      <p class="footer-brand-role el">Βουλευτής Ν. Ηλείας · Πρόεδρος της Επιτροπής Περιβάλλοντος της Βουλής · Ειδική Απεσταλμένη του Πρωθυπουργού για τους Ωκεανούς</p>
+      <p class="footer-brand-role en" style="display:none;">Member of the Hellenic Parliament for Ilia · Chair, Environment Committee of the Hellenic Parliament · Greek PM's Special Envoy for the Ocean</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/avgerinopoulou" target="_blank" rel="noopener">FB</a>
+        <a href="https://twitter.com/avgerinopoulou" target="_blank" rel="noopener">X</a>
+        <a href="https://www.instagram.com/davgerinopoulou/" target="_blank" rel="noopener">IG</a>
+        <a href="https://www.linkedin.com/in/avgerinopoulou/" target="_blank" rel="noopener">LI</a>
+        <a href="https://www.youtube.com/channel/UCVoStXfBsK2sF80NBtczlMA" target="_blank" rel="noopener">YT</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Πλοήγηση</span><span class="en">Site</span></div>
+      <ul>
+        <li><a href="#pillars"><span class="el">Έργο</span><span class="en">Work</span></a></li>
+        <li><a href="#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a></li>
+        <li><a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a></li>
+        <li><a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">Biography</span></a></li>
+        <li><a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Γραφεία</span><span class="en">Offices</span></div>
+      <ul>
+        <li>Αθήνα · Μητροπόλεως 1</li>
+        <li>Αθήνα · Ακαδημίας 28</li>
+        <li>Αμαλιάδα · Ελ. Βενιζέλου 16</li>
+        <li>Πύργος · Μ. Αλεξάνδρου 3</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Επαφή</span><span class="en">Contact</span></div>
+      <ul>
+        <li><a href="tel:+302114118547">+30 211 4118547</a></li>
+        <li><a href="tel:+306944010141">+30 6944 010141</a></li>
+        <li><a href="mailto:d.avgerinopoulou@parliament.gr">d.avgerinopoulou@parliament.gr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 <span class="el">Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου · Όλα τα δικαιώματα κατοχυρωμένα</span><span class="en">Dr. Dionysia-Theodora Avgerinopoulou · All rights reserved</span></div>
+    <div><a href="connect.html#privacy"><span class="el">Πολιτική Προστασίας Προσωπικών Δεδομένων</span><span class="en">Privacy Policy</span></a></div>
+  </div>
 </footer>
 
 <script>
-/* ── CANVAS ── */
-(function(){
-  const canvas=document.getElementById('hero-canvas'),ctx=canvas.getContext('2d');
-  let W,H,nodes=[],mouse={x:-9999,y:-9999};
-  const N=65,DIST=155,G='rgba(196,151,58,',B='rgba(100,160,220,';
-  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
-  function mk(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:Math.random()*1.8+0.6,gold:Math.random()>0.65};}
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    for(let i=0;i<nodes.length;i++){
-      const a=nodes[i];
-      for(let j=i+1;j<nodes.length;j++){
-        const b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<DIST){const al=(1-d/DIST)*0.35,c=(a.gold||b.gold)?G:B;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=c+al+')';ctx.lineWidth=a.gold||b.gold?0.8:0.4;ctx.stroke();}
+// Language toggle
+const langBtns = document.querySelectorAll('[data-set-lang]');
+langBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.setLang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    langBtns.forEach(b => b.classList.toggle('active', b.dataset.setLang === lang));
+    // Toggle inline-styled .en/.el blocks too
+    document.querySelectorAll('.el, .en').forEach(el => {
+      const isMatch = el.classList.contains(lang);
+      // Only override inline display:none for elements we control
+      if (el.classList.contains('el') || el.classList.contains('en')) {
+        el.style.display = isMatch ? '' : 'none';
       }
-      const mdx=a.x-mouse.x,mdy=a.y-mouse.y,md=Math.sqrt(mdx*mdx+mdy*mdy);
-      if(md<120){a.vx+=(-mdx/md)*0.015;a.vy+=(-mdy/md)*0.015;}
-      ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,Math.PI*2);ctx.fillStyle=a.gold?G+'0.9)':B+'0.5)';ctx.fill();
-      a.x+=a.vx;a.y+=a.vy;a.vx*=0.995;a.vy*=0.995;
-      if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
-    }
-    requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize',resize);
-  window.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
-  resize();nodes=Array.from({length:N},mk);draw();
-})();
-
-/* ── ROLE CYCLING ── */
-(function(){
-  const items=document.querySelectorAll('.hero-role-item');let cur=0;
-  setInterval(()=>{
-    items[cur].classList.remove('active');items[cur].classList.add('exit');
-    setTimeout(()=>items[cur].classList.remove('exit'),500);
-    cur=(cur+1)%items.length;items[cur].classList.add('active');
-  },3200);
-})();
-
-/* ── COUNT-UP ── */
-(function(){
-  const els=document.querySelectorAll('.count-up');
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting)return;
-      const el=e.target,target=+el.dataset.target,dur=1600,start=performance.now();
-      function step(now){const t=Math.min((now-start)/dur,1),ease=1-Math.pow(1-t,3);el.textContent=Math.floor(ease*target);if(t<1)requestAnimationFrame(step);else el.textContent=target;}
-      requestAnimationFrame(step);obs.unobserve(el);
     });
-  },{threshold:0.5});
-  els.forEach(el=>obs.observe(el));
-})();
-
-/* ── SCROLL REVEAL ── */
-const revObs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),(i%3)*100);revObs.unobserve(e.target);}}); 
-},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
-
-/* ── NAV SCROLL ── */
-window.addEventListener('scroll',()=>{
-  document.getElementById('main-nav').style.background=window.scrollY>80?'rgba(7,17,30,0.98)':'rgba(11,25,41,0.96)';
+    // Update title attribute
+    document.title = lang === 'en'
+      ? "Dr. Dionysia-Theodora Avgerinopoulou — Member of Parliament for Ilia"
+      : "Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου — Βουλευτής Ν. Ηλείας";
+  });
 });
 
-/* ── HAMBURGER ── */
-function toggleMenu(){
-  const m=document.getElementById('mobile-menu'),h=document.getElementById('hamburger');
-  m.classList.toggle('open');h.classList.toggle('open');
-  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
-}
-function closeMenu(){
-  document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-  document.body.style.overflow='';
-}
+// Nav shrink on scroll
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', window.scrollY > 50);
+});
 
-/* ── LANGUAGE TOGGLE ── */
-let currentLang='en';
-function setLang(lang){
-  currentLang=lang;
-  // Update all lang buttons
-  document.querySelectorAll('.lang-btn,.mobile-lang button').forEach(btn=>{
-    btn.classList.toggle('active',
-      btn.textContent.trim().toLowerCase()==='en'?lang==='en':lang==='el'
-    );
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
   });
-  // Swap all data-en/data-el content
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    const val=lang==='el'?el.dataset.el:el.dataset.en;
-    if(!val)return;
-    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=val;}
-    else if(el.tagName==='BUTTON'){el.textContent=val;}
-    else{el.innerHTML=val;}
-  });
-  // Swap role cycling items
-  document.querySelectorAll('.hero-role-item').forEach(el=>{
-    const val=lang==='el'?el.dataset.el:el.dataset.en;
-    if(val)el.textContent=val;
-  });
-  // html lang attribute
-  document.documentElement.lang=lang==='el'?'el':'en';
-}
+});
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>

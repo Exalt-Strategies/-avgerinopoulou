@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="el" data-lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Βιογραφικό — Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.page-hero { background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%); color:var(--cream); padding:160px 4rem 6rem; position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; opacity:0.06; background-image:radial-gradient(circle at 70% 30%, var(--gold) 0%, transparent 40%); }
+.page-hero-inner { position:relative; max-width:1320px; margin:0 auto; }
+.page-hero .section-label { color:var(--gold); }
+.page-hero .section-label-line { background:var(--gold); }
+.page-hero h1 { font-family:var(--serif); font-size:clamp(3rem, 6vw, 5.8rem); font-weight:300; line-height:1; color:var(--cream); letter-spacing:-0.01em; margin-bottom:1.4rem; }
+.page-hero h1 em { font-style:italic; color:var(--gold-pale); }
+.page-hero p.lede { font-family:var(--serif); font-size:1.5rem; font-style:italic; color:rgba(245,240,232,0.85); max-width:780px; line-height:1.5; }
+.bio-grid { display:grid; grid-template-columns:0.9fr 2.1fr; gap:5rem; max-width:1320px; margin:0 auto; padding:6rem 4rem; }
+.bio-side { position:sticky; top:120px; align-self:start; }
+.bio-portrait { width:100%; aspect-ratio:3/4; background:var(--cream-deep); position:relative; border:1px solid var(--border-gold); margin-bottom:2rem; }
+.bio-portrait::before, .bio-portrait::after { content:''; position:absolute; width:32px; height:32px; border:1px solid var(--gold); }
+.bio-portrait::before { top:-1px; left:-1px; border-right:none; border-bottom:none; }
+.bio-portrait::after { bottom:-1px; right:-1px; border-left:none; border-top:none; }
+.bio-portrait img { width:100%; height:100%; object-fit:cover; object-position:center 22%; }
+.bio-side-list { list-style:none; }
+.bio-side-list li { font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); padding:0.85rem 0; border-bottom:1px solid var(--border); }
+.bio-side-list li strong { display:block; font-family:var(--serif); font-size:1.05rem; font-weight:500; font-style:italic; color:var(--navy-deep); text-transform:none; letter-spacing:0; margin-top:0.3rem; }
+.bio-content { font-size:1.05rem; line-height:1.85; color:var(--text-dark); }
+.bio-content h2 { font-family:var(--serif); font-size:2.2rem; font-weight:400; color:var(--navy-deep); margin:3rem 0 1.2rem; line-height:1.2; }
+.bio-content h2:first-child { margin-top:0; }
+.bio-content h2 em { font-style:italic; color:var(--gold-deep); }
+.bio-content p { margin-bottom:1.4rem; }
+.bio-content p:first-of-type { font-family:var(--serif); font-size:1.3rem; font-weight:400; color:var(--text-mid); line-height:1.6; }
+.bio-content ul { margin:0 0 1.4rem 1.4rem; }
+.bio-content ul li { margin-bottom:0.5rem; }
+.bio-content strong { color:var(--navy-deep); font-weight:600; }
+@media (max-width:1100px) {
+  .bio-grid { grid-template-columns:1fr; gap:3rem; padding:4rem 2rem; }
+  .bio-side { position:static; }
+  .bio-portrait { max-width:380px; }
+}
+@media (max-width:760px) {
+  .page-hero { padding:120px 1.4rem 4rem; }
+  .bio-grid { padding:3rem 1.4rem; }
+  .bio-content h2 { font-size:1.7rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><strong>Δ.Θ.</strong> Αυγερινοπούλου</a>
+  <ul class="nav-links">
+    <li><a href="index.html#pillars"><span class="el">Έργο</span><span class="en">Work</span></a></li>
+    <li><a href="index.html#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a></li>
+    <li><a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a></li>
+    <li><a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">About</span></a></li>
+    <li><a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-set-lang="el">ΕΛ</button>
+      <button class="lang-btn" data-set-lang="en">EN</button>
+    </div>
+    <a href="connect.html" class="nav-cta"><span class="el">Γίνε Εθελοντής</span><span class="en">Volunteer</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#pillars"><span class="el">Έργο</span><span class="en">Work</span></a>
+  <a href="index.html#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a>
+  <a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a>
+  <a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">About</span></a>
+  <a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">
+      <span class="section-label-line"></span>
+      <span class="el">Βιογραφικό</span>
+      <span class="en">Biography</span>
+    </div>
+    <h1>
+      <span class="el">Διονυσία-Θεοδώρα <em>Αυγερινοπούλου</em></span>
+      <span class="en" style="display:none;">Dionysia-Theodora <em>Avgerinopoulou</em></span>
+    </h1>
+    <p class="lede el">Βουλευτής της Ελληνικής Βουλής, Πρόεδρος της Επιτροπής Περιβάλλοντος, Ειδική Απεσταλμένη του Πρωθυπουργού για τους Ωκεανούς. Νομικός με διδακτορικό από το Columbia, ακαδημαϊκός, μητέρα.</p>
+    <p class="lede en" style="display:none;">Member of the Hellenic Parliament, Chair of the Environment Committee, Greek PM's Special Envoy for the Ocean. Columbia-trained jurist, academic, mother.</p>
+  </div>
+</section>
+
+<div class="bio-grid">
+  <aside class="bio-side">
+    <div class="bio-portrait">
+      <img src="https://www.avgerinopoulou.gr/wp-content/uploads/2018/07/VST_0001..jpg"
+           data-fallbacks='["https://www.avgerinopoulou.gr/wp-content/uploads/2018/07/VST_0015..jpg","https://www.avgerinopoulou.gr/wp-content/uploads/2018/03/IMG_7073-942x1024.jpg","https://www.avgerinopoulou.gr/wp-content/uploads/2023/04/avgerinopoulou-829x1024.jpg"]'
+           onerror="(function(img){var f=JSON.parse(img.dataset.fallbacks||'[]');if(f.length){img.src=f.shift();img.dataset.fallbacks=JSON.stringify(f);}else{img.style.display='none';}})(this)"
+           alt="">
+    </div>
+    <ul class="bio-side-list">
+      <li><span class="el">Βουλευτής Ν.</span><span class="en">MP for</span> <strong>Ηλείας / Ilia</strong></li>
+      <li><span class="el">Κόμμα</span><span class="en">Party</span> <strong><span class="el">Νέα Δημοκρατία</span><span class="en">New Democracy</span></strong></li>
+      <li><span class="el">Θητείες</span><span class="en">Terms</span> <strong>4×</strong></li>
+      <li><span class="el">Σπουδές</span><span class="en">Education</span> <strong>Columbia · Georgetown · Athens</strong></li>
+      <li><span class="el">Γλώσσες</span><span class="en">Languages</span> <strong>EL · EN · FR · DE · ES</strong></li>
+    </ul>
+  </aside>
+
+  <article class="bio-content el">
+    <p>Η Δρ. Διονυσία–Θεοδώρα Αυγερινοπούλου είναι Βουλευτής της Ελληνικής Βουλής και Ειδική Απεσταλμένη του Πρωθυπουργού για τους Ωκεανούς. Προεδρεύει της Ειδικής Μόνιμης Επιτροπής Προστασίας Περιβάλλοντος και της Υποεπιτροπής Υδατικών Πόρων, ενώ είναι Μέλος της Εκτελεστικής Επιτροπής της Διακοινοβουλευτικής Ένωσης (IPU). Κατέχει Μεταπτυχιακό και Διδακτορικό Δίπλωμα στο Δημόσιο Διεθνές Δίκαιο, με εξειδίκευση στο Διεθνές Περιβαλλοντικό Δίκαιο και τους Διεθνείς Οργανισμούς.</p>
+
+    <h2>Ακαδημαϊκή <em>Αριστεία</em></h2>
+    <p>Κατέχει Διδακτορικό στη Νομική Επιστήμη (<strong>J.S.D.</strong>) από τη Νομική Σχολή του <strong>Πανεπιστημίου Columbia</strong>, όπου η διατριβή της — <em>«Science-Based Lawmaking: Effective Integration of Science in International Environmental Law»</em> — θεμελίωσε τον σύνδεσμο μεταξύ επιστήμης και χάραξης πολιτικής. Έλαβε επίσης Μεταπτυχιακό (<strong>LL.M.</strong>) με διάκριση στις Διεθνείς Νομικές Σπουδές από το <strong>Georgetown University Law Center</strong> ως υπότροφος <strong>Fulbright</strong>, καθώς και Πτυχίο Νομικής με άριστα από το <strong>Πανεπιστήμιο Αθηνών</strong>. Η ακαδημαϊκή της πορεία έχει ενισχυθεί από διεθνείς υποτροφίες από το ΝΑΤΟ, το Ίδρυμα Ωνάση και το Ίδρυμα Κρατικών Υποτροφιών.</p>
+
+    <h2>Διεθνής και Πολυμερής <em>Ηγεσία</em></h2>
+    <p>Έχει υπηρετήσει σε υψηλόβαθμες θέσεις διεθνών οργανισμών. Σήμερα είναι Μέλος της Εκτελεστικής Επιτροπής της IPU, εκπροσωπώντας την Ομάδα Twelve Plus, διαμορφώνοντας ενεργά το όραμα, τη διακυβέρνηση και τις πολιτικές αποφάσεις της Ένωσης. Έχει διατελέσει Πρόεδρος της Μόνιμης Επιτροπής Υποθέσεων ΟΗΕ της IPU, ενώ συμπροεδρεύσε σε κοινοβουλευτικές διαπραγματεύσεις για τους Στόχους Βιώσιμης Ανάπτυξης (SDGs).</p>
+    <p>Πέραν της IPU, έχει προωθήσει τη βιώσιμη ανάπτυξη και την κοινοβουλευτική διπλωματία ως:</p>
+    <ul>
+      <li><strong>Ειδική Απεσταλμένη του Πρωθυπουργού για τη Θάλασσα</strong>, συντονίζοντας το 9ο Συνέδριο «Our Ocean» (Αθήνα 2024).</li>
+      <li><strong>Αντιπρόεδρος του Global Water Partnership</strong> (Στοκχόλμη).</li>
+      <li><strong>Αντιπρόεδρος της Επιτροπής Περιβάλλοντος και Ενέργειας του Διεθνούς Εμπορικού Επιμελητηρίου</strong> (Παρίσι).</li>
+      <li><strong>Πρόεδρος του Κύκλου Βουλευτών της Μεσογείου για τη Βιώσιμη Ανάπτυξη</strong>.</li>
+    </ul>
+
+    <h2>Κοινοβουλευτικό Έργο και <em>Εθνική Ηγεσία</em></h2>
+    <p>Εκλεγμένη στη Βουλή των Ελλήνων με το κόμμα της Νέας Δημοκρατίας για <strong>τέσσερις θητείες</strong>, προεδρεύει σήμερα της Ειδικής Μόνιμης Επιτροπής Προστασίας Περιβάλλοντος και της Υποεπιτροπής Υδατικών Πόρων, καθορίζοντας την κοινοβουλευτική ατζέντα για την κλιματική αλλαγή, τη βιοποικιλότητα, το νερό και τη βιώσιμη ανάπτυξη. Έχει δραστηριοποιηθεί σε πολυάριθμες κοινοβουλευτικές επιτροπές, από την Εξωτερική Πολιτική και Άμυνα έως τις Οικονομικές και Εκπαιδευτικές Υποθέσεις, ενώ συμμετέχει σε ομάδες φιλίας με χώρες και από τις πέντε ηπείρους.</p>
+
+    <h2>Επαγγελματική και <em>Ακαδημαϊκή Δράση</em></h2>
+    <p>Παράλληλα με την κοινοβουλευτική της πορεία, δραστηριοποιείται ως δικηγόρος, ιδρύτρια του <strong>Ευρωπαϊκού Ινστιτούτου Δικαίου, Επιστήμης και Τεχνολογίας</strong>, καθώς και ως διδάσκουσα διεθνούς δικαίου και διακυβέρνησης σε πανεπιστήμια στην Ελλάδα και το εξωτερικό. Έχει διδάξει Διεθνές Περιβαλλοντικό Δίκαιο, Βιώσιμη Χρηματοδότηση, Διπλωματία, Διεθνείς Οργανισμούς και Παγκόσμια Διακυβέρνηση. Έχει εργαστεί στη Νομική Υπηρεσία της Ευρωπαϊκής Ένωσης και στην Αντιπροσωπεία της ΕΕ στα Ηνωμένα Έθνη. Έχει πραγματοποιήσει εκτενή έρευνα στο <strong>Yale Center for Environmental Law and Policy</strong>, στο <strong>NYU Center for Land Use Law</strong> και στο <strong>Columbia Sabin Center for Climate Change Law</strong>.</p>
+
+    <h2>Διακρίσεις και <em>Βραβεία</em></h2>
+    <p>Η ηγεσία της έχει αναγνωριστεί διεθνώς. Έχει ανακηρυχθεί <strong>Young Global Leader</strong> από το Παγκόσμιο Οικονομικό Φόρουμ και συγκαταλέγεται στους <em>Forty under Forty European Leaders</em>. Έχει τιμηθεί με το βραβείο <strong>UNEP/Green Cross «Green Star»</strong>, το <strong>Global Citizenship Award for Leadership in Assisting Humanity</strong>, το <strong>Global Women Leaders Award</strong>, το Βραβείο Περιβάλλοντος <strong>«Αγνή Βλαβιανού»</strong>, το <strong>Grand Prix Maria Callas Award</strong>, καθώς και με πολυάριθμες διακρίσεις από το Κογκρέσο των ΗΠΑ, το Euro-American Women's Council και την Ελληνική Δημοκρατία.</p>
+
+    <h2>Δημοσιεύσεις και <em>Επιστημονική Παρέμβαση</em></h2>
+    <p>Πολυγραφότατη συγγραφέας, έχει δημοσιεύσει εκτενώς για το διεθνές περιβαλλοντικό δίκαιο, τη διακυβέρνηση για το κλίμα, τη βιώσιμη χρηματοδότηση και την προστασία των θαλασσών, συμπεριλαμβανομένου του βιβλίου της <em>Science-Based Lawmaking</em> (Springer, 2018). Η ερευνητική και πολιτική της συμβολή δίνει έμφαση στη χάραξη πολιτικής βασισμένης σε τεκμηριωμένα δεδομένα, στη θεσμική λογοδοσία και στη διεθνή συνεργασία.</p>
+
+    <p style="font-family:var(--serif); font-size:1.2rem; font-style:italic; color:var(--text-mid); margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border);">Μιλά ελληνικά, αγγλικά, γαλλικά, γερμανικά και ισπανικά. Είναι μητέρα ενός μικρού αγοριού.</p>
+  </article>
+
+  <article class="bio-content en" style="display:none;">
+    <p>Dr. Dionysia–Theodora Avgerinopoulou is a Member of the Hellenic Parliament and the Greek Prime Minister's Special Envoy for the Ocean. She serves as Chair of the Special Standing Committee on Environmental Protection and the Subcommittee of Watercourses, and is a Member of the Executive Committee of the Inter-Parliamentary Union (IPU). She holds a Master's and a Doctorate in Public International Law with concentration on International Environmental Law and International Organizations.</p>
+
+    <h2>Academic <em>Excellence</em></h2>
+    <p>She holds a Doctorate in Juridical Science (<strong>J.S.D.</strong>) from <strong>Columbia University School of Law</strong>, where her thesis — <em>"Science-Based Lawmaking: Effective Integration of Science in International Environmental Law"</em> — pioneered the link between science and policymaking. She earned an <strong>LL.M.</strong> with Distinction in International Legal Studies from <strong>Georgetown University Law Center</strong> as a <strong>Fulbright Scholar</strong>, and a Ptychio (LL.B. equivalent) with highest honors from the <strong>University of Athens</strong>. Her academic journey has been supported by international fellowships from NATO, the Onassis Foundation, and the Greek State Scholarships Foundation.</p>
+
+    <h2>International and Multilateral <em>Leadership</em></h2>
+    <p>She has consistently held senior leadership roles in international institutions. She currently serves on the Executive Committee of the IPU, representing the Twelve Plus Group, and actively shapes the Union's vision, governance, and policy decisions. She previously chaired the IPU Standing Committee for United Nations Affairs and has co-led parliamentary negotiations on the Sustainable Development Goals.</p>
+    <p>Beyond the IPU, she has championed sustainable development and parliamentary diplomacy as:</p>
+    <ul>
+      <li><strong>Greek PM's Envoy for the Ocean</strong>, coordinating the 9th Our Ocean Conference (Athens 2024).</li>
+      <li><strong>Vice-Chair of the Global Water Partnership</strong> (Stockholm).</li>
+      <li><strong>Vice-Chair of the ICC Environment and Energy Commission</strong> (Paris).</li>
+      <li><strong>Chair of the Circle of Mediterranean Parliamentarians for Sustainable Development</strong>.</li>
+    </ul>
+
+    <h2>Parliamentary Service &amp; <em>National Leadership</em></h2>
+    <p>Elected to the Hellenic Parliament for <strong>four terms</strong> with the New Democracy Party, she currently chairs the Special Standing Committee on Environmental Protection and the Subcommittee on Water Resources, setting the parliamentary agenda on climate, biodiversity, water, and sustainable development. She has been active across multiple parliamentary committees — Foreign Affairs and Defense, Economic and Educational Affairs — and friendship groups spanning five continents.</p>
+
+    <h2>Professional &amp; <em>Academic Engagement</em></h2>
+    <p>Parallel to her parliamentary career, she remains active as a practicing attorney, founder of the <strong>European Institute of Law, Science and Technology</strong>, and lecturer in international law and governance at universities in Greece and abroad. Her teaching focuses on international environmental law, sustainable finance, diplomacy, international organizations, and global governance. She has worked at the Legal Service of the European Union and the EU Delegation at the United Nations. Her research credentials include the <strong>Yale Center for Environmental Law and Policy</strong>, the <strong>NYU Center for Land Use Law</strong>, and the <strong>Columbia Sabin Center for Climate Change Law</strong>.</p>
+
+    <h2>Recognition &amp; <em>Awards</em></h2>
+    <p>Her leadership has been widely recognized. She has been elected a <strong>Young Global Leader</strong> of the World Economic Forum and one of the <em>Forty under Forty European Leaders</em>. She has received the <strong>UNEP/Green Cross "Green Star" Award</strong>, the <strong>Global Citizenship Award for Leadership in Assisting Humanity</strong>, the <strong>Global Women Leaders Award</strong>, the <strong>"Agni Vlavianou" Environmental Award</strong>, the <strong>Grand Prix Maria Callas Award</strong>, and numerous international distinctions from the U.S. Congress, the Euro-American Women's Council, and the Hellenic Republic.</p>
+
+    <h2>Publications &amp; <em>Thought Leadership</em></h2>
+    <p>A prolific author, she has published extensively on international environmental law, climate governance, sustainable finance, and ocean protection — including her book <em>Science-Based Lawmaking</em> (Springer, 2018). Her research and advocacy emphasize evidence-based policymaking, institutional accountability, and global cooperation.</p>
+
+    <p style="font-family:var(--serif); font-size:1.2rem; font-style:italic; color:var(--text-mid); margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border);">She speaks Greek, English, French, German, and Spanish. She is the mother of one young boy.</p>
+  </article>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</div>
+      <p class="footer-brand-role el">Βουλευτής Ν. Ηλείας · Πρόεδρος της Επιτροπής Περιβάλλοντος · Ειδική Απεσταλμένη για τους Ωκεανούς</p>
+      <p class="footer-brand-role en" style="display:none;">MP for Ilia · Chair, Environment Committee · Special Envoy for the Ocean</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/avgerinopoulou" target="_blank" rel="noopener">FB</a>
+        <a href="https://twitter.com/avgerinopoulou" target="_blank" rel="noopener">X</a>
+        <a href="https://www.instagram.com/davgerinopoulou/" target="_blank" rel="noopener">IG</a>
+        <a href="https://www.linkedin.com/in/avgerinopoulou/" target="_blank" rel="noopener">LI</a>
+        <a href="https://www.youtube.com/channel/UCVoStXfBsK2sF80NBtczlMA" target="_blank" rel="noopener">YT</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Πλοήγηση</span><span class="en">Site</span></div>
+      <ul>
+        <li><a href="index.html#pillars"><span class="el">Έργο</span><span class="en">Work</span></a></li>
+        <li><a href="index.html#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a></li>
+        <li><a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a></li>
+        <li><a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">Biography</span></a></li>
+        <li><a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Γραφεία</span><span class="en">Offices</span></div>
+      <ul>
+        <li>Αθήνα · Μητροπόλεως 1</li>
+        <li>Αθήνα · Ακαδημίας 28</li>
+        <li>Αμαλιάδα · Ελ. Βενιζέλου 16</li>
+        <li>Πύργος · Μ. Αλεξάνδρου 3</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Επαφή</span><span class="en">Contact</span></div>
+      <ul>
+        <li><a href="tel:+302114118547">+30 211 4118547</a></li>
+        <li><a href="tel:+306944010141">+30 6944 010141</a></li>
+        <li><a href="mailto:d.avgerinopoulou@parliament.gr">d.avgerinopoulou@parliament.gr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 <span class="el">Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</span><span class="en">Dr. Dionysia-Theodora Avgerinopoulou</span></div>
+    <div><a href="#"><span class="el">Πολιτική Απορρήτου</span><span class="en">Privacy</span></a></div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

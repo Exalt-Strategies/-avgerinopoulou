@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="el" data-lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Επικοινωνία — Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.page-hero { background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%); color:var(--cream); padding:160px 4rem 6rem; position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; opacity:0.06; background-image:radial-gradient(circle at 70% 30%, var(--gold) 0%, transparent 40%); }
+.page-hero-inner { position:relative; max-width:1320px; margin:0 auto; }
+.page-hero .section-label { color:var(--gold); }
+.page-hero .section-label-line { background:var(--gold); }
+.page-hero h1 { font-family:var(--serif); font-size:clamp(3rem, 6vw, 5.8rem); font-weight:300; line-height:1; color:var(--cream); letter-spacing:-0.01em; margin-bottom:1.4rem; }
+.page-hero h1 em { font-style:italic; color:var(--gold-pale); }
+.page-hero p.lede { font-family:var(--serif); font-size:1.5rem; font-style:italic; color:rgba(245,240,232,0.85); max-width:780px; line-height:1.5; }
+
+.connect-page { max-width:1320px; margin:0 auto; padding:5rem 4rem; }
+
+/* Path picker */
+.path-picker { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; margin-bottom:5rem; }
+.path-card {
+  background:var(--white); border:1px solid var(--border); padding:2.4rem 2rem 2.2rem;
+  cursor:pointer; transition:all 0.25s; text-align:left; font-family:var(--sans);
+  display:flex; flex-direction:column;
+}
+.path-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--gold); }
+.path-card.active { background:var(--navy-deep); color:var(--cream); border-color:var(--navy-deep); }
+.path-card.active .path-num, .path-card.active .path-title, .path-card.active .path-body { color:var(--cream); }
+.path-card.active .path-num em { color:var(--gold-pale); }
+.path-num { font-family:var(--serif); font-style:italic; font-size:1.4rem; color:var(--gold-deep); margin-bottom:1.2rem; }
+.path-num em { font-style:italic; }
+.path-title { font-family:var(--serif); font-size:1.55rem; font-weight:500; color:var(--navy-deep); margin-bottom:0.6rem; line-height:1.25; }
+.path-body { font-size:0.93rem; color:var(--text-mid); line-height:1.65; flex:1; }
+.path-arrow { margin-top:1.2rem; font-size:0.66rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); }
+.path-card.active .path-arrow { color:var(--gold-pale); }
+
+/* Form section */
+.form-section { display:none; }
+.form-section.active { display:block; }
+.form-grid { display:grid; grid-template-columns:1.1fr 0.9fr; gap:4rem; align-items:start; }
+.form-intro h2 { font-family:var(--serif); font-size:clamp(2rem, 3.4vw, 3rem); font-weight:300; line-height:1.1; color:var(--navy-deep); margin-bottom:1.2rem; }
+.form-intro h2 em { font-style:italic; color:var(--gold-deep); }
+.form-intro p { font-family:var(--serif); font-size:1.25rem; font-style:italic; color:var(--text-mid); line-height:1.5; margin-bottom:2rem; }
+.form-intro .meta { font-size:0.85rem; color:var(--text-muted); font-family:var(--sans); font-style:normal; padding:1.2rem 1.4rem; border-left:2px solid var(--gold); background:var(--cream-dark); }
+
+.form-box { background:var(--white); border:1px solid var(--border); padding:2.4rem; }
+.form-row { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.4rem; }
+.form-row.two { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.form-row.two > div { display:flex; flex-direction:column; gap:0.5rem; }
+.form-row label {
+  font-size:0.65rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--text-muted);
+}
+.form-row input, .form-row select, .form-row textarea {
+  font-family:var(--sans); font-size:0.96rem; padding:0.85rem 1rem;
+  background:var(--cream); border:1px solid var(--border); color:var(--text-dark);
+  transition:border-color 0.2s;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline:none; border-color:var(--gold); }
+.form-row textarea { resize:vertical; min-height:120px; }
+.form-checkbox { display:flex; align-items:flex-start; gap:0.7rem; margin-bottom:1.4rem; }
+.form-checkbox input { margin-top:0.3rem; }
+.form-checkbox label {
+  font-size:0.85rem; color:var(--text-mid); letter-spacing:0; text-transform:none; font-weight:400; line-height:1.5;
+}
+.form-submit { margin-top:0.5rem; }
+.form-submit .btn-primary { width:100%; justify-content:center; padding:1.15rem; font-size:0.78rem; }
+.form-note { font-size:0.75rem; color:var(--text-muted); margin-top:1rem; line-height:1.5; }
+
+/* Volunteer checklist */
+.interests { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-bottom:1.4rem; }
+.interest-item {
+  display:flex; align-items:center; gap:0.6rem; padding:0.7rem 1rem;
+  background:var(--cream); border:1px solid var(--border); cursor:pointer; transition:all 0.2s;
+}
+.interest-item:hover { border-color:var(--gold); }
+.interest-item input { margin:0; }
+.interest-item label { margin:0; cursor:pointer; font-size:0.85rem; color:var(--text-dark); letter-spacing:0; text-transform:none; font-weight:400; }
+
+/* Offices map section */
+.offices { background:var(--cream-dark); margin:5rem -4rem 0; padding:5rem 4rem; }
+.offices-inner { max-width:1320px; margin:0 auto; }
+.offices-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:1.5rem; margin-top:3rem; }
+.office-card {
+  background:var(--white); border:1px solid var(--border); padding:2.2rem 2rem;
+  position:relative;
+}
+.office-region {
+  font-size:0.66rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--gold-deep); margin-bottom:0.8rem;
+}
+.office-name { font-family:var(--serif); font-size:1.5rem; font-weight:500; color:var(--navy-deep); margin-bottom:0.6rem; line-height:1.25; }
+.office-address { font-size:0.95rem; color:var(--text-mid); margin-bottom:1.2rem; line-height:1.6; }
+.office-tel { display:flex; flex-direction:column; gap:0.3rem; font-size:0.92rem; padding-top:1rem; border-top:1px solid var(--border); }
+.office-tel a { color:var(--navy-deep); text-decoration:none; font-weight:500; }
+.office-tel a:hover { color:var(--gold-deep); }
+
+@media (max-width:1100px) {
+  .path-picker { grid-template-columns:1fr; }
+  .form-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .offices-grid { grid-template-columns:1fr; }
+  .interests { grid-template-columns:1fr; }
+}
+@media (max-width:760px) {
+  .page-hero { padding:120px 1.4rem 4rem; }
+  .connect-page { padding:3rem 1.4rem; }
+  .offices { margin:4rem -1.4rem 0; padding:3.5rem 1.4rem; }
+  .form-box { padding:1.6rem; }
+  .form-row.two { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><strong>Δ.Θ.</strong> Αυγερινοπούλου</a>
+  <ul class="nav-links">
+    <li><a href="index.html#pillars"><span class="el">Έργο</span><span class="en">Work</span></a></li>
+    <li><a href="index.html#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a></li>
+    <li><a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a></li>
+    <li><a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">About</span></a></li>
+    <li><a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-set-lang="el">ΕΛ</button>
+      <button class="lang-btn" data-set-lang="en">EN</button>
+    </div>
+    <a href="#volunteer" class="nav-cta"><span class="el">Γίνε Εθελοντής</span><span class="en">Volunteer</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#pillars"><span class="el">Έργο</span><span class="en">Work</span></a>
+  <a href="index.html#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a>
+  <a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a>
+  <a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">About</span></a>
+  <a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">
+      <span class="section-label-line"></span>
+      <span class="el">Επικοινωνία &amp; Συμμετοχή</span>
+      <span class="en">Connect &amp; Get Involved</span>
+    </div>
+    <h1>
+      <span class="el">Σταθείτε <em>μαζί της</em></span>
+      <span class="en" style="display:none;">Stand <em>with her</em></span>
+    </h1>
+    <p class="lede el">Τρεις τρόποι να συμμετέχετε. Επιλέξτε αυτόν που σας ταιριάζει.</p>
+    <p class="lede en" style="display:none;">Three ways to take part. Choose the one that fits.</p>
+  </div>
+</section>
+
+<div class="connect-page">
+
+  <!-- Path picker -->
+  <div class="path-picker">
+    <button class="path-card active" data-path="newsletter" id="path-newsletter">
+      <div class="path-num"><em>i.</em></div>
+      <h3 class="path-title el">Ενημέρωση</h3>
+      <h3 class="path-title en" style="display:none;">Stay Informed</h3>
+      <p class="path-body el">Λάβετε ενημερώσεις για το κοινοβουλευτικό έργο, τις θέσεις και τις εκδηλώσεις της εκστρατείας.</p>
+      <p class="path-body en" style="display:none;">Receive updates on parliamentary work, positions, and campaign events.</p>
+      <div class="path-arrow el">Εγγραφή Newsletter →</div>
+      <div class="path-arrow en" style="display:none;">Subscribe →</div>
+    </button>
+
+    <button class="path-card" data-path="volunteer" id="path-volunteer">
+      <div class="path-num"><em>ii.</em></div>
+      <h3 class="path-title el">Εθελοντισμός</h3>
+      <h3 class="path-title en" style="display:none;">Volunteer</h3>
+      <p class="path-body el">Ενώστε τις δυνάμεις σας με την ομάδα — από φοιτητική στράτευση έως διοργάνωση εκδηλώσεων.</p>
+      <p class="path-body en" style="display:none;">Join the team — from student outreach to hosting community events.</p>
+      <div class="path-arrow el">Φόρμα Εθελοντή →</div>
+      <div class="path-arrow en" style="display:none;">Volunteer Form →</div>
+    </button>
+
+    <button class="path-card" data-path="constituent" id="path-constituent">
+      <div class="path-num"><em>iii.</em></div>
+      <h3 class="path-title el">Υπηρεσία Πολίτη</h3>
+      <h3 class="path-title en" style="display:none;">Constituent Service</h3>
+      <p class="path-body el">Είστε από την Ηλεία και θέλετε να επικοινωνήσετε με το γραφείο της Βουλευτή; Είμαστε εδώ.</p>
+      <p class="path-body en" style="display:none;">From Ilia and need to reach the MP's office? We're here.</p>
+      <div class="path-arrow el">Επικοινωνία Γραφείου →</div>
+      <div class="path-arrow en" style="display:none;">Office Contact →</div>
+    </button>
+  </div>
+
+  <!-- ── NEWSLETTER ── -->
+  <div class="form-section active" id="newsletter">
+    <div class="form-grid">
+      <div class="form-intro">
+        <h2 class="el">Ενημερωθείτε <em>πρώτοι</em></h2>
+        <h2 class="en" style="display:none;">Be the <em>first to know</em></h2>
+        <p class="el">Στείλτε μια στιγμή — λάβετε άμεσα ενημερώσεις για την κοινοβουλευτική δουλειά, τις δηλώσεις και τις εκδηλώσεις της εκστρατείας.</p>
+        <p class="en" style="display:none;">Take a moment — receive direct updates on parliamentary work, statements, and campaign events.</p>
+        <div class="meta el">Η εγγραφή είναι δωρεάν. Μπορείτε να αποχωρήσετε ανά πάσα στιγμή. Δεν μοιραζόμαστε τα στοιχεία σας.</div>
+        <div class="meta en" style="display:none;">Free to subscribe. Unsubscribe any time. We never share your data.</div>
+      </div>
+      <form class="form-box" onsubmit="event.preventDefault(); alert('Demo form — not yet connected to a mailing service.');">
+        <div class="form-row two">
+          <div>
+            <label for="nl-fname"><span class="el">Όνομα</span><span class="en">First name</span></label>
+            <input id="nl-fname" type="text" required>
+          </div>
+          <div>
+            <label for="nl-lname"><span class="el">Επίθετο</span><span class="en">Last name</span></label>
+            <input id="nl-lname" type="text" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="nl-email">Email</label>
+          <input id="nl-email" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="nl-city"><span class="el">Πόλη / Δήμος</span><span class="en">City / Municipality</span></label>
+          <input id="nl-city" type="text" placeholder="π.χ. Πύργος, Αμαλιάδα, Αθήνα">
+        </div>
+        <div class="form-checkbox">
+          <input id="nl-consent" type="checkbox" required>
+          <label for="nl-consent" class="el">Συμφωνώ να λαμβάνω ενημερώσεις από το γραφείο της Βουλευτή και αποδέχομαι την <a href="#" style="color:var(--gold-deep);">Πολιτική Απορρήτου</a>.</label>
+          <label for="nl-consent" class="en" style="display:none;">I agree to receive updates from the MP's office and accept the <a href="#" style="color:var(--gold-deep);">Privacy Policy</a>.</label>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            <span class="el">Εγγραφή</span>
+            <span class="en">Subscribe</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── VOLUNTEER ── -->
+  <div class="form-section" id="volunteer">
+    <div class="form-grid">
+      <div class="form-intro">
+        <h2 class="el">Γίνε <em>μέρος της ομάδας</em></h2>
+        <h2 class="en" style="display:none;">Join <em>the team</em></h2>
+        <p class="el">Από το πεδίο της εκλογικής περιφέρειας μέχρι τα στοχευμένα events στην Αθήνα — υπάρχει ρόλος για όλους.</p>
+        <p class="en" style="display:none;">From district groundwork to targeted Athens events — there's a role for everyone.</p>
+        <div class="meta el">Όλοι οι εθελοντές λαμβάνουν προσωπική απάντηση από την ομάδα εντός 48 ωρών. Ευχαριστούμε για τη στήριξη.</div>
+        <div class="meta en" style="display:none;">Every volunteer hears back from the team within 48 hours. Thank you for stepping up.</div>
+      </div>
+      <form class="form-box" onsubmit="event.preventDefault(); alert('Demo form — not yet connected to a backend.');">
+        <div class="form-row two">
+          <div>
+            <label for="v-fname"><span class="el">Όνομα</span><span class="en">First name</span></label>
+            <input id="v-fname" type="text" required>
+          </div>
+          <div>
+            <label for="v-lname"><span class="el">Επίθετο</span><span class="en">Last name</span></label>
+            <input id="v-lname" type="text" required>
+          </div>
+        </div>
+        <div class="form-row two">
+          <div>
+            <label for="v-email">Email</label>
+            <input id="v-email" type="email" required>
+          </div>
+          <div>
+            <label for="v-phone"><span class="el">Τηλέφωνο</span><span class="en">Phone</span></label>
+            <input id="v-phone" type="tel">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="v-area"><span class="el">Περιοχή</span><span class="en">Area</span></label>
+          <select id="v-area">
+            <option value="">— <span class="el">επιλέξτε</span><span class="en">select</span> —</option>
+            <option>Πύργος / Pyrgos</option>
+            <option>Αμαλιάδα / Amaliada</option>
+            <option>Αρχαία Ολυμπία / Ancient Olympia</option>
+            <option>Άλλη περιοχή Ηλείας / Other Ilia</option>
+            <option>Αθήνα / Athens</option>
+            <option>Διασπορά / Diaspora</option>
+            <option>Άλλο / Other</option>
+          </select>
+        </div>
+        <label style="font-size:0.65rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.8rem; display:block;">
+          <span class="el">Σε τι θέλετε να συμμετέχετε;</span>
+          <span class="en">How would you like to help?</span>
+        </label>
+        <div class="interests">
+          <div class="interest-item"><input type="checkbox" id="i1"><label for="i1" class="el">Πόρτα-πόρτα στην Ηλεία</label><label for="i1" class="en" style="display:none;">Canvassing in Ilia</label></div>
+          <div class="interest-item"><input type="checkbox" id="i2"><label for="i2" class="el">Διοργάνωση εκδήλωσης</label><label for="i2" class="en" style="display:none;">Host an event</label></div>
+          <div class="interest-item"><input type="checkbox" id="i3"><label for="i3" class="el">Νέοι &amp; Φοιτητές</label><label for="i3" class="en" style="display:none;">Youth &amp; students</label></div>
+          <div class="interest-item"><input type="checkbox" id="i4"><label for="i4" class="el">Διεθνής διασπορά</label><label for="i4" class="en" style="display:none;">International diaspora</label></div>
+          <div class="interest-item"><input type="checkbox" id="i5"><label for="i5" class="el">Social media &amp; ψηφιακά</label><label for="i5" class="en" style="display:none;">Social media &amp; digital</label></div>
+          <div class="interest-item"><input type="checkbox" id="i6"><label for="i6" class="el">Άλλο — θα μας πείτε</label><label for="i6" class="en" style="display:none;">Other — tell us</label></div>
+        </div>
+        <div class="form-row">
+          <label for="v-note"><span class="el">Σημείωμα (προαιρετικό)</span><span class="en">Note (optional)</span></label>
+          <textarea id="v-note" rows="3"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            <span class="el">Δηλώστε Συμμετοχή</span>
+            <span class="en">Sign Me Up</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── CONSTITUENT ── -->
+  <div class="form-section" id="constituent">
+    <div class="form-grid">
+      <div class="form-intro">
+        <h2 class="el">Το γραφείο μας <em>δουλεύει για εσάς</em></h2>
+        <h2 class="en" style="display:none;">Our office <em>works for you</em></h2>
+        <p class="el">Είστε από την Ηλεία; Επικοινωνήστε για συνάντηση, αναφορά τοπικού ζητήματος ή υποστήριξη σε διοικητική υπόθεση.</p>
+        <p class="en" style="display:none;">From Ilia? Reach out to request a meeting, report a local issue, or seek help with an administrative matter.</p>
+        <div class="meta el">Για κατεπείγουσες υποθέσεις, καλέστε το γραφείο Αθήνας απευθείας: +30 211 4118547. Email: d.avgerinopoulou@parliament.gr.</div>
+        <div class="meta en" style="display:none;">For urgent matters, call the Athens office: +30 211 4118547. Email: d.avgerinopoulou@parliament.gr.</div>
+      </div>
+      <form class="form-box" onsubmit="event.preventDefault(); alert('Demo form — not yet connected to a backend.');">
+        <div class="form-row two">
+          <div>
+            <label for="c-fname"><span class="el">Όνομα</span><span class="en">First name</span></label>
+            <input id="c-fname" type="text" required>
+          </div>
+          <div>
+            <label for="c-lname"><span class="el">Επίθετο</span><span class="en">Last name</span></label>
+            <input id="c-lname" type="text" required>
+          </div>
+        </div>
+        <div class="form-row two">
+          <div>
+            <label for="c-email">Email</label>
+            <input id="c-email" type="email" required>
+          </div>
+          <div>
+            <label for="c-phone"><span class="el">Τηλέφωνο</span><span class="en">Phone</span></label>
+            <input id="c-phone" type="tel">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="c-type"><span class="el">Τύπος αιτήματος</span><span class="en">Request type</span></label>
+          <select id="c-type" required>
+            <option value="">— <span class="el">επιλέξτε</span><span class="en">select</span> —</option>
+            <option><span class="el">Αίτημα συνάντησης</span></option>
+            <option><span class="el">Αναφορά τοπικού ζητήματος</span></option>
+            <option><span class="el">Διοικητική υπόθεση</span></option>
+            <option><span class="el">Δημόσια ομιλία / εκδήλωση</span></option>
+            <option><span class="el">Επαφή με ΜΜΕ</span></option>
+            <option><span class="el">Άλλο</span></option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="c-subject"><span class="el">Θέμα</span><span class="en">Subject</span></label>
+          <input id="c-subject" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="c-message"><span class="el">Μήνυμα</span><span class="en">Message</span></label>
+          <textarea id="c-message" rows="6" required></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            <span class="el">Αποστολή</span>
+            <span class="en">Send</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+        <p class="form-note el">Σύμφωνα με τον ΓΚΠΔ, τα στοιχεία σας χρησιμοποιούνται αποκλειστικά για την απάντηση στο αίτημά σας.</p>
+        <p class="form-note en" style="display:none;">Under GDPR, your information is used solely to respond to your request.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── OFFICES ── -->
+  <section class="offices">
+    <div class="offices-inner">
+      <div class="section-label">
+        <span class="section-label-line"></span>
+        <span class="el">Γραφεία</span>
+        <span class="en">Offices</span>
+      </div>
+      <h2 style="font-family:var(--serif); font-size:clamp(2rem, 3.4vw, 3rem); font-weight:300; line-height:1.05; color:var(--navy-deep); margin-bottom:0.8rem;">
+        <span class="el">Στην <em>Αθήνα</em> και στην <em>Ηλεία</em></span>
+        <span class="en" style="display:none;">In <em>Athens</em> and <em>Ilia</em></span>
+      </h2>
+      <p style="font-family:var(--serif); font-size:1.2rem; font-style:italic; color:var(--text-mid); max-width:620px; line-height:1.5;">
+        <span class="el">Τέσσερα γραφεία, μία ομάδα — διαθέσιμη για συναντήσεις και υποστήριξη πολιτών.</span>
+        <span class="en" style="display:none;">Four offices, one team — available for meetings and constituent support.</span>
+      </p>
+
+      <div class="offices-grid">
+        <div class="office-card">
+          <div class="office-region"><span class="el">Αθήνα — Κεντρικό</span><span class="en">Athens — Main</span></div>
+          <div class="office-name">Μητροπόλεως 1</div>
+          <div class="office-address el">10557, Σύνταγμα, Αθήνα</div>
+          <div class="office-address en" style="display:none;">10557, Syntagma, Athens</div>
+          <div class="office-tel">
+            <a href="tel:+302114118547">+30 211 411 8547</a>
+            <a href="mailto:d.avgerinopoulou@parliament.gr">d.avgerinopoulou@parliament.gr</a>
+          </div>
+        </div>
+        <div class="office-card">
+          <div class="office-region"><span class="el">Αθήνα — Παράρτημα</span><span class="en">Athens — Annex</span></div>
+          <div class="office-name">Ακαδημίας 28</div>
+          <div class="office-address el">10671, Κολωνάκι, Αθήνα</div>
+          <div class="office-address en" style="display:none;">10671, Kolonaki, Athens</div>
+          <div class="office-tel">
+            <a href="tel:+306944010141">+30 6944 010141</a>
+          </div>
+        </div>
+        <div class="office-card">
+          <div class="office-region"><span class="el">Ηλεία — Αμαλιάδα</span><span class="en">Ilia — Amaliada</span></div>
+          <div class="office-name">Ελ. Βενιζέλου 16</div>
+          <div class="office-address el">27200, Αμαλιάδα, Ν. Ηλείας</div>
+          <div class="office-address en" style="display:none;">27200, Amaliada, Ilia</div>
+          <div class="office-tel">
+            <a href="tel:+302622309026">+30 26223 09026</a>
+          </div>
+        </div>
+        <div class="office-card">
+          <div class="office-region"><span class="el">Ηλεία — Πύργος</span><span class="en">Ilia — Pyrgos</span></div>
+          <div class="office-name">Μ. Αλεξάνδρου 3, Πλατεία ΟΤΕ</div>
+          <div class="office-address el">27131, Πύργος, Ν. Ηλείας</div>
+          <div class="office-address en" style="display:none;">27131, Pyrgos, Ilia</div>
+          <div class="office-tel">
+            <a href="tel:+302621306776">+30 26213 06776</a>
+            <a href="tel:+302621306781">+30 26213 06781</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</div>
+      <p class="footer-brand-role el">Βουλευτής Ν. Ηλείας · Πρόεδρος της Επιτροπής Περιβάλλοντος · Ειδική Απεσταλμένη για τους Ωκεανούς</p>
+      <p class="footer-brand-role en" style="display:none;">MP for Ilia · Chair, Environment Committee · Special Envoy for the Ocean</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/avgerinopoulou" target="_blank" rel="noopener">FB</a>
+        <a href="https://twitter.com/avgerinopoulou" target="_blank" rel="noopener">X</a>
+        <a href="https://www.instagram.com/davgerinopoulou/" target="_blank" rel="noopener">IG</a>
+        <a href="https://www.linkedin.com/in/avgerinopoulou/" target="_blank" rel="noopener">LI</a>
+        <a href="https://www.youtube.com/channel/UCVoStXfBsK2sF80NBtczlMA" target="_blank" rel="noopener">YT</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Πλοήγηση</span><span class="en">Site</span></div>
+      <ul>
+        <li><a href="index.html#pillars"><span class="el">Έργο</span><span class="en">Work</span></a></li>
+        <li><a href="index.html#vision"><span class="el">Όραμα</span><span class="en">Vision</span></a></li>
+        <li><a href="news.html"><span class="el">Νέα</span><span class="en">News</span></a></li>
+        <li><a href="bio.html"><span class="el">Βιογραφικό</span><span class="en">Biography</span></a></li>
+        <li><a href="connect.html"><span class="el">Επικοινωνία</span><span class="en">Connect</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Γραφεία</span><span class="en">Offices</span></div>
+      <ul>
+        <li>Αθήνα · Μητροπόλεως 1</li>
+        <li>Αθήνα · Ακαδημίας 28</li>
+        <li>Αμαλιάδα · Ελ. Βενιζέλου 16</li>
+        <li>Πύργος · Μ. Αλεξάνδρου 3</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title"><span class="el">Επαφή</span><span class="en">Contact</span></div>
+      <ul>
+        <li><a href="tel:+302114118547">+30 211 4118547</a></li>
+        <li><a href="tel:+306944010141">+30 6944 010141</a></li>
+        <li><a href="mailto:d.avgerinopoulou@parliament.gr">d.avgerinopoulou@parliament.gr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 <span class="el">Δρ. Διονυσία-Θεοδώρα Αυγερινοπούλου</span><span class="en">Dr. Dionysia-Theodora Avgerinopoulou</span></div>
+    <div><a href="#"><span class="el">Πολιτική Απορρήτου</span><span class="en">Privacy</span></a></div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+// Path picker — switch active form section
+(function () {
+  const cards = document.querySelectorAll('.path-card');
+  const sections = document.querySelectorAll('.form-section');
+
+  function showPath(path) {
+    cards.forEach(c => c.classList.toggle('active', c.dataset.path === path));
+    sections.forEach(s => s.classList.toggle('active', s.id === path));
+    history.replaceState(null, '', '#' + path);
+  }
+
+  cards.forEach(c => c.addEventListener('click', () => showPath(c.dataset.path)));
+
+  // honor #volunteer / #constituent / #newsletter hash
+  const hash = window.location.hash.replace('#', '');
+  if (['newsletter','volunteer','constituent'].includes(hash)) showPath(hash);
+})();
+</script>
+</body>
+</html>
