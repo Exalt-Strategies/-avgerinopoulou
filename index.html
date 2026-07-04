@@ -132,28 +132,40 @@ nav.scrolled { height:64px; background:rgba(7,17,30,0.99); }
   display:flex; align-items:center; gap:1.1rem;
   margin-bottom:2.2rem;
   opacity:0; animation:heroFadeUp 0.7s 0.12s ease forwards;
+  text-decoration:none;
 }
+.hero-party:hover .nd-torch-wrap {
+  background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.55);
+  transform:translateY(-1px);
+}
+.hero-party:hover .hero-party-label { color:var(--white); }
+.hero-party:hover .hero-party-role { color:rgba(255,255,255,0.85); }
 .nd-torch-wrap {
-  width:44px; height:44px; flex-shrink:0;
+  width:52px; height:52px; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
   border:1px solid rgba(255,255,255,0.32);
-  background:rgba(255,255,255,0.06); backdrop-filter:blur(6px);
-  color:var(--white);
+  background:rgba(255,255,255,0.94); backdrop-filter:blur(6px);
+  color:var(--navy);
+  transition:background 0.25s, border-color 0.25s, transform 0.25s;
+  padding:6px;
 }
-.nd-torch { width:26px; height:26px; }
+.nd-torch-wrap img { width:100%; height:100%; object-fit:contain; display:block; }
+.nd-torch-wrap svg { width:70%; height:70%; }
 .hero-party-text { display:flex; flex-direction:column; gap:0.2rem; line-height:1.15; }
 .hero-party-label {
   font-size:0.72rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
   color:var(--white); display:block;
+  transition:color 0.25s;
 }
 .hero-party-role {
   font-size:0.62rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase;
   color:rgba(255,255,255,0.68); display:block;
+  transition:color 0.25s;
 }
 .hero-party-role em { color:var(--gold-warm); font-style:normal; }
-
-/* Small torch in nav */
-.nav-torch { width:16px; height:16px; color:var(--gold-warm); margin-right:0.35rem; vertical-align:-2px; }
+.hero-party-role .nd-external {
+  margin-left:0.4rem; opacity:0.55; font-size:0.9em;
+}
 .hero-name { overflow:hidden; margin-bottom:0.4rem; }
 .hero-name-line {
   display:block; font-family:var(--serif); font-weight:300;
@@ -775,9 +787,16 @@ footer { background:var(--navy-deep); color:rgba(245,240,232,0.7); padding:5rem 
   <div class="hero-bg-grid"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-party">
-        <span class="nd-torch-wrap">
-          <svg class="nd-torch" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <a class="hero-party" href="https://www.nd.gr" target="_blank" rel="noopener noreferrer"
+         aria-label="Νέα Δημοκρατία — official party site (opens in new tab)">
+        <span class="nd-torch-wrap" aria-hidden="true">
+          <!-- Official ND torch referenced from Wikimedia. Swap to her team's -->
+          <!-- party-authorized asset when they provide one (assets/img/nd.svg) -->
+          <img src="https://upload.wikimedia.org/wikipedia/en/f/f5/Logo_of_the_New_Democracy_%28Greece%29.svg"
+               alt=""
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <svg class="nd-torch" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"
+               style="display:none;">
             <path d="M16 4c1.5 2.5 1.5 5.5 0 8-1.5-2.5-1.5-5.5 0-8z"/>
             <path d="M11 8c1 2 1 4.5-.2 6.5-1.5-2-1.2-4.5.2-6.5z"/>
             <path d="M21 8c-1 2-1 4.5.2 6.5 1.5-2 1.2-4.5-.2-6.5z"/>
@@ -789,11 +808,11 @@ footer { background:var(--navy-deep); color:rgba(245,240,232,0.7); padding:5rem 
             <span class="en">New Democracy</span>
           </span>
           <span class="hero-party-role">
-            <span class="el">Βουλευτής Ν. Ηλείας · Υποψήφια <em>Επανεκλογής 2027</em></span>
-            <span class="en">MP for Ilia · Candidate for <em>Re-election 2027</em></span>
+            <span class="el">Βουλευτής Ν. Ηλείας · Υποψήφια <em>Επανεκλογής 2027</em><span class="nd-external">↗</span></span>
+            <span class="en">MP for Ilia · Candidate for <em>Re-election 2027</em><span class="nd-external">↗</span></span>
           </span>
         </div>
-      </div>
+      </a>
       <h1 class="hero-name">
         <span class="hero-name-line">Διονυσία</span>
         <span class="hero-name-line italic">Αυγερινοπούλου</span>
