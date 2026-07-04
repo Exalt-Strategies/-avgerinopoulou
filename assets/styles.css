@@ -1,16 +1,18 @@
 /* ── Shared design system for Avgerinopoulou 2027 ─────────────────────── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
-  --navy:#0b1929; --navy-mid:#112233; --navy-light:#1a3350; --navy-deep:#07111e;
-  --gold:#c4973a; --gold-light:#d4a94a; --gold-pale:#f0dca8; --gold-deep:#9a7528;
-  --olive:#7a8b5c; --olive-pale:#c9d2b3;
+  /* ── ND (Νέα Δημοκρατία) palette ── */
+  --navy:#005EB8; --navy-mid:#004892; --navy-light:#0072C6; --navy-deep:#003670;
+  --gold:#ffffff; --gold-light:#e8f1fb; --gold-pale:#f5f9fd; --gold-deep:#003670;
+  --gold-warm:#c4973a;
+  --olive:#C41E3A; --olive-pale:#f5cfd6;
   --cream:#f5f0e8; --cream-dark:#ede7d9; --cream-deep:#e3dcc8;
-  --text-dark:#0b1929; --text-mid:#3a4a5c; --text-muted:#6b7a8d;
-  --white:#ffffff; --border:rgba(11,25,41,0.12); --border-gold:rgba(196,151,58,0.3);
+  --text-dark:#0a1a2e; --text-mid:#3a4a5c; --text-muted:#6b7a8d;
+  --white:#ffffff; --border:rgba(10,26,46,0.12); --border-gold:rgba(255,255,255,0.32);
   --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
-  --shadow-sm:0 1px 2px rgba(11,25,41,0.06);
-  --shadow-md:0 4px 16px rgba(11,25,41,0.08);
-  --shadow-lg:0 24px 60px rgba(11,25,41,0.16);
+  --shadow-sm:0 1px 2px rgba(10,26,46,0.06);
+  --shadow-md:0 4px 16px rgba(10,26,46,0.08);
+  --shadow-lg:0 24px 60px rgba(0,94,184,0.18);
 }
 html { scroll-behavior:smooth; }
 body { font-family:var(--sans); background:var(--cream); color:var(--text-dark); line-height:1.7; overflow-x:hidden; }
