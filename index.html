@@ -512,6 +512,118 @@ footer { background:var(--navy-deep); color:rgba(245,240,232,0.7); padding:5rem 
 .news-card.feature .news-card-meta { color:var(--gold); }
 .news-card.feature:hover { box-shadow:0 24px 60px rgba(7,17,30,0.4); }
 
+/* ── ATLAS MAP (Ilia → World) ── */
+.atlas {
+  background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-mid) 100%);
+  color:var(--cream); padding:7rem 4rem 8rem; position:relative; overflow:hidden;
+}
+.atlas::before {
+  content:''; position:absolute; inset:0; opacity:0.06; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+  background-size:88px 88px;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+.atlas::after {
+  content:''; position:absolute; inset:0; opacity:0.14; pointer-events:none;
+  background-image:radial-gradient(circle at 55% 40%, rgba(255,255,255,0.4) 0%, transparent 45%);
+}
+.atlas-inner { position:relative; max-width:1440px; margin:0 auto; z-index:2; }
+.atlas-head { text-align:center; margin-bottom:5rem; }
+.atlas-head .section-label { justify-content:center; color:var(--gold); }
+.atlas-head .section-label-line { background:var(--gold); }
+.atlas-title {
+  font-family:var(--serif); font-size:clamp(2.4rem, 4.5vw, 4rem); font-weight:300;
+  color:var(--cream); line-height:1.05; letter-spacing:-0.01em; margin-bottom:1.4rem;
+}
+.atlas-title em { font-style:italic; color:var(--gold-pale); }
+.atlas-lede {
+  font-family:var(--serif); font-size:1.3rem; font-style:italic;
+  color:rgba(245,240,232,0.82); max-width:760px; margin:0 auto; line-height:1.55;
+}
+.atlas-grid { display:grid; grid-template-columns:0.85fr 1.5fr; gap:4rem; align-items:center; }
+.atlas-copy { padding:1.5rem 0; }
+.atlas-destinations {
+  list-style:none; display:grid; grid-template-columns:1fr; gap:0.75rem;
+}
+.atlas-destinations li {
+  padding:0.7rem 0.9rem 0.7rem 1.7rem;
+  font-size:0.88rem; color:rgba(245,240,232,0.85); line-height:1.4;
+  position:relative;
+  border-left:1px solid rgba(255,255,255,0.14);
+  transition:border-color 0.3s, background 0.3s;
+}
+.atlas-destinations li:hover {
+  border-left-color:var(--white);
+  background:rgba(255,255,255,0.04);
+}
+.atlas-destinations li::before {
+  content:''; position:absolute; left:-3.5px; top:1.1em;
+  width:5px; height:5px; background:var(--white); border-radius:50%;
+  box-shadow:0 0 0 3px rgba(255,255,255,0.14);
+}
+.atlas-destinations li strong {
+  color:var(--cream); font-weight:600; font-size:0.72rem;
+  letter-spacing:0.16em; text-transform:uppercase;
+  display:block; margin-bottom:0.15rem;
+}
+.atlas-destinations li em { font-style:normal; color:var(--gold-pale); }
+.atlas-map { width:100%; position:relative; }
+.world-svg { width:100%; height:auto; overflow:visible; display:block; }
+.world-svg .cty {
+  fill:rgba(255,255,255,0.055); stroke:rgba(255,255,255,0.16); stroke-width:0.4;
+  transition:fill 0.5s;
+}
+.world-svg .cty-home {
+  fill:rgba(196,30,58,0.42); stroke:rgba(255,255,255,0.55); stroke-width:0.7;
+}
+.world-svg .arc {
+  fill:none; stroke:var(--white); stroke-width:1.15;
+  stroke-linecap:round; opacity:0.85;
+  stroke-dasharray:1; stroke-dashoffset:1;
+  transition:stroke-dashoffset 1.9s cubic-bezier(0.5,0.05,0.3,1);
+}
+.world-svg.play .arc { stroke-dashoffset:0; transition-delay:var(--arc-delay, 0s); }
+.world-svg .arc-pulse { fill:var(--gold-pale); opacity:0; }
+.world-svg.play .arc-pulse { opacity:0.95; transition:opacity 0.6s 2s ease; }
+.world-svg .node {
+  fill:var(--white); opacity:0;
+  transition:opacity 0.6s;
+}
+.world-svg.play .node { opacity:1; transition-delay:var(--node-delay, 0s); }
+.world-svg .node-halo {
+  fill:none; stroke:var(--olive); stroke-width:1.4; opacity:0;
+  transform-origin:center;
+}
+.world-svg.play .node-halo { animation:haloPulse 2.4s 1.6s infinite; }
+.world-svg .node-home {
+  fill:var(--olive); stroke:var(--white); stroke-width:1;
+}
+@keyframes haloPulse {
+  0%   { r:5;  opacity:0.9; }
+  100% { r:24; opacity:0;   }
+}
+.world-svg .home-label {
+  font-family:var(--sans); font-size:11px; font-weight:700;
+  letter-spacing:0.22em; text-transform:uppercase; fill:var(--cream);
+  opacity:0; transition:opacity 0.6s 1.2s;
+}
+.world-svg.play .home-label { opacity:1; }
+.world-svg .home-label-sub {
+  font-size:9px; font-weight:400; letter-spacing:0.14em; fill:var(--gold-pale);
+  text-transform:none;
+}
+.world-svg .dest-label {
+  font-family:var(--sans); font-size:8px; font-weight:600;
+  letter-spacing:0.14em; text-transform:uppercase;
+  fill:rgba(245,240,232,0.55);
+  opacity:0; transition:opacity 0.5s 2.4s;
+  pointer-events:none;
+}
+.world-svg.play .dest-label { opacity:1; }
+.atlas-cta { margin-top:3.5rem; display:flex; justify-content:center; }
+
 /* ── GALLERY STRIP ── */
 .gallery { background:var(--navy-deep); color:var(--cream); padding:7rem 4rem 8rem; position:relative; overflow:hidden; }
 .gallery::before { content:''; position:absolute; inset:0; opacity:0.05; background-image:radial-gradient(circle at 30% 50%, var(--gold) 0%, transparent 45%); pointer-events:none; }
@@ -586,6 +698,8 @@ footer { background:var(--navy-deep); color:rgba(245,240,232,0.7); padding:5rem 
   .gallery-item.x-square { grid-column:span 3; }
   .gallery-item.x-feat { grid-column:span 6; grid-row:span 2; }
   .gallery-item.x-mid { grid-column:span 3; }
+  .atlas-grid { grid-template-columns:1fr; gap:3rem; }
+  .atlas-destinations { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:760px) {
   nav { padding:0 1.4rem; }
@@ -609,6 +723,8 @@ footer { background:var(--navy-deep); color:rgba(245,240,232,0.7); padding:5rem 
   .footer-grid { grid-template-columns:1fr; gap:2rem; }
   .intro-quote-mark { font-size:4rem; }
   .pillar-body-wrap { padding:1.8rem 1.6rem 2rem; }
+  .atlas { padding:4.5rem 1.4rem; }
+  .atlas-destinations { grid-template-columns:1fr; }
   .gallery { padding:4.5rem 1.4rem; }
   .gallery-grid { grid-template-columns:repeat(2, 1fr); grid-auto-rows:140px; }
   .gallery-item.x-tall, .gallery-item.x-wide, .gallery-item.x-square, .gallery-item.x-feat, .gallery-item.x-mid {
@@ -1032,6 +1148,73 @@ footer { background:var(--navy-deep); color:rgba(245,240,232,0.7); padding:5rem 
   </div>
 </section>
 
+<!-- ── ATLAS (Ilia → World) ── -->
+<section class="atlas reveal" id="atlas">
+  <div class="atlas-inner">
+    <div class="atlas-head">
+      <div class="section-label">
+        <span class="section-label-line"></span>
+        <span class="el">Από την Ηλεία στον κόσμο</span>
+        <span class="en">From Ilia to the World</span>
+      </div>
+      <h2 class="atlas-title">
+        <span class="el">Μία φωνή <em>σε πέντε ηπείρους</em></span>
+        <span class="en" style="display:none;">One voice <em>across five continents</em></span>
+      </h2>
+      <p class="atlas-lede">
+        <span class="el">Από τα χωράφια της Ηλείας μέχρι τις αίθουσες όπου χαράσσεται η παγκόσμια πολιτική για το κλίμα, τους ωκεανούς και τη βιώσιμη ανάπτυξη.</span>
+        <span class="en" style="display:none;">From the olive groves of Ilia to the halls where global policy on climate, ocean, and sustainability is written.</span>
+      </p>
+    </div>
+
+    <div class="atlas-grid">
+      <div class="atlas-copy">
+        <ul class="atlas-destinations">
+          <li><strong><span class="el">Αθήνα · 2024</span><span class="en">Athens · 2024</span></strong>
+              <span class="el">Συντονισμός <em>9th Our Ocean Conference</em></span>
+              <span class="en" style="display:none;">Coordinator, <em>9th Our Ocean Conference</em></span></li>
+          <li><strong><span class="el">Γενεύη</span><span class="en">Geneva</span></strong>
+              <span class="el">Εκτελεστική Επιτροπή <em>IPU</em></span>
+              <span class="en" style="display:none;"><em>IPU</em> Executive Committee</span></li>
+          <li><strong><span class="el">Νέα Υόρκη</span><span class="en">New York</span></strong>
+              <span class="el">Επιτροπή <em>ΟΗΕ · ECOSOC</em></span>
+              <span class="en" style="display:none;"><em>UN</em> Affairs Committee · ECOSOC</span></li>
+          <li><strong><span class="el">Στοκχόλμη</span><span class="en">Stockholm</span></strong>
+              <span class="el">Αντιπρόεδρος <em>Global Water Partnership</em></span>
+              <span class="en" style="display:none;">Vice-Chair, <em>Global Water Partnership</em></span></li>
+          <li><strong><span class="el">Παρίσι</span><span class="en">Paris</span></strong>
+              <span class="el">Αντιπρόεδρος <em>ICC Environment Commission</em></span>
+              <span class="en" style="display:none;">Vice-Chair, <em>ICC Environment Commission</em></span></li>
+          <li><strong><span class="el">Βρυξέλλες</span><span class="en">Brussels</span></strong>
+              <span class="el">Ευρωπαϊκή Ένωση · <em>Ενωσιακό έργο</em></span>
+              <span class="en" style="display:none;">European Union · <em>Legislative work</em></span></li>
+          <li><strong><span class="el">Μεξικό</span><span class="en">Mexico City</span></strong>
+              <span class="el">Κοινοβουλευτικό <em>Φόρουμ Ωκεανών</em></span>
+              <span class="en" style="display:none;">Parliamentary <em>Ocean Forum</em></span></li>
+          <li><strong><span class="el">Ουάσιγκτον</span><span class="en">Washington</span></strong>
+              <span class="el">Διακρίσεις <em>Κογκρέσου ΗΠΑ</em></span>
+              <span class="en" style="display:none;"><em>U.S. Congress</em> distinctions</span></li>
+          <li><strong><span class="el">Ρώμη · Κάιρο</span><span class="en">Rome · Cairo</span></strong>
+              <span class="el">Πρόεδρος <em>Med Parliamentarians</em></span>
+              <span class="en" style="display:none;">Chair, <em>Med Parliamentarians</em></span></li>
+          <li><strong><span class="el">Άμπου Ντάμπι · Μονακό</span><span class="en">Abu Dhabi · Monaco</span></strong>
+              <span class="el">Διμερής <em>διπλωματία</em></span>
+              <span class="en" style="display:none;">Bilateral <em>diplomacy</em></span></li>
+        </ul>
+      </div>
+      <div class="atlas-map" data-world-map aria-hidden="true"></div>
+    </div>
+
+    <div class="atlas-cta">
+      <a href="bio.html" class="btn btn-ghost">
+        <span class="el">Δείτε το Πλήρες Βιογραφικό</span>
+        <span class="en">See the Full Biography</span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ── GALLERY STRIP ── -->
 <section class="gallery reveal" id="gallery">
   <div class="gallery-inner">
@@ -1272,6 +1455,188 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+<!-- World-map data (Natural Earth silhouettes + centroids) -->
+<script src="assets/world-map.js"></script>
+<script>
+/* ── ATLAS: Ilia → World animated map ────────────────────────────────── */
+(function () {
+  const atlasMap = document.querySelector('[data-world-map]');
+  if (!atlasMap || !window.WORLD) return;
+  const D = window.WORLD;
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  };
+
+  // Ilia lives inside Greece — compute cx/cy from lat/lon using the same
+  // equirectangular projection the world-map dataset uses.
+  // Reference calibration from the source dataset:
+  //   Guyana → cx≈338.5, cy≈231.1 for lon≈-58.1, lat≈5.0
+  //   → cx = (lon + 180) * (1000/360)
+  //   → cy = (90 - lat) * (400/180) + ~42 (crop offset)
+  const project = (lon, lat) => ({
+    cx: (lon + 180) * (1000 / 360),
+    cy: (90 - lat) * (400 / 180) + 42,
+  });
+
+  const home = project(21.44, 37.68); // Pyrgos, Ilia
+
+  const DESTS = [
+    { name: 'Athens',    lat: 37.98, lon: 23.72 },
+    { name: 'Geneva',    lat: 46.20, lon:  6.14 },
+    { name: 'New York',  lat: 40.71, lon:-74.00 },
+    { name: 'Stockholm', lat: 59.33, lon: 18.07 },
+    { name: 'Paris',     lat: 48.85, lon:  2.35 },
+    { name: 'Brussels',  lat: 50.85, lon:  4.35 },
+    { name: 'Mexico',    lat: 19.43, lon:-99.13 },
+    { name: 'Washington',lat: 38.90, lon:-77.04 },
+    { name: 'Rome',      lat: 41.90, lon: 12.50 },
+    { name: 'Cairo',     lat: 30.04, lon: 31.24 },
+    { name: 'Abu Dhabi', lat: 24.47, lon: 54.37 },
+    { name: 'Monaco',    lat: 43.73, lon:  7.42 },
+    { name: 'Berlin',    lat: 52.52, lon: 13.40 },
+    { name: 'London',    lat: 51.51, lon: -0.13 },
+  ].map(d => Object.assign(d, project(d.lon, d.lat)));
+
+  const svg = el('svg', {
+    viewBox: '80 30 780 300',
+    class: 'world-svg',
+    role: 'img',
+    'aria-label': 'Animated world map showing Dr. Avgerinopoulou\'s reach from Ilia, Greece to international forums',
+  });
+
+  // Countries — silhouettes, Greece highlighted as home
+  const gC = el('g', { class: 'countries' });
+  D.countries.forEach(c => {
+    const isHome = c.iso === 'GRC';
+    const p = el('path', { d: c.d, class: 'cty' + (isHome ? ' cty-home' : '') });
+    gC.appendChild(p);
+  });
+  svg.appendChild(gC);
+
+  // Arcs + pulses + dest nodes
+  const gArc = el('g', { class: 'arcs' });
+  const gNode = el('g', { class: 'nodes' });
+  const gLabel = el('g', { class: 'labels' });
+  const pulseEvery = 2;
+
+  // Order arcs by distance so nearest fires first (nice choreography)
+  DESTS.sort((a, b) =>
+    Math.hypot(a.cx - home.cx, a.cy - home.cy) -
+    Math.hypot(b.cx - home.cx, b.cy - home.cy)
+  );
+
+  DESTS.forEach((t, i) => {
+    // Quadratic bezier with a subtle perpendicular offset — always bows toward
+    // the pole (upward in map space) for a consistent, dignified arc.
+    const mx = (home.cx + t.cx) / 2;
+    const my = (home.cy + t.cy) / 2;
+    const dx = t.cx - home.cx;
+    const dy = t.cy - home.cy;
+    const dist = Math.hypot(dx, dy);
+    const off = Math.min(0.22, 40 / Math.max(dist, 40));
+    // Perpendicular bowing — always pull the control point northward (smaller y)
+    const nx = -dy;
+    const ny = dx;
+    const nLen = Math.hypot(nx, ny) || 1;
+    const bowY = ny / nLen < 0 ? off : -off;
+    const cx = mx + (nx / nLen) * dist * (bowY);
+    const cy = my + (ny / nLen) * dist * (bowY);
+    const id = 'atlas-arc-' + i;
+    const d = `M${home.cx.toFixed(1)} ${home.cy.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${t.cx.toFixed(1)} ${t.cy.toFixed(1)}`;
+
+    const arc = el('path', {
+      id, d, class: 'arc', pathLength: '1',
+      'stroke-dasharray': '1', 'stroke-dashoffset': '1',
+    });
+    arc.style.setProperty('--arc-delay', (0.35 + i * 0.09).toFixed(2) + 's');
+    gArc.appendChild(arc);
+
+    // Moving pulse for a subset of arcs
+    if (i % pulseEvery === 0) {
+      const pulse = el('circle', { r: '2.2', class: 'arc-pulse' });
+      const motion = el('animateMotion', {
+        dur: (3.6 + (i % 5) * 0.4).toFixed(1) + 's',
+        repeatCount: 'indefinite',
+        begin: (2 + i * 0.15).toFixed(2) + 's',
+      });
+      motion.appendChild(el('mpath', { href: '#' + id }));
+      pulse.appendChild(motion);
+      gArc.appendChild(pulse);
+    }
+
+    // Destination node
+    const dot = el('circle', {
+      cx: t.cx.toFixed(1), cy: t.cy.toFixed(1),
+      r: '2.6', class: 'node',
+    });
+    dot.style.setProperty('--node-delay', (0.6 + i * 0.09).toFixed(2) + 's');
+    gNode.appendChild(dot);
+
+    // Destination label (offset slightly, avoid overlapping home area)
+    const angle = Math.atan2(t.cy - home.cy, t.cx - home.cx);
+    const lx = t.cx + Math.cos(angle) * 6;
+    const ly = t.cy + Math.sin(angle) * 6 + 3;
+    const lbl = el('text', {
+      x: lx.toFixed(1), y: ly.toFixed(1),
+      class: 'dest-label',
+      'text-anchor': (t.cx < home.cx) ? 'end' : 'start',
+    });
+    lbl.textContent = t.name;
+    gLabel.appendChild(lbl);
+  });
+
+  svg.appendChild(gArc);
+  svg.appendChild(gNode);
+  svg.appendChild(gLabel);
+
+  // Home node (Ilia) with pulsing halo
+  const halo = el('circle', { cx: home.cx.toFixed(1), cy: home.cy.toFixed(1), r: '5', class: 'node-halo' });
+  const homeDot = el('circle', { cx: home.cx.toFixed(1), cy: home.cy.toFixed(1), r: '4.4', class: 'node node-home' });
+  homeDot.style.setProperty('--node-delay', '0.4s');
+  gNode.appendChild(halo);
+  gNode.appendChild(homeDot);
+
+  // Home label (Ilia · Peloponnese, Greece) — position below the dot so it doesn't
+  // collide with Athens dot to the east
+  const lbl = el('text', {
+    x: home.cx.toFixed(1),
+    y: (home.cy + 14).toFixed(1),
+    class: 'home-label',
+    'text-anchor': 'middle',
+  });
+  lbl.textContent = 'ILIA';
+  const sub = el('tspan', {
+    x: home.cx.toFixed(1), dy: '11',
+    class: 'home-label-sub',
+    'text-anchor': 'middle',
+  });
+  sub.textContent = 'Peloponnese, Greece';
+  lbl.appendChild(sub);
+  svg.appendChild(lbl);
+
+  atlasMap.appendChild(svg);
+
+  // Play animation when in view
+  let played = false;
+  const play = () => {
+    if (played) return;
+    played = true;
+    svg.classList.add('play');
+  };
+  if ('IntersectionObserver' in window) {
+    const mo = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) { play(); mo.disconnect(); }
+    }, { threshold: 0.2 });
+    mo.observe(document.getElementById('atlas'));
+  } else {
+    play();
+  }
+})();
 </script>
 
 </body>
